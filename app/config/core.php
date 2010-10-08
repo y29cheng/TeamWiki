@@ -124,6 +124,7 @@
  * the cake shell command: cake schema run create Sessions
  *
  */
+  Configure::write('Session.*');
 	Configure::write('Session.save', 'database');
 
 /**
