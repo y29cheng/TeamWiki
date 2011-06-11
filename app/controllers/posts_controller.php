@@ -17,5 +17,9 @@ class PostsController extends AppController {
  			}
  		}
  	}
+	function delete($id) {
+		$this->Session-setFlash('The post with id: '. $id . 'has been deleted.');
+		$this->redirect(array('action' => 'index'));
+	}
 }
 ?>
