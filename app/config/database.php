@@ -76,10 +76,10 @@ class DATABASE_CONFIG {
 	var $default = array(
 		'driver' => 'mysql',
 		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'root',
-		'password' => 'CSc136Off',
-		'database' => 'cakephp',
+		'host' => 'db01-share',
+		'login' => 'lucid-7028',
+		'password' => 'MarvNar',
+		'database' => 'teamwiki-phpfogapp-com',
 		'prefix' => '',
 	);
 
