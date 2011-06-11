@@ -22,5 +22,13 @@ class PostsController extends AppController {
 		$this->Session->setFlash('The post with id: '. $id . ' has been deleted.');
 		$this->redirect(array('action' => 'index'));
 	}
+	function edit($id = null) {
+		$this->Post->id = $id;
+		if(!empty($this->data)) {
+			$this->Post->save($this->data);
+			$this->Session->setFlash('The post with id: '. $id .' has been modified');
+			$this->redirect(array('action'=>'index'));
+		}
+	}
 }
 ?>

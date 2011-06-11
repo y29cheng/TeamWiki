@@ -19,7 +19,9 @@
 array('controller' => 'posts', 'action' => 'view', $post['Post']['id'])); ?>
 		</td>
 		<td><?php echo $post['Post']['created']; ?></td>
+		<td><?php echo $post['Post']['modified']; ?></td>
 		<td><?php echo $this->Html->link('Delete', array('action'=>'delete', $post['Post']['id']), null, 'Are you sure?') ?></td>
+		<td><?php echo $this->Html->link('Edit', array('action'=>'edit', $post['Post']['id'])); ?></td>
 	</tr>
 	<?php endforeach; ?>
 
