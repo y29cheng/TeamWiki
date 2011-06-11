@@ -1,6 +1,6 @@
 <!-- File: /app/views/posts/index.ctp -->
 
-<h1>Blog posts</h1>
+<h1>Team posts</h1>
 <?php echo $this->Html->link('Add Post', array('controller' => 'posts', 'action' => 'add')); ?>
 <table>
 	<tr>
