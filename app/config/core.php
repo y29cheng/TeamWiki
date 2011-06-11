@@ -121,10 +121,10 @@
  * Set the value of 'Session.save' to <name> to utilize it in CakePHP.
  *
  * To use database sessions, run the app/config/schema/sessions.php schema using
- * the cake shell command: cake schema run create Sessions
+ * the cake shell command: cake schema create Sessions
  *
  */
-	Configure::write('Session.save', 'database');
+	Configure::write('Session.save', 'php');
 
 /**
  * The model name to be used for the session model.
@@ -133,7 +133,7 @@
  *
  * The model name set here should *not* be used elsewhere in your application.
  */
-	Configure::write('Session.model', 'Session');
+	//Configure::write('Session.model', 'Session');
 
 /**
  * The name of the table used to store CakePHP database sessions.
@@ -147,14 +147,14 @@
  *
  * [Note: Session.table is deprecated as of CakePHP 1.3]
  */
-	Configure::write('Session.table', 'cake_sessions');
+	//Configure::write('Session.table', 'cake_sessions');
 
 /**
  * The DATABASE_CONFIG::$var to use for database session handling.
  *
  * 'Session.save' must be set to 'database' in order to utilize this constant.
  */
-	Configure::write('Session.database', 'default');
+	//Configure::write('Session.database', 'default');
 
 /**
  * The name of CakePHP's session cookie.
@@ -167,7 +167,7 @@
 	Configure::write('Session.cookie', 'CAKEPHP');
 
 /**
- * Session time out time (in minutes).
+ * Session time out time (in seconds).
  * Actual value depends on 'Security.level' setting.
  */
 	Configure::write('Session.timeout', '120');
@@ -179,7 +179,8 @@
 
 /**
  * When set to false, HTTP_USER_AGENT will not be checked
- * in the session
+ * in the session. You might want to set the value to false, when dealing with
+ * older versions of IE, Chrome Frame or certain web-browsing devices and AJAX
  */
 	Configure::write('Session.checkAgent', true);
 
@@ -200,12 +201,12 @@
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', 'b6ce1a80f9f8c660953c525262');
+	Configure::write('Security.salt', 'DYhG93b0qyJfIx#4@daWwvniR2G0FgaC9mi');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
  */
-	Configure::write('Security.cipherSeed', '0.474296931051687');
+	Configure::write('Security.cipherSeed', '768594133452496749683645');
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
@@ -296,6 +297,7 @@
  * 			'127.0.0.1:11211' // localhost, default port 11211
  * 		), //[optional]
  * 		'compress' => false, // [optional] compress data in Memcache (slower, but uses less memory)
+ * 		'persistent' => true, // [optional] set this to false for non-persistent connections
  *	));
  *
  */

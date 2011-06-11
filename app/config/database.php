@@ -76,20 +76,20 @@ class DATABASE_CONFIG {
 	var $default = array(
 		'driver' => 'mysql',
 		'persistent' => false,
-		'host' => 'db01-share',
-		'login' => 'lucid-7028',
-		'password' => 'MarvNar',
-		'database' => 'teamwiki-phpfogapp-com',
+		'host' => 'localhost',
+		'login' => 'root',
+		'password' => 'CSc136Off',
+		'database' => 'cakephp',
 		'prefix' => '',
 	);
 
 	var $test = array(
 		'driver' => 'mysql',
 		'persistent' => false,
-		'host' => 'db01-share',
-		'login' => 'lucid-7028',
-		'password' => 'MarvNar',
-		'database' => 'test_teamwiki-phpfogapp-com',
+		'host' => 'localhost',
+		'login' => 'user',
+		'password' => 'password',
+		'database' => 'test_database_name',
 		'prefix' => '',
 	);
 }
