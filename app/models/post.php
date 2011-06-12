@@ -1,7 +1,10 @@
 <?php
 class Post extends AppModel {
 	public $name = 'Post';
-	public $validate = array( 
+	public $validate = array(
+		'name' => array(
+			'rule' => 'notEmpty'
+		), 
 		'title' => array( 
 			'rule' => 'notEmpty'
 		),

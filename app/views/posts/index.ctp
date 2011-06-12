@@ -4,7 +4,7 @@
 <?php echo $this->Html->link('Add Post', array('controller' => 'posts', 'action' => 'add')); ?>
 <table>
 	<tr>
-		<th>Id</th>
+		<th>Name</th>
 		<th>Title</th>
 		<th>Created</th>
 		<th>Modified</th>
@@ -14,7 +14,7 @@
 
 	<?php foreach ($posts as $post): ?>
 	<tr>
-		<td><?php echo $post['Post']['id']; ?></td>
+		<td><?php echo $post['Post']['name']; ?></td>
 		<td>
 			<?php echo $this->Html->link($post['Post']['title'], 
 array('controller' => 'posts', 'action' => 'view', $post['Post']['id'])); ?>
