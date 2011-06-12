@@ -7,6 +7,7 @@
 		<th>Id</th>
 		<th>Title</th>
 		<th>Created</th>
+		<th>Modified</th>
 	</tr>
 
 	<!-- Here is where we loop through our $posts array, printing out post info -->

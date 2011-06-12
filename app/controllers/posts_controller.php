@@ -24,7 +24,10 @@ class PostsController extends AppController {
 	}
 	function edit($id = null) {
 		$this->Post->id = $id;
-		if(!empty($this->data)) {
+		if(empty($this->data)) {
+			$this->data = $this->Post->read();
+		}
+		else {
 			$this->Post->save($this->data);
 			$this->Session->setFlash('The post with id: '. $id .' has been modified');
 			$this->redirect(array('action'=>'index'));
