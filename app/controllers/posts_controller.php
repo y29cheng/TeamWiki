@@ -26,7 +26,7 @@ class PostsController extends AppController {
  	}
 	function delete($id) {
 		$post = $this->Post->findById($id);
-		if( $this->Session->read('user') == $post['name'] ) {
+		if( $this->Session->read('user') === $post['Post']['name'] ) {
 			$this->Post->delete($id);
 			$this->Session->setFlash('The post with id: '. $id . ' has been deleted.');
 			$this->redirect(array('action' => 'index'));
@@ -39,7 +39,7 @@ class PostsController extends AppController {
 	function edit($id = null) {
 		$post = $this->Post->findById($id);
 		$this->Post->id = $id;
-		if( $this->Session->read('user') === $post['name'] ) {
+		if( $this->Session->read('user') === $post['Post']['name'] ) {
 			if(empty($this->data)) {
 				$this->data = $this->Post->read();
 			}
