@@ -18,6 +18,7 @@ class PostsController extends AppController {
 	}
 	function add() {
  		if (!empty($this->data)) {
+			$this->data['Post']['name'] = $this->Session->read('user');
  			if ($this->Post->save($this->data)) {
  				$this->Session->setFlash('Your post has been saved.');
  				$this->redirect(array('action' => 'index'));
@@ -25,19 +26,30 @@ class PostsController extends AppController {
  		}
  	}
 	function delete($id) {
-		$this->Post->delete($id);
-		$this->Session->setFlash('The post with id: '. $id . ' has been deleted.');
-		$this->redirect(array('action' => 'index'));
-	}
-	function edit($id = null) {
-		$this->Post->id = $id;
-		if(empty($this->data)) {
-			$this->data = $this->Post->read();
+		if( $this->Session->read('user') === $this->Post['Post']['name'] ) {
+			$this->Post->delete($id);
+			$this->Session->setFlash('The post with id: '. $id . ' has been deleted.');
+			//$this->redirect(array('action' => 'index'));
 		}
 		else {
-			$this->Post->save($this->data);
-			$this->Session->setFlash('The post with id: '. $id .' has been modified');
-			$this->redirect(array('action'=>'index'));
+			$this->Session->setFlash('You are not allowed to delete other users posts!');
+		}
+	}
+	function edit($id = null) {
+		if( $this->Session->read('user') === $this->Post['Post']['name'] ) {
+			$this->Post->id = $id;
+			if(empty($this->data)) {
+				$this->data = $this->Post->read();
+			}
+			else {
+				$this->Post->save($this->data);
+				$this->Session->setFlash('The post with id: '. $id .' has been modified');
+				$this->redirect(array('action'=>'index'));
+			}
+		}
+		else {
+			$this->Session->setFlash('You are not allowed to edit other users posts!');
+			$this->redirect(array('action' => 'index'));
 		}
 	}
 }
