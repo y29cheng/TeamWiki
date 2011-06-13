@@ -17,7 +17,7 @@ class UsersController extends AppController {
 				$this->redirect(array('action' => 'register'));
 			}
 			else {
-				if( $dbuser->password === $this->data['User']['password'] ) {
+				if( $dbuser['password'] === $this->data['User']['password'] ) {
 	
 					$this->Session->write('user', $dbuser->username);
 					$this->Session->setFlash('Your logged in as ' . $dbuser . '. Welcome!');
