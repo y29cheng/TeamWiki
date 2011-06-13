@@ -5,7 +5,6 @@ class PostsController extends AppController {
 	function index() {
 		$username = $this->Session->read('user');
 		if( $username ) {
-			$this->Session->setFlash('You are logged in as '. $username . ' . Welcome!');
 			$this->set('posts', $this->Post->find('all'));
 		}
 		else {
