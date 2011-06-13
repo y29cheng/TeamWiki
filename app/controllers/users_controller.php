@@ -20,7 +20,7 @@ class UsersController extends AppController {
 				if( $dbuser['User']['password'] === $this->data['User']['password'] ) {
 	
 					$this->Session->write('user', $dbuser->username);
-					$this->Session->setFlash('Your logged in as ' . $dbuser . '. Welcome!');
+					$this->Session->setFlash('Your logged in as ' . $dbuser['User']['username'] . '. Welcome!');
 					$this->redirect(array('controller' => 'posts', 'action' => 'index'));
 				}
 				else {
