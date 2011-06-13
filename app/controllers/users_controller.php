@@ -20,19 +20,18 @@ class UsersController extends AppController {
 			else {
 				if( $dbuser['User']['password'] === $this->data['User']['password'] ) {
 	
-					$this->Session->write('user', $dbuser->username);
-					$this->Session->setFlash('Your logged in as ' . $dbuser['User']['username'] . '. Welcome!');
+					$this->Session->write('user', $dbuser['User']['username']);
+					//$this->Session->setFlash('Your logged in as ' . $dbuser['User']['username'] . '. Welcome!');
 					$this->redirect(array('controller' => 'posts', 'action' => 'index'));
 				}
 				else {
-					$this->Session->setFlash('Log in falied');
+					$this->Session->setFlash('Log in failed');
 				}
 			}
 		}
 	}
-	function logout($uname = null) {
-		$this->User->username = $uname;
-		$this->Session->delete($this->User->username);
+	function logout() {
+		$this->Session->delete('user');
 		$this->Session->setFlash('You logged out successfully.');
 		$this->redirect(array('action' => 'login'));
 	}

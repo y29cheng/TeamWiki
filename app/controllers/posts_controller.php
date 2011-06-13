@@ -3,7 +3,14 @@ class PostsController extends AppController {
 	public $helper = array ( 'Html', 'Form' );
 	public $name = 'posts';
 	function index() {
-		$this->set('posts', $this->Post->find('all'));
+		$username = $this->Session->read('user');
+		if( $username ) {
+			$this->Session->setFlash('You are logged in as '. $username . ' . Welcome!');
+			$this->set('posts', $this->Post->find('all'));
+		}
+		else {
+			$this->redirect(array('controller' => 'users', 'action' => 'login'));
+		}
 	}
 	function view($id = null) {
 		$this->Post->id = $id;
