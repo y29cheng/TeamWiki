@@ -29,10 +29,11 @@ class PostsController extends AppController {
 		if( $this->Session->read('user') === $this->Post->name ) {
 			$this->Post->delete($id);
 			$this->Session->setFlash('The post with id: '. $id . ' has been deleted.');
-			//$this->redirect(array('action' => 'index'));
+			$this->redirect(array('action' => 'index'));
 		}
 		else {
 			$this->Session->setFlash('You are not allowed to delete other users posts!');
+			$this->redirect(array('action' => 'index'));
 		}
 	}
 	function edit($id = null) {
