@@ -9,7 +9,7 @@ class User extends AppModel {
 			'rule' => 'notEmpty'
 		),
 		'email' => array(
-			'email',
+			'rule' => array('email', true),
 			'rule' => 'notEmpty'
 		)
 	);
