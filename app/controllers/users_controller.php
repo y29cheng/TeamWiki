@@ -1,8 +1,8 @@
 <?php
 class UsersController extends AppController {
 	function register() {
-		if (!empty($this->params['form'])) {
-			if ($this->User->save($this->params['form'])) {
+		if (!empty($this->data)) {
+			if ($this->User->save($this->data)) {
 				$this->Session->setFlash('register success');
 			}
 			else {
