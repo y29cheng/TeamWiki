@@ -2,6 +2,7 @@
 <?php echo 'Your logged in as ' . $this->Session->read('user') . '. Welcome!' ?>
 <h1>Team posts</h1>
 <?php echo $this->Html->link('Log out', array('controller' =>'users', 'action' => 'logout')); ?>
+<br />
 <?php echo $this->Html->link('Add Post', array('controller' => 'posts', 'action' => 'add')); ?>
 <table>
 	<tr>
