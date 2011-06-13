@@ -1,5 +1,6 @@
 <?php
 class UsersController extends AppController {
+	public $name = 'users';
 	function register() {
 		if (!empty($this->data)) {
 			if ($this->User->save($this->data)) {
@@ -28,6 +29,12 @@ class UsersController extends AppController {
 				}
 			}
 		}
+	}
+	function logout($uname = null) {
+		$this->User->username = $uname;
+		$this->Session->delete($this->User->username);
+		$this->Session->setFlash('You logged out successfully.');
+		$this->redirect(array('action' => 'login'));
 	}
 }
 ?>
