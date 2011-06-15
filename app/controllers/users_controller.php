@@ -8,7 +8,7 @@ class UsersController extends AppController {
 				$this->redirect(array('action' => 'login'));
 			}
 			else {
-				$this->data['User']['password'] = md5(this->data['User']['password']);
+				$this->data['User']['password'] = md5($this->data['User']['password']);
 				$this->User->save($this->data);
 				$this->Session->setFlash('register success');
 			}
