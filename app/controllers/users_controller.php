@@ -4,7 +4,7 @@ class UsersController extends AppController {
 	function register() {
 		if (!empty($this->data)) {
 			if ($this->User->save($this->data)) {
-				$this->User['User']['password'] = md5($this->data['User']['password'];
+				$this->User['User']['password'] = md5($this->data['User']['password']);
 				$this->Session->setFlash('register success');
 			}
 			else {
