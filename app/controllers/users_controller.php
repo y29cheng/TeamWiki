@@ -3,12 +3,14 @@ class UsersController extends AppController {
 	public $name = 'users';
 	function register() {
 		if (!empty($this->data)) {
-			if ($this->User->save($this->data)) {
-				$this->User['User']['password'] = md5($this->data['User']['password']);
-				$this->Session->setFlash('register success');
+			if ($this->User->findByUsername($this->data['User']['username'])) {
+				$this->Session->setFlash('Account exists, log in please.');
+				$this->redirect(array('action' => 'login'));
 			}
 			else {
-				$this->Session->setFlash('register failure');
+				$this->data['User']['password'] = md5(this->data['User']['password']);
+				$this->User->save($this->data);
+				$this->Session->setFlash('register success');
 			}
 		}
 	}
