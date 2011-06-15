@@ -4,6 +4,7 @@ class UsersController extends AppController {
 	function register() {
 		if (!empty($this->data)) {
 			if ($this->User->save($this->data)) {
+				$this->User['User']['password'] = md5($this->data['User']['password'];
 				$this->Session->setFlash('register success');
 			}
 			else {
@@ -18,7 +19,7 @@ class UsersController extends AppController {
 				$this->redirect(array('action' => 'register'));
 			}
 			else {
-				if( $dbuser['User']['password'] === $this->data['User']['password'] ) {
+				if( $dbuser['User']['password'] === md5($this->data['User']['password']) ) {
 	
 					$this->Session->write('user', $dbuser['User']['username']);
 					//$this->Session->setFlash('Your logged in as ' . $dbuser['User']['username'] . '. Welcome!');
