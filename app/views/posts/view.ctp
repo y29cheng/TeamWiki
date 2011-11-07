@@ -5,3 +5,4 @@
 <p><small>Created: <?php echo $post['Post']['created']?></small></p>
 
 <p><?php echo $post['Post']['body']?></p>
+<?php echo date('H:i:s'); ?>
