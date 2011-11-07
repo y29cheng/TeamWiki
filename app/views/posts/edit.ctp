@@ -7,6 +7,6 @@
 	echo $this->Form->input('body', array('rows' => '3'));
 	echo $this->Form->input('id', array('type' => 'hidden')); 
 	echo $this->Form->end('Save Post');
-	$this->javascript->link('clock.js', false);
+	$javascript->link('clock.js', false);
 ?>
 

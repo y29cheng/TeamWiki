@@ -29,4 +29,4 @@ array('controller' => 'posts', 'action' => 'view', $post['Post']['id'])); ?>
 	<?php endforeach; ?>
 
 </table>
-<?php $this->javascipt->link('clock.js', false); ?>
+<?php $javascipt->link('clock.js', false); ?>

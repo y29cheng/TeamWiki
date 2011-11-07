@@ -5,4 +5,4 @@
 <p><small>Created: <?php echo $post['Post']['created']?></small></p>
 
 <p><?php echo $post['Post']['body']?></p>
-<?php $this->javascript->link('clock.js', false); ?>
+<?php $javascript->link('clock.js', false); ?>
