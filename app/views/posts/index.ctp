@@ -29,4 +29,4 @@ array('controller' => 'posts', 'action' => 'view', $post['Post']['id'])); ?>
 	<?php endforeach; ?>
 
 </table>
-<?php echo date('H:i:s'); ?>
+<?php $this->Html->script('clock.js', null, array('inline' => false)); ?>
