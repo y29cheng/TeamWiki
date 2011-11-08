@@ -47,6 +47,9 @@
 					  } else {
 						echo $this->Html->link('Log in', array('controller' => 'users', 'action' => 'login'));
 					  } ?></li>
+				<?php if (!$this->Session->check('user')) { ?>
+				<li><?php$this->Html->link('Register', array('controller' => 'users', 'action' => 'login')); ?></li>
+				<?php } ?>
 			</ul>
                 </div>
 		<div id="content">
