@@ -22,13 +22,14 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('CakePHP: the rapid development php framework:'); ?>
-		<?php echo $title_for_layout; ?>
+		<?php echo $title_for_layout." | teamwiki.phpfogapp.com"; ?>
 	</title>
 	<?php
                 echo $this->Html->meta('icon');
 
                 echo $this->Html->css('cake.generic');
+
+		echo $this->Html->css('custom');
 
                 echo $scripts_for_layout;
 		
@@ -38,7 +39,15 @@
 <body onload="clock(); setInterval('clock()', 1000)">
 	<div id="container">
 		<div id="header">
-                        <h1><?php echo $this->Html->link(__('CakePHP: the rapid development php framework', true), 'http://cakephp.org'); ?></h1>
+			<ul>
+				<li><?php echo $this->Html->link('Posts', array('controller' => 'posts', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Blogs', array('controller' => 'blogs', 'action' => 'index')); ?></li>
+				<li><?php if ($this->Session->check('user')) {
+						echo $this->Html->link('Log Out', array('controller' => 'users', 'action' =>'login'));
+					  } else {
+						echo $this->Html->link('Log in', array('controller' => 'posts', 'action' => 'index'));
+					  } ?></li>
+			</ul>
                 </div>
 		<div id="content">
 
