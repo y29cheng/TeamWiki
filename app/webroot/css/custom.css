@@ -1,3 +1,7 @@
 #horizontal li {
 	display: inline;
 }
+#clock {
+	margin-left: 50px;
+	color: #003d4c;
+}
