@@ -31,6 +31,8 @@
                 echo $this->Html->css('cake.generic');
 
                 echo $scripts_for_layout;
+		
+		echo $javascript->link('clock.js');
         ?>
 </head>
 <body>
@@ -45,7 +47,7 @@
 			<?php echo $content_for_layout; ?>
 
 		</div>
-		<div><?php echo $javascript->link('clock.js'); ?></div>
+		<div><?php echo clock(); ?></div>
 		<div id="footer">
                         <?php echo $this->Html->link(
                                         $this->Html->image('cake.power.gif', array('alt'=> __('CakePHP: the rapid development php framework', true), 'border' => '0')),

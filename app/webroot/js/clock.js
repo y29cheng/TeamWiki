@@ -4,4 +4,3 @@ function clock() {
 	current_time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 	return current_time;
 }
-document.write(clock());
