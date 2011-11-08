@@ -1,6 +1,6 @@
 <?php
 class PostsController extends AppController {
-	public $helper = array ( 'Html', 'Form', 'Javascript' );
+	public $helpers = array ( 'Html', 'Form', 'Javascript' );
 	public $name = 'posts';
 	function index() {
 		$username = $this->Session->read('user');
