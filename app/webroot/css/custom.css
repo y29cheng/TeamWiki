@@ -1,7 +1,8 @@
 #horizontal li {
 	display: inline;
 }
-#clock {
+#footer p {
 	margin-left: 50px;
+	margin-top: 30px;
 	color: #003d4c;
 }
