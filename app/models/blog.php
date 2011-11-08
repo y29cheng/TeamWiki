@@ -8,6 +8,6 @@ class Blog extends AppModel {
 		'body' => array(
 			'rule' => 'notEmpty'
 		)
-	};
+	);
 }
 ?>
