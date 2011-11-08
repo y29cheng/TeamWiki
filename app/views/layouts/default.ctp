@@ -43,9 +43,9 @@
 				<li><?php echo $this->Html->link('Posts', array('controller' => 'posts', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link('Blogs', array('controller' => 'blogs', 'action' => 'index')); ?></li>
 				<li><?php if ($this->Session->check('user')) {
-						echo $this->Html->link('Log Out', array('controller' => 'users', 'action' =>'login'));
+						echo $this->Html->link('Log Out', array('controller' => 'users', 'action' =>'logout'));
 					  } else {
-						echo $this->Html->link('Log in', array('controller' => 'posts', 'action' => 'index'));
+						echo $this->Html->link('Log in', array('controller' => 'users', 'action' => 'login'));
 					  } ?></li>
 			</ul>
                 </div>
