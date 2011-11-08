@@ -79,7 +79,7 @@ ul, li {
 }
 #header h1 {
 	line-height:20px;
-	background: #003d4c url('../img/cake.icon.png') no-repeat left;
+	background: #c0c0c0 url('../img/cake.icon.png') no-repeat left;
 	color: #fff;
 	padding: 0px 30px;
 }
@@ -91,7 +91,7 @@ ul, li {
 }
 #header h1 a:hover {
 	color: #fff;
-	background: #003d4c;
+	background: #c0c0c0;
 	text-decoration: underline;
 }
 #content{
