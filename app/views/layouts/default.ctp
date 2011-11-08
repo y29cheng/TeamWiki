@@ -47,7 +47,7 @@
 			<?php echo $content_for_layout; ?>
 
 		</div>
-		<div><?php echo clock(); ?></div>
+		<div><?php echo "<script>clock()</script>"; ?></div>
 		<div id="footer">
                         <?php echo $this->Html->link(
                                         $this->Html->image('cake.power.gif', array('alt'=> __('CakePHP: the rapid development php framework', true), 'border' => '0')),
