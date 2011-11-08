@@ -1,3 +1,4 @@
-#horizontal ul {
+#horizontal ul li {
 	display: inline;
+	color: #000;
 }
