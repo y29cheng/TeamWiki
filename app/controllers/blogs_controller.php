@@ -53,6 +53,7 @@ class BlogsController extends AppController {
 			} else {
 				$this->Blog->save($this->data);
 				$this->Session->setFlash('The blog with id: '.$id.' has been modified.');
+				$this->redirect(array('action' => 'index'));
 			}
 		}
 	}
