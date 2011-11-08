@@ -38,8 +38,8 @@
 </head>
 <body onload="clock(); setInterval('clock()', 1000)">
 	<div id="container">
-		<div id="header", "horizontal">
-			<ul>
+		<div id="header">
+			<ul id="horizontal">
 				<li><?php echo $this->Html->link('Posts', array('controller' => 'posts', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link('Blogs', array('controller' => 'blogs', 'action' => 'index')); ?></li>
 				<li><?php if ($this->Session->check('user')) {
