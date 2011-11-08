@@ -23,6 +23,7 @@
 
 /** General Style Info **/
 body {
+	background: #c0c0c0;
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:90%;
@@ -75,7 +76,6 @@ ul, li {
 
 #header{
 	padding: 10px 20px;
-	color: #c0c0c0;
 }
 #header h1 {
 	line-height:20px;
