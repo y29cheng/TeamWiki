@@ -45,7 +45,7 @@ class BlogsController extends AppController {
 		$blog = $this->Blog->findById($id);
                 $username = $this->Session->read('user');
 		if ($username !== 'admin') {
-                        $this->Session-setFlash('Only the admin can edit blogs');
+                        $this->Session->setFlash('Only the admin can edit blogs');
                         $this->redirect(array('action' => 'index'));
 		} else {
 			if (empty($this->data)) {
