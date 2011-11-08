@@ -7,7 +7,7 @@ class BlogsController extends AppController {
 		if ($username) {
 			$this->set('blogs', $this->Blog->find('all'));
 		} else {
-			$this->redirect(array('controller' => 'user', 'action' => 'login'));
+			$this->redirect(array('controller' => 'users', 'action' => 'login'));
 		}
 	}
 	function view($id = null) {
