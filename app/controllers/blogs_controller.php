@@ -33,7 +33,7 @@ class BlogsController extends AppController {
 		$blog = $this->Blog->findById($id);
 		$username = $this->Session->read('user');
 		if ($username !== 'admin') {
-			$this->Session-setFlash('Only the admin can delete blogs');
+			$this->Session->setFlash('Only the admin can delete blogs');
 			$this->redirect(array('action' => 'index'));
 		} else {
 			$this->Blog->delete($id);
