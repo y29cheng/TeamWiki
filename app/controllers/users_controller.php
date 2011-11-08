@@ -1,5 +1,6 @@
 <?php
 class UsersController extends AppController {
+	var $helpers = array('Html', 'Javascript');
 	public $name = 'users';
 	function register() {
 		if (!empty($this->data)) {
