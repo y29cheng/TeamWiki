@@ -35,7 +35,7 @@
 		echo $javascript->link('clock.js');
         ?>
 </head>
-<body>
+<body onload="clock(); setInterval('clock()', 1000)">
 	<div id="container">
 		<div id="header">
                         <h1><?php echo $this->Html->link(__('CakePHP: the rapid development php framework', true), 'http://cakephp.org'); ?></h1>
@@ -47,7 +47,7 @@
 			<?php echo $content_for_layout; ?>
 
 		</div>
-		<div><?php echo "<script>clock()</script>"; ?></div>
+		<span id="clock">&nbsp;</span>
 		<div id="footer">
                         <?php echo $this->Html->link(
                                         $this->Html->image('cake.power.gif', array('alt'=> __('CakePHP: the rapid development php framework', true), 'border' => '0')),
