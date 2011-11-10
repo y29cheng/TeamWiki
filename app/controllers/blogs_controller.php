@@ -1,6 +1,6 @@
 <?php
 class BlogsController extends AppController {
-	public $helpers = array('Html', 'Javascript');
+	public $helpers = array('Html', 'Form', 'Javascript');
 	public $name = 'blogs';
 	function index() {
 		$username = $this->Session->read('user');

@@ -42,6 +42,7 @@
 			<ul id="horizontal">
 				<li><?php echo $this->Html->link('Posts', array('controller' => 'posts', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link('Blogs', array('controller' => 'blogs', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Votes', array('controller' => 'votes', 'action' => 'index')); ?></li>
 				<li><?php if ($this->Session->check('user')) {
 						echo $this->Html->link('Log Out', array('controller' => 'users', 'action' =>'logout'));
 					  } else {
