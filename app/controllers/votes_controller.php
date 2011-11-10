@@ -12,11 +12,21 @@ class VotesController extends AppController {
                 }
         }
 	function view($id = null) {
+		$username = $this->Session->read('user');
+                if (!$username) {
+                        $this->redirect(array('controller' => 'users', 'action' => 'login'));
+                        return;
+                }
                 $this->Vote->id = $id;
                 $this->set('vote', $this->Vote->read());
         }
 	function add() {
                 $username = $this->Session->read('user');
+                if (!$username) {
+                        $this->redirect(array('controller' => 'users', 'action' => 'login'));
+                        return;
+                }
+
                 if ($username !== 'admin') {
                         $this->Session->setFlash('Only the admin can add votes');
                         $this->redirect(array('action' => 'index'));
@@ -43,6 +53,10 @@ class VotesController extends AppController {
 	function delete($id) {
                 $blog = $this->Vote->findById($id);
                 $username = $this->Session->read('user');
+                if (!$username) {
+                        $this->redirect(array('controller' => 'users', 'action' => 'login'));
+                        return;
+                }
                 if ($username !== 'admin') {
                         $this->Session->setFlash('Only the admin can delete votes');
                         $this->redirect(array('action' => 'index'));
@@ -59,6 +73,10 @@ class VotesController extends AppController {
 	function edit($id = null) {
                 $blog = $this->Vote->findById($id);
                 $username = $this->Session->read('user');
+                if (!$username) {
+                        $this->redirect(array('controller' => 'users', 'action' => 'login'));
+                        return;
+                }
                 if ($username !== 'admin') {
                         $this->Session->setFlash('Only the admin can edit votes');
                         $this->redirect(array('action' => 'index'));
@@ -74,6 +92,10 @@ class VotesController extends AppController {
         }
 	function vote($id1, $id2) {
 		$username = $this->Session->read('user');
+                if (!$username) {
+                        $this->redirect(array('controller' => 'users', 'action' => 'login'));
+                        return;
+                }
 		$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
 		$redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
 		$len = $redis->llen('voters'.$id1);

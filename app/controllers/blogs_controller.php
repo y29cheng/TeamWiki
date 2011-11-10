@@ -11,11 +11,20 @@ class BlogsController extends AppController {
 		}
 	}
 	function view($id = null) {
+		$username = $this->Session->read('user');
+		if (!$username) {
+			$this->redirect(array('controller' => 'users', 'action' => 'login'));
+			return;
+		}
 		$this->Blog->id = $id;
 		$this->set('blog', $this->Blog->read());
 	}
 	function add() {
 		$username = $this->Session->read('user');
+		if (!$username) {
+                        $this->redirect(array('controller' => 'users', 'action' => 'login'));
+                        return;
+                }
 		if ($username !== 'admin') {
 			$this->Session->setFlash('Only the admin can post blogs.');
 			$this->redirect(array('action' => 'index'));
@@ -33,6 +42,10 @@ class BlogsController extends AppController {
 	function delete($id) {
 		$blog = $this->Blog->findById($id);
 		$username = $this->Session->read('user');
+		if (!$username) {
+                        $this->redirect(array('controller' => 'users', 'action' => 'login'));
+                        return;
+                }
 		if ($username !== 'admin') {
 			$this->Session->setFlash('Only the admin can delete blogs');
 			$this->redirect(array('action' => 'index'));
@@ -45,6 +58,10 @@ class BlogsController extends AppController {
 	function edit($id = null) {
 		$blog = $this->Blog->findById($id);
                 $username = $this->Session->read('user');
+		if (!$username) {
+                        $this->redirect(array('controller' => 'users', 'action' => 'login'));
+                        return;
+                }
 		if ($username !== 'admin') {
                         $this->Session->setFlash('Only the admin can edit blogs');
                         $this->redirect(array('action' => 'index'));

@@ -12,10 +12,20 @@ class PostsController extends AppController {
 		}
 	}
 	function view($id = null) {
+		$username = $this->Session->read('user');
+		if (!$username) {
+                        $this->redirect(array('controller' => 'users', 'action' => 'login'));
+                        return;
+                }
 		$this->Post->id = $id;
 		$this->set('post', $this->Post->read());
 	}
 	function add() {
+		$username = $this->Session->read('user');
+                if (!$username) {
+                        $this->redirect(array('controller' => 'users', 'action' => 'login'));
+                        return;
+                }
  		if (!empty($this->data)) {
 			$this->data['Post']['name'] = $this->Session->read('user');
  			if ($this->Post->save($this->data)) {
@@ -26,7 +36,12 @@ class PostsController extends AppController {
  	}
 	function delete($id) {
 		$post = $this->Post->findById($id);
-		if( $this->Session->read('user') === $post['Post']['name'] ) {
+		$username = $this->Session->read('user');
+                if (!$username) {
+                        $this->redirect(array('controller' => 'users', 'action' => 'login'));
+                        return;
+                }
+		if( $username === $post['Post']['name'] ) {
 			$this->Post->delete($id);
 			$this->Session->setFlash('The post with id: '. $id . ' has been deleted.');
 			$this->redirect(array('action' => 'index'));
@@ -39,7 +54,12 @@ class PostsController extends AppController {
 	function edit($id = null) {
 		$post = $this->Post->findById($id);
 		$this->Post->id = $id;
-		if( $this->Session->read('user') === $post['Post']['name'] ) {
+		$username = $this->Session->read('user');
+                if (!$username) {
+                        $this->redirect(array('controller' => 'users', 'action' => 'login'));
+                        return;
+                }
+		if( $username === $post['Post']['name'] ) {
 			if(empty($this->data)) {
 				$this->data = $this->Post->read();
 			}

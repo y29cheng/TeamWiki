@@ -3,6 +3,12 @@ class UsersController extends AppController {
 	public $helpers = array('Html', 'Javascript');
 	public $name = 'users';
 	function register() {
+		$username = $this->Session->read('user');
+                if ($username) {
+                        $this->Session->delete('user');
+			$this->Session->setFlash('You logged out successfully.');
+                        return;
+                }
 		if (!empty($this->data)) {
 			if ($this->User->findByUsername($this->data['User']['username'])) {
 				$this->Session->setFlash('Account exists, log in please.');
@@ -16,6 +22,12 @@ class UsersController extends AppController {
 		}
 	}
 	function login() {
+		$username = $this->Session->read('user');
+                if ($username) {
+                        $this->Session->delete('user');
+                        $this->Session->setFlash('You logged out successfully.');
+                        return;
+                }
 		if(!empty($this->data)) {
 			$dbuser = $this->User->findByUsername($this->data['User']['username']);
 			if(!$dbuser) {
