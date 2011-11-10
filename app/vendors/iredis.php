@@ -226,6 +226,6 @@ class iRedis {
 
 }
 
-class RedisException extends Exception { }
+//class RedisException extends Exception { }
 
 /* End of file iredis.php */
