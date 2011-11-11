@@ -78,7 +78,7 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => 'db01-share',
 		'login' => 'lucid-7028',
-		'password' => 'CSc136Off',
+		'password' => 'T3aMW1k14PP',
 		'database' => 'teamwiki-phpfogapp-com',
 		'prefix' => '',
 	);
