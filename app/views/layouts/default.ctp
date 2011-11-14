@@ -51,6 +51,7 @@
 				<?php if (!$this->Session->check('user')) { ?>
 				<li><?php echo $this->Html->link('Register', array('controller' => 'users', 'action' => 'register')); ?></li>
 				<?php } ?>
+				<li><a href="resume.html">About Me</a></li>
 			</ul>
                 </div>
 		<div id="content">
