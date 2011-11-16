@@ -16,18 +16,22 @@ switch ($choice) {
 case 1:
 	$a1 = $redis->hget('vote'.$index, 'a1');
         $redis->hset('vote'.$index, 'a1', $a1 + 1);
+	$redis->lpush('voters'.$index, $username);
         break;
 case 2:
         $a2 = $redis->hget('vote'.$index, 'a2');
         $redis->hset('vote'.$index, 'a2', $a2 + 1);
+	$redis->lpush('voters'.$index, $username);
         break;
 case 3:
        	$a3 = $redis->hget('vote'.$index, 'a3');
         $redis->hset('vote'.$index, 'a3', $a3 + 1);
+	$redis->lpush('voters'.$index, $username);
         break;
 case 4:
         $a4 = $redis->hget('vote'.$index, 'a4');
         $redis->hset('vote'.$index, 'a4', $a4 + 1);
+	$redis->lpush('voters'.$index, $username);
         break;
 }
 echo 'success';
