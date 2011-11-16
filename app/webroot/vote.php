@@ -1,9 +1,17 @@
 <?php
 require('../vendors/iredis.php');
+$username = $_POST['username'];
 $index = $_POST['index'];
 $choice = $_POST['choice'];
 $redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
 $redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
+$len = $redis->llen('voters'.$index);
+for ($i = 0; $i < $len; $i++) {
+	if ($username === $redis->lindex('voters'.$index, $i)) {
+		echo 'hasVoted';
+		return;
+	}
+}
 switch ($choice) {
 case 1:
 	$a1 = $redis->hget('vote'.$index, 'a1');
