@@ -6,9 +6,11 @@ class User extends AppModel {
 			'rule' => 'notEmpty'
 		),
 		'password' => array(
+			'rule' => 'notEmpty',
 			'required' => true
 		),
 		'password again' => array(
+			'rule' => 'notEmpty',
 			'required' => true
 		),
 		'email' => array(
