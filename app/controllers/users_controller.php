@@ -19,7 +19,7 @@ class UsersController extends AppController {
 					$this->Session->setFlash('Please provide your password.');
 					return;
 				}
-				if ($this->data['User']['password'] !== $this->data['User']['password again']) {
+				if ($this->data['User']['password'] !== $this->data['User']['Password Again']) {
 					$this->Session->setFlash('Passwords don\'t match.');
 					return;
 				}
