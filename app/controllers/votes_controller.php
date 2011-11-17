@@ -27,6 +27,7 @@ class VotesController extends AppController {
                         return;
                 }
 		if (!empty($this->data)) {
+			$this->data['Vote']['owner'] = $username;
 			if ($this->Vote->save($this->data)) {
 				$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
 				$redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
@@ -39,7 +40,7 @@ class VotesController extends AppController {
 				$this->Session->setFlash('Your vote has been saved.');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('Empty vote is not allowed.');
+				$this->Session->setFlash('There are errors in vote.');
 			}
                 }
         }

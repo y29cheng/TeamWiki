@@ -3,7 +3,8 @@
 <h1>Add Vote</h1>
 <?php
 echo $this->Form->create('Vote');
-echo $this->Form->input('title', array('rows' => '3'));
+echo $this->Form->input('owner', array('type' => 'hidden'));
+echo $this->Form->input('title');
 echo $this->Form->input('choice1');
 echo $this->Form->input('choice2');
 echo $this->Form->input('choice3');
