@@ -4,6 +4,7 @@
 <table>
         <tr>
                 <th>Title</th>
+		<th>Author</th>
                 <th>Created</th>
                 <th>Modified</th>
 
@@ -12,6 +13,7 @@
         <?php foreach ($votes as $vote): ?>
         <tr>
                 <td><?php echo $this->Html->link($vote['Vote']['title'], array('controller' => 'votes', 'action' => 'view', $vote['Vote']['id'])); ?></td>
+		<td><?php echo $vote['Vote']['owner']; ?></td>
                 <td><?php echo $vote['Vote']['created']; ?></td>
                 <td><?php echo $vote['Vote']['modified']; ?></td>
                 <td><?php echo $this->Html->link('Delete', array('action' => 'delete', $vote['Vote']['id']), null, 'Are you sure?') ?></td>
