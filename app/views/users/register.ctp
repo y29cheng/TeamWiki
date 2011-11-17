@@ -5,7 +5,7 @@ echo $this->Form->input('first_name');
 echo $this->Form->input('last_name');
 echo $this->Form->input('username');
 echo $this->Form->input('password');
-echo $this->Form->input('password again', array('type' => 'password'));
+echo $this->Form->input('password', array('label' => 'password again'));
 echo $this->Form->input('email');
 echo $this->Form->end('register');
 ?>
