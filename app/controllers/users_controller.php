@@ -46,18 +46,17 @@ class UsersController extends AppController {
                         $this->Session->setFlash('You logged out successfully.');
                         return;
                 }
-		if(!empty($this->data)) {
+		if (!empty($this->data)) {
 			$dbuser = $this->User->findByUsername($this->data['User']['username']);
-			if(!$dbuser) {
+			if (!$dbuser) {
 				$this->redirect(array('action' => 'register'));
 			}
 			else {
-				if( $dbuser['User']['password'] === md5($this->data['User']['password']) ) {
+				if ($dbuser['User']['password'] === md5($this->data['User']['password']) ) {
 	
 					$this->Session->write('user', $dbuser['User']['username']);
 					$this->redirect(array('controller' => 'posts', 'action' => 'index'));
-				}
-				else {
+				} else {
 					$this->Session->setFlash('Log in failed');
 				}
 			}
