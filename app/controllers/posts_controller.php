@@ -4,10 +4,9 @@ class PostsController extends AppController {
 	public $name = 'posts';
 	function index() {
 		$username = $this->Session->read('user');
-		if( $username ) {
+		if ($username) {
 			$this->set('posts', $this->Post->find('all'));
-		}
-		else {
+		} else {
 			$this->redirect(array('controller' => 'users', 'action' => 'login'));
 		}
 	}
@@ -41,12 +40,11 @@ class PostsController extends AppController {
                         $this->redirect(array('controller' => 'users', 'action' => 'login'));
                         return;
                 }
-		if( $username === $post['Post']['name'] ) {
+		if ($username === $post['Post']['name']) {
 			$this->Post->delete($id);
 			$this->Session->setFlash('The post with id: '. $id . ' has been deleted.');
 			$this->redirect(array('action' => 'index'));
-		}
-		else {
+		} else {
 			$this->Session->setFlash('You are not allowed to delete other users posts!');
 			$this->redirect(array('action' => 'index'));
 		}
@@ -59,17 +57,15 @@ class PostsController extends AppController {
                         $this->redirect(array('controller' => 'users', 'action' => 'login'));
                         return;
                 }
-		if( $username === $post['Post']['name'] ) {
+		if ($username === $post['Post']['name']) {
 			if(empty($this->data)) {
 				$this->data = $this->Post->read();
-			}
-			else {
+			} else {
 				$this->Post->save($this->data);
 				$this->Session->setFlash('The post with id: '. $id .' has been modified');
 				$this->redirect(array('action'=>'index'));
 			}
-		}
-		else {
+		} else {
 			$this->Session->setFlash('You are not allowed to edit other users posts!');
 			$this->redirect(array('action' => 'index'));
 		}

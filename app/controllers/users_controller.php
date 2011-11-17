@@ -55,7 +55,6 @@ class UsersController extends AppController {
 				if( $dbuser['User']['password'] === md5($this->data['User']['password']) ) {
 	
 					$this->Session->write('user', $dbuser['User']['username']);
-					//$this->Session->setFlash('Your logged in as ' . $dbuser['User']['username'] . '. Welcome!');
 					$this->redirect(array('controller' => 'posts', 'action' => 'index'));
 				}
 				else {
