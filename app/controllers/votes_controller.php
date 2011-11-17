@@ -38,7 +38,6 @@ class VotesController extends AppController {
 				$redis->hset('vote'.$tmp, 'a4', 0);
 				$this->Session->setFlash('Your vote has been saved.');
 				$this->redirect(array('action' => 'index'));
-			}
 			} else {
 				$this->Session->setFlash('Empty vote is not allowed.');
 			}
