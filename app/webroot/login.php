@@ -1,8 +1,8 @@
 <?php
 require('db_info.php');
-$username = $_POST['username'];
+$username = mysql_real_escape_string($_POST['username']);
 $password = $_POST['password'];
-$encrypt = md5($password);
+$encrypt = mysql_real_escape_string(md5($password));
 $connect = mysql_connect($host, $user, $pass) or die ("unable to connect to ".$host);
 mysql_select_db($db, $connect);
 $query = "select * from users where username='$username' and password='$encrypt'";

@@ -1,9 +1,9 @@
 <?php
 require('db_info.php');
-$username = $_POST['username'];
-$email = $_POST['email'];
-$password = $_POST['password'];
-$encrypt = md5($password);
+$username = mysql_real_escape_string($_POST['username']);
+$email = mysql_real_escape_string($_POST['email']);
+$password = mysql_real_escape_string($_POST['password']);
+$encrypt = mysql_real_escape_string(md5($password));
 $connect = mysql_connect($host, $user, $pass) or die ("unable to connect to".$host);
 mysql_select_db($db, $connect);
 $query = "select * from users where username='$username'";

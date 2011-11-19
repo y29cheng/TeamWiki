@@ -1,11 +1,11 @@
 <?php
 require('db_info.php');
-$owner = $_POST['owner'];
-$title = $_POST['title'];
-$choice1 = $_POST['choice1'];
-$choice2 = $_POST['choice2'];
-$choice3 = $_POST['choice3'];
-$choice4 = $_POST['choice4'];
+$owner = mysql_real_escape_string($_POST['owner']);
+$title = mysql_real_escape_string($_POST['title']);
+$choice1 = mysql_real_escape_string($_POST['choice1']);
+$choice2 = mysql_real_escape_string($_POST['choice2']);
+$choice3 = mysql_real_escape_string($_POST['choice3']);
+$choice4 = mysql_real_escape_string($_POST['choice4']);
 $modified = date("Y-m-d", time());
 $connect = mysql_connect($host, $user, $pass) or die ("unable to connect to ".$host);
 mysql_select_db($db, $connect);
