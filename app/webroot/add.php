@@ -7,7 +7,7 @@ $choice1 = $_POST['choice1'];
 $choice2 = $_POST['choice2'];
 $choice3 = $_POST['choice3'];
 $choice4 = $_POST['choice4'];
-$created = date("YYYY-mm-dd", time());
+$created = date("Y-m-d", time());
 $modified = $created;
 $connect = mysql_connect($host, $user, $pass) or die ("unable to connect to ".$host);
 mysql_select_db($db, $connect);
