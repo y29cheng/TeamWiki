@@ -1,12 +1,12 @@
 <?php
 require('db_info.php');
 require('../vendors/iredis.php');
-$owner = mysql_real_escape_string($_POST['owner']);
-$title = mysql_real_escape_string($_POST['title']);
-$choice1 = mysql_real_escape_string($_POST['choice1']);
-$choice2 = mysql_real_escape_string($_POST['choice2']);
-$choice3 = mysql_real_escape_string($_POST['choice3']);
-$choice4 = mysql_real_escape_string($_POST['choice4']);
+$owner = mysql_real_escape_string('$_POST['owner']');
+$title = mysql_real_escape_string('$_POST['title']');
+$choice1 = mysql_real_escape_string('$_POST['choice1']');
+$choice2 = mysql_real_escape_string('$_POST['choice2']');
+$choice3 = mysql_real_escape_string('$_POST['choice3']');
+$choice4 = mysql_real_escape_string('$_POST['choice4']');
 $created = date("Y-m-d", time());
 $modified = $created;
 $connect = mysql_connect($host, $user, $pass) or die ("unable to connect to ".$host);
