@@ -2,7 +2,7 @@
 require('db_info.php');
 $connect = mysql_connect($host, $user, $pass) or die ("unable to connect to".$host);
 $username = mysql_real_escape_string($_POST['username'], $connect);
-$email = mysql_real_escape_string($_POST['email']);
+$email = mysql_real_escape_string($_POST['email'], $connect);
 $password = $_POST['password'];
 $encrypt = md5($password);
 mysql_select_db($db, $connect);
