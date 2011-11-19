@@ -11,12 +11,12 @@ $created = date("Y-m-d", time());
 $modified = $created;
 $connect = mysql_connect($host, $user, $pass) or die ("unable to connect to ".$host);
 mysql_select_db($db, $connect);
-$query = "insert into votes \(title, owner, choice1, choice2, choice3, choice4, created, modified\) values \('$title', '$owner', '$choice1', '$choice2', '$choice3', '$choice4', '$created', '$modified'\)";
+$query = "insert into votes (title, owner, choice1, choice2, choice3, choice4, created, modified) values ('$title', '$owner', '$choice1', '$choice2', '$choice3', '$choice4', '$created', '$modified')";
 $result = mysql_query($query);
 if ($result) {
         echo 1;
 } else {
-        echo 0;
+        echo mysql_error();
 	return;
 }
 $redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
