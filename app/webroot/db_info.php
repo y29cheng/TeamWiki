@@ -1,7 +1,7 @@
 <?php
-$host='db01-share';
-$user='lucid-7028';
-$pass='T3aMW1k14PP';
+$host='localhost';
+$user='root';
+$pass='hungry plant 147';
 $db='teamwiki-phpfogapp-com';
 ?>
 
