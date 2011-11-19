@@ -4,7 +4,7 @@ $connect = mysql_connect($host, $user, $pass) or die ("unable to connect to".$ho
 $username = mysql_real_escape_string($_POST['username'], $connect);
 $email = mysql_real_escape_string($_POST['email']);
 $password = $_POST['password'];
-$encrypt = mysql_real_escape_string(md5($password), $connect);
+$encrypt = md5($password);
 mysql_select_db($db, $connect);
 $query = "select * from users where username='$username'";
 $result = mysql_query($query);
