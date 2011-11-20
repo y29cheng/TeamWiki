@@ -130,6 +130,7 @@ class VotesController extends AppController {
 				$redis->lpush('voters'.$id1, $username);
                                 break;
 			}
+			$this->Session-setFlash('Your vote has been recorded.');
 			$this->redirect(array('action' => 'view', $id1));
 		}
 	}
