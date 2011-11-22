@@ -1,6 +1,6 @@
 <?php
 require('../webroot/db_info.php');
-function generatePassword() {
+function generate_password() {
 	$length = 10;
 	$characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 	$string = '';
@@ -9,7 +9,7 @@ function generatePassword() {
 	}
 	return $string;
 }
-function updatePassword($old, $new) {
+function update_password($old, $new) {
 	$connect = mysql_connect($host, $user, $pass);
 	if (!$connect) return false;
 	mysql_select_db($db, $connect);

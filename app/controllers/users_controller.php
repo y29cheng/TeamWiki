@@ -66,7 +66,7 @@ class UsersController extends AppController {
 		$this->Session->setFlash('You logged out successfully.');
 		$this->redirect(array('action' => 'login'));
 	}
-	function resetPassword() {
+	function reset_password() {
 		if ($this->Session->read('user')) {
 			$this->Session->delete('user');
 			$this->Session->setFlash('You have logged out successfully');
@@ -78,13 +78,13 @@ class UsersController extends AppController {
 		}
 		$to = $requester['User']['email'];
 		$subject = 'Password Reset';
-		$newPassword = generatePassword();
+		$newPassword = generate_password();
 		$message = 'Your new password is '.$newPassword."\n";
 		$message .= "Please do not reply to this email.\n";
 		$message = wordwrap($message, 70);
 		$headers = 'To: '.$to."\r\n";
 		$headers .= "From: webmaster@teamwiki.phpfogapp.com\r\n";
-		$update = updatePassword($requester['User']['password'], md5($newPassword));
+		$update = update_password($requester['User']['password'], md5($newPassword));
 		$mail = mail($to, $subject, $message, $headers);
 		if ($update && $mail) {
 			$this->Session->setFlash('An email has been sent.');
