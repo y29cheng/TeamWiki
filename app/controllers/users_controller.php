@@ -1,5 +1,5 @@
 <?php
-App::import('Vendor', 'password');
+require('../webroot/password.php');
 class UsersController extends AppController {
 	public $helpers = array('Html', 'Javascript');
 	public $name = 'users';
