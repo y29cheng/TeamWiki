@@ -19,7 +19,7 @@ class User extends AppModel {
 				'message' => 'Please supply a valid email address.'
 			),
 			'isUnique' => array(
-				'rule' => array('isUnique');
+				'rule' => array('isUnique')
 			)
 		)
 	);
