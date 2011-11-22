@@ -71,6 +71,7 @@ class UsersController extends AppController {
 			$this->Session->delete('user');
 			$this->Session->setFlash('You have logged out successfully');
 		}
+		if (empty($this->data['User']['email'])) return;
 		$requester = $this->User->findByEmail($this->data['User']['email']);
 		if (!$requester) {
 			$this->Session->setFlash('Sorry, your email does not exist in our database.');
