@@ -15,4 +15,5 @@ function updatePassword($old, $new) {
 	mysql_select_db($db, $connect);
 	$query = "update users set password='$new' where password='$old'";
 	return mysql_query($query);
+}
 ?>
