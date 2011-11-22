@@ -91,5 +91,6 @@ class UsersController extends AppController {
 		} else {
 			$this->Session->setFlash('Email is not delivered.');
 		}
+	}
 }
 ?>
