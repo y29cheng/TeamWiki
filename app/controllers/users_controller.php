@@ -85,9 +85,13 @@ class UsersController extends AppController {
 		$headers = 'To: '.$to."\r\n";
 		$headers .= "From: webmaster@teamwiki.phpfogapp.com\r\n";
 		$update = update_password($requester['User']['password'], md5($newPassword));
+		if (!$update) {
+			$this->Session->setFlash('Email is not delivered.');
+			return;
+		}
 		$mail = mail($to, $subject, $message, $headers);
-		if ($update && $mail) {
-			$this->Session->setFlash('An email has been sent.');
+		if ($mail) {
+			$this->Session->setFlash('Email has been sent.');
 		} else {
 			$this->Session->setFlash('Email is not delivered.');
 		}
