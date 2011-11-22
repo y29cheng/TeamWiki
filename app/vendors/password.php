@@ -10,6 +10,7 @@ function generate_password() {
 	return $string;
 }
 function update_password($old, $new) {
+	global $host, $user, $pass;
 	$connect = mysql_connect($host, $user, $pass);
 	if (!$connect) return false;
 	mysql_select_db($db, $connect);
