@@ -56,7 +56,7 @@
 <body onload="clock(); setInterval('clock()', 1000)">
 	<div id="container">
 		<div id="header">
-			<ul id="horizontal", "navbar">
+			<ul id="navbar">
 				<li><?php echo $this->Html->link('Posts', array('controller' => 'posts', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link('Blogs', array('controller' => 'blogs', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link('Votes', array('controller' => 'votes', 'action' => 'index')); ?></li>

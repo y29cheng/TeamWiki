@@ -1,6 +1,3 @@
-#horizontal li {
-	display: inline;
-}
 #footer p {
 	color: #003d4c;
 }
@@ -9,6 +6,7 @@
 	padding: 0;
 	height: 1em; }
 #navbar li {
+	display: inline;
 	list-style: none;
 	float: left; }
 #navbar li a {
