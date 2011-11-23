@@ -30,5 +30,5 @@
 	float: none; }
 #navbar li:hover li a, #navbar li.hover li a {
 	background-color: #c0c0c0;
-	border-bottom: 1px solid #fff;
+	border-bottom: 1px solid #c0c0c0;
 	color: #003d4c; }
