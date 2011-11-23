@@ -35,11 +35,27 @@
 		
 		echo $javascript->link('clock.js');
         ?>
+	<script>
+	// Javascript originally by Patrick Griffiths and Dan Webb.
+	// http://htmldog.com/articles/suckerfish/dropdowns/
+	sfHover = function() {
+	   var sfEls = document.getElementById("navbar").getElementsByTagName("li");
+	   for (var i=0; i<sfEls.length; i++) {
+	      sfEls[i].onmouseover=function() {
+		 this.className+=" hover";
+	      }
+	      sfEls[i].onmouseout=function() {
+		 this.className=this.className.replace(new RegExp(" hover\\b"), "");
+	      }
+	   }
+	}
+	if (window.attachEvent) window.attachEvent("onload", sfHover);
+	</script>
 </head>
 <body onload="clock(); setInterval('clock()', 1000)">
 	<div id="container">
 		<div id="header">
-			<ul id="horizontal">
+			<ul id="horizontal", "navbar">
 				<li><?php echo $this->Html->link('Posts', array('controller' => 'posts', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link('Blogs', array('controller' => 'blogs', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link('Votes', array('controller' => 'votes', 'action' => 'index')); ?></li>
@@ -52,6 +68,10 @@
 				<li><?php echo $this->Html->link('Register', array('controller' => 'users', 'action' => 'register')); ?></li>
 				<?php } ?>
 				<li><a href="http://teamwiki.phpfogapp.com/resume.html">About Me</a></li>
+				<?php if (!$this->Session->check('user')) { ?>
+				<li>Setting</li><ul>
+					<li><?php echo $this->Html->link('Change Password', array('controller' => 'user', 'action' => 'change_password')); ?></li></ul>
+				<?php } ?>
 			</ul>
                 </div>
 		<div id="content">
