@@ -12,7 +12,7 @@
 	list-style: none;
 	float: left; }
 #navbar li a {
-	display: inline;
+	display: block;
 	padding: 3px 8px;
 	background-color: #5e8ce9;
 	color: #fff;
@@ -32,4 +32,10 @@
 	background-color: #69f;
 	border-bottom: 1px solid #fff;
 	color: #000; }
-
+#wrap {
+   font-size: 1.3em;
+   width: 500px;
+   padding: 20px;
+   margin: 0 auto; 
+   background-color: #fff;
+   position: relative; }
