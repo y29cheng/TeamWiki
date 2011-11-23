@@ -69,9 +69,10 @@
 					<li><?php echo $this->Html->link('Register', array('controller' => 'users', 'action' => 'register')); ?></li>
 					<?php } ?>
 					<li><a href="http://teamwiki.phpfogapp.com/resume.html">About Me</a></li>
-					<?php if (!$this->Session->check('user')) { ?>
-					<li><a href="#">Setting</a></li><ul>
+					<?php if ($this->Session->check('user')) { ?>
+					<li><a href="#">Setting</a><ul>
 						<li><?php echo $this->Html->link('Change Password', array('controller' => 'user', 'action' => 'change_password')); ?></li></ul>
+					</li>
 					<?php } ?>
 				</ul>
 			</div>
