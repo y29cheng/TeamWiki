@@ -35,6 +35,7 @@
 		
 		echo $javascript->link('clock.js');
         ?>
+	<!--Script to tame the IE6 beast-->
 	<script>
 	// Javascript originally by Patrick Griffiths and Dan Webb.
 	// http://htmldog.com/articles/suckerfish/dropdowns/
@@ -55,27 +56,25 @@
 <body onload="clock(); setInterval('clock()', 1000)">
 	<div id="container">
 		<div id="header">
-			<div id="wrap">
-				<ul id="navbar">
-					<li><?php echo $this->Html->link('Posts', array('controller' => 'posts', 'action' => 'index')); ?></li>
-					<li><?php echo $this->Html->link('Blogs', array('controller' => 'blogs', 'action' => 'index')); ?></li>
-					<li><?php echo $this->Html->link('Votes', array('controller' => 'votes', 'action' => 'index')); ?></li>
-					<li><?php if ($this->Session->check('user')) {
-							echo $this->Html->link('Log Out', array('controller' => 'users', 'action' =>'logout'));
-						  } else {
-							echo $this->Html->link('Log in', array('controller' => 'users', 'action' => 'login'));
-						  } ?></li>
-					<?php if (!$this->Session->check('user')) { ?>
-					<li><?php echo $this->Html->link('Register', array('controller' => 'users', 'action' => 'register')); ?></li>
-					<?php } ?>
-					<li><a href="http://teamwiki.phpfogapp.com/resume.html">About Me</a></li>
-					<?php if ($this->Session->check('user')) { ?>
-					<li><a href="#">Setting</a><ul>
-						<li><?php echo $this->Html->link('Change Password', array('controller' => 'user', 'action' => 'change_password')); ?></li></ul>
-					</li>
-					<?php } ?>
-				</ul>
-			</div>
+			<ul id="navbar">
+				<li><?php echo $this->Html->link('Posts', array('controller' => 'posts', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Blogs', array('controller' => 'blogs', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Votes', array('controller' => 'votes', 'action' => 'index')); ?></li>
+				<li><?php if ($this->Session->check('user')) {
+						echo $this->Html->link('Log Out', array('controller' => 'users', 'action' =>'logout'));
+					  } else {
+						echo $this->Html->link('Log in', array('controller' => 'users', 'action' => 'login'));
+					  } ?></li>
+				<?php if (!$this->Session->check('user')) { ?>
+				<li><?php echo $this->Html->link('Register', array('controller' => 'users', 'action' => 'register')); ?></li>
+				<?php } ?>
+				<li><a href="http://teamwiki.phpfogapp.com/resume.html">About Me</a></li>
+				<?php if ($this->Session->check('user')) { ?>
+				<li><a href="#">Setting</a><ul>
+					<li><?php echo $this->Html->link('Change Password', array('controller' => 'user', 'action' => 'change_password')); ?></li></ul>
+				</li>
+				<?php } ?>
+			</ul>
                 </div>
 		<div id="content">
 
