@@ -101,6 +101,7 @@ class UsersController extends AppController {
 		if ($this->Session->check('user')) {
 			$this->redirect(array('action' => 'login'));
 		}
+	}
 		
 }
 ?>
