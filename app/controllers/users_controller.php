@@ -103,7 +103,7 @@ class UsersController extends AppController {
 		}
 		if (!empty($this->data['User']['password'])) {
 			$requester = $this->User->findByPassword(md5($this->data['User']['password']));
-			if ($requester && $requester === $this->Session->read('user')) {
+			if ($requester && $requester['User']['username'] == $this->Session->read('user')) {
 				if (!empty($this->data['User']['passwd']) && $this->data['User']['passwd'] === $this->data['User']['psword']) {
 					$update = update_password($requester['User']['password'], md5($this->data['User']['passwd']));
 					if ($update) {
@@ -115,7 +115,7 @@ class UsersController extends AppController {
 					$this->Session->setFlash('Passwords don\'t match.');
 				}
 			} else {
-				$this->Session->setFlash('Your password is wrong.'.' '.$requester);
+				$this->Session->setFlash('Your password is wrong.');
 			}
 		} else {
 			$this->Session->setFlash('Please provide your password.');
