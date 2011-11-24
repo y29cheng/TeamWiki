@@ -98,7 +98,7 @@ class UsersController extends AppController {
 		}
 	}
 	function change_password() {
-		if ($this->Session->check('user')) {
+		if (!$this->Session->check('user')) {
 			$this->redirect(array('action' => 'login'));
 		}
 	}
