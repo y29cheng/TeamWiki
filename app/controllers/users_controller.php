@@ -97,5 +97,10 @@ class UsersController extends AppController {
 			$this->Session->setFlash('Email is not delivered.');
 		}
 	}
+	function change_password() {
+		if ($this->Session->check('user')) {
+			$this->redirect(array('action' => 'login'));
+		}
+		
 }
 ?>
