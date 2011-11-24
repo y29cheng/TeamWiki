@@ -13,6 +13,10 @@ class User extends AppModel {
 			'rule' => 'notEmpty',
 			'required' => true
 		),
+		'psword' => array(
+			'rule' => 'notEmpty',
+			'required' => true
+		),
 		'email' => array(
 			'isEmail' => array(
 				'rule' => array('email', true),
