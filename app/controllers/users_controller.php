@@ -83,8 +83,7 @@ class UsersController extends AppController {
 		$message = 'Your new password is '.$newPassword."\n";
 		$message .= "Please do not reply to this email.\n";
 		$message = wordwrap($message, 70);
-		$headers = 'To: '.$to."\r\n";
-		$headers .= "From: webmaster@teamwiki.phpfogapp.com\r\n";
+		$headers = "From: webmaster@teamwiki.phpfogapp.com\r\n";
 		$update = update_password($requester['User']['password'], md5($newPassword));
 		if (!$update) {
 			$this->Session->setFlash('Email is not delivered.');
@@ -100,6 +99,26 @@ class UsersController extends AppController {
 	function change_password() {
 		if (!$this->Session->check('user')) {
 			$this->redirect(array('action' => 'login'));
+			return;
+		}
+		if (!empty($this->data['User']['password'])) {
+			$requester = $this->User->findByPassword(md5($this->data['User']['password']));
+			if ($requester && $requester == $this->Session->read('user')) {
+				if (!empty($this->data['User']['passwd']) && $this->data['User']['passwd'] === $this->data['User']['psword']) {
+					$update = update_password($requester['User']['password'], md5($this->data['User']['passwd']));
+					if ($update) {
+						$this->Session->setFlash('Password is updated.');
+					} else {
+						$this->Session->setFlash('Password is not updated.');
+					}
+				} else {
+					$this->Session->setFlash('Passwords don\'t match.');
+				}
+			} else {
+				$this->Session->setFlash('Your password is wrong.');
+			}
+		} else {
+			$this->Session->setFlash('Please provide your password.');
 		}
 	}
 		
