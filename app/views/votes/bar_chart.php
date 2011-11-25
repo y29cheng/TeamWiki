@@ -1,5 +1,5 @@
 <?
-$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
+/*$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
 $redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6'); 
 $id = $vote['Vote']['id'];
 
@@ -13,7 +13,21 @@ $values = array(
 	'C.' => $r3,
 	'D.' => $r4
 );
-
+*/
+$values=array(
+		"Jan" => 110,
+		"Feb" => 130,
+		"Mar" => 215,
+		"Apr" => 81,
+		"May" => 310,
+		"Jun" => 110,
+		"Jul" => 190,
+		"Aug" => 175,
+		"Sep" => 390,
+		"Oct" => 286,
+		"Nov" => 150,
+		"Dec" => 196
+	);
 $img_width = 600;
 $img_height = 400;
 $margins = 20;
