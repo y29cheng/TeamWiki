@@ -1,7 +1,6 @@
 <?
 require('../vendors/iredis.php');
 $id = $_POST['id'];
-if (!$id) return;
 $redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
 $redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
 
