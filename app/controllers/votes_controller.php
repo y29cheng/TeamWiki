@@ -134,7 +134,4 @@ class VotesController extends AppController {
 			$this->redirect(array('action' => 'view', $id1));
 		}
 	}
-	function bar_chart($id) {
-		$vote = $this->Vote->findById($id);
-	}
 }

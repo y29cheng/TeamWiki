@@ -13,4 +13,8 @@ C. <?php echo $this->Html->link($vote['Vote']['choice3'], array('controller' => 
 <p>
 D. <?php echo $this->Html->link($vote['Vote']['choice4'], array('controller' => 'votes', 'action' => 'vote', $vote['Vote']['id'], 4)) ?>
 </p>
-<p> <?php echo $this->Html->link('Show Result', array('controller' => 'votes', 'action' => 'bar_chart', $vote['Vote']['id'])) ?></p>
+<?php
+echo $this->Form->create(null, array('url' => 'http://teamwiki.phpfogapp.com/bar_chart.php');
+echo $this->Form->input('id', array('type' => 'hidden', 'value' => $vote['Vote']['id']));
+echo $this->Form->end('Show Result');
+?>
