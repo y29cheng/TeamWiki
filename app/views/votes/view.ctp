@@ -23,6 +23,12 @@ $id = $vote['Vote']['id'];
 <p>B. <?php echo $redis->hget('vote'.$id, 'a2'); ?></p>
 <p>C. <?php echo $redis->hget('vote'.$id, 'a3'); ?></p>
 <p>D. <?php echo $redis->hget('vote'.$id, 'a4'); ?></p>
+
+<form type="post" action="../../webroot/bar_chart.php">
+<input type="hidden" name="id" value="23" />
+<input type="submit" name="submit" />
+</form>
+
 <?php
 echo $this->Form->create(null, array('action' => '../../webroot/bar_chart.php'));
 echo $this->Form->input('id', array('type' => 'hidden', 'value' => "$id"));
