@@ -16,8 +16,8 @@ $values = array(
 );
 
 
-$img_width = 600;
-$img_height = 400;
+$img_width = 450;
+$img_height = 300;
 $margins = 20;
 $graph_width = $img_width - $margins * 2;
 $graph_height = $img_height - $margins * 2;
