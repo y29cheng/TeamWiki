@@ -33,7 +33,11 @@ $line_color = imagecolorallocate($img, 220, 220, 220);
 imagefilledrectangle($img, 1, 1, $img_width - 2, $img_height - 2, $border_color);
 imagefilledrectangle($img, $margins, $margins, $img_width - 1 - $margins, $img_height - 1 - $margins, $background_color);
 $max_value = max($values);
-$ratio = $graph_height / $max_value;
+if ($max_value == 0) {
+	$ratio = 0;
+} else {
+	$ratio = $graph_height / $max_value;
+}
 /*$horizontal_lines=20;
 $horizontal_gap=$graph_height/$horizontal_lines;
 for($i=1;$i<=$horizontal_lines;$i++){

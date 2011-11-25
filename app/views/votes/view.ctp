@@ -14,6 +14,15 @@ C. <?php echo $this->Html->link($vote['Vote']['choice3'], array('controller' => 
 D. <?php echo $this->Html->link($vote['Vote']['choice4'], array('controller' => 'votes', 'action' => 'vote', $vote['Vote']['id'], 4)) ?>
 </p>
 <?php
+$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
+$redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
+?>
+<p>Poll:</p>
+<p>A. <?php echo $redis->hget('vote'.$id, 'a1'); ?></p>
+<p>B. <?php echo $redis->hget('vote'.$id, 'a2'); ?></p>
+<p>C. <?php echo $redis->hget('vote'.$id, 'a3'); ?></p>
+<p>D. <?php echo $redis->hget('vote'.$id, 'a4'); ?></p>
+<?php
 echo $this->Form->create(null, array('url' => 'http://teamwiki.phpfogapp.com/bar_chart.php'));
 echo $this->Form->input('id', array('type' => 'hidden', 'value' => $vote['Vote']['id']));
 echo $this->Form->end('Show Result');
