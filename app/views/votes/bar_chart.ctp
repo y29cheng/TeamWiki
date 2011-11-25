@@ -1,4 +1,5 @@
 <?
+App::import('Vendor', 'iredis');
 $redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
 $redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6'); 
 $id = $vote['Vote']['id'];

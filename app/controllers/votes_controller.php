@@ -135,6 +135,6 @@ class VotesController extends AppController {
 		}
 	}
 	function bar_chart($id) {
-		return;
+		$vote = $this->Vote->findById($id);
 	}
 }
