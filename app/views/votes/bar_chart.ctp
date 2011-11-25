@@ -3,7 +3,7 @@ App::import('Vendor', 'iredis');
 $redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
 $redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6'); 
 $id = $vote['Vote']['id'];
-if (!$id) echo 'false';
+if ($id) {echo 'true'; return;}
 $r1 = $redis->hget('vote'.$id, 'a1');
 $r2 = $redis->hget('vote'.$id, 'a2');
 $r3 = $redis->hget('vote'.$id, 'a3');
