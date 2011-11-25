@@ -13,4 +13,4 @@ C. <?php echo $this->Html->link($vote['Vote']['choice3'], array('controller' => 
 <p>
 D. <?php echo $this->Html->link($vote['Vote']['choice4'], array('controller' => 'votes', 'action' => 'vote', $vote['Vote']['id'], 4)) ?>
 </p>
-<img src='bar_chart.php' alt='vote result in bar chart' />
+<img src="bar_chart.php" alt="vote result in bar chart" />
