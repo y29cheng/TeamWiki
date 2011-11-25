@@ -13,4 +13,4 @@ C. <?php echo $this->Html->link($vote['Vote']['choice3'], array('controller' => 
 <p>
 D. <?php echo $this->Html->link($vote['Vote']['choice4'], array('controller' => 'votes', 'action' => 'vote', $vote['Vote']['id'], 4)) ?>
 </p>
-<p><a href="http://teamwiki.phpfogapp.com/bar_chart.php">Show Result</a></p>
+<p> <?php echo $this->Html->link('Show Result', array('controller' => 'votes', 'action' => 'bar_chart', $vote['Vote']['id'])) ?></p>

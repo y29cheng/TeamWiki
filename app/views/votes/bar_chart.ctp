@@ -1,5 +1,5 @@
 <?
-/*$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
+$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
 $redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6'); 
 $id = $vote['Vote']['id'];
 
@@ -13,21 +13,8 @@ $values = array(
 	'C.' => $r3,
 	'D.' => $r4
 );
-*/
-$values=array(
-		"Jan" => 110,
-		"Feb" => 130,
-		"Mar" => 215,
-		"Apr" => 81,
-		"May" => 310,
-		"Jun" => 110,
-		"Jul" => 190,
-		"Aug" => 175,
-		"Sep" => 390,
-		"Oct" => 286,
-		"Nov" => 150,
-		"Dec" => 196
-	);
+
+
 $img_width = 600;
 $img_height = 400;
 $margins = 20;
@@ -42,7 +29,7 @@ $bar_color = imagecolorallocate($img, 0, 64, 128);
 $background_color = imagecolorallocate($img, 240, 240, 255);
 $border_color = imagecolorallocate($img, 200, 200, 200);
 $line_color = imagecolorallocate($img, 220, 220, 220);
-imagefilledrectangle($img, 1, 1, $img_width - 1, $img_height - 1, $border_color);
+imagefilledrectangle($img, 1, 1, $img_width - 2, $img_height - 2, $border_color);
 imagefilledrectangle($img, $margins, $margins, $img_width - 1 - $margins, $img_height - 1 - $margins, $background_color);
 $max_value = max($values);
 $ratio = $graph_height / $max_value;
@@ -61,7 +48,7 @@ for ($i = 0; $i < $total_bars; $i++) {
 	$x2 = $x1 + $bar_width;
 	$y1 = $margins + $graph_height - intval($value * $ratio);
 	$y2 = $img_height - $margins;
-	imagefilledrectangle($img, $x1, $y2, $x2, $y2, $bar_color);
+	imagefilledrectangle($img, $x1, $y1, $x2, $y2, $bar_color);
 	imagestring($img, 0, $x1 + 3, $y1 - 10, $value, $bar_color);
 	imagestring($img, 0, $x1 + 3, $img_height - 15, $key, $bar_color);
 }
