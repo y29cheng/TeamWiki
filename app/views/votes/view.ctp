@@ -25,6 +25,6 @@ $id = $vote['Vote']['id'];
 <p>D. <?php echo $redis->hget('vote'.$id, 'a4'); ?></p>
 <?php
 echo $this->Form->create(null, array('url' => 'http://teamwiki.phpfogapp.com/bar_chart.php'));
-echo $this->Form->input('id', array('type' => 'hidden', 'value' => $vote['Vote']['id']));
+echo $this->Form->input('id', array('type' => 'hidden', 'value' => "$id"));
 echo $this->Form->end('Show Result');
 ?>
