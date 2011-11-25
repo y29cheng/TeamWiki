@@ -16,6 +16,7 @@ D. <?php echo $this->Html->link($vote['Vote']['choice4'], array('controller' => 
 <?php
 $redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
 $redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
+$id = $vote['Vote']['id'];
 ?>
 <p>Poll:</p>
 <p>A. <?php echo $redis->hget('vote'.$id, 'a1'); ?></p>
