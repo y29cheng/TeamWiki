@@ -72,6 +72,7 @@
 				<?php if ($this->Session->check('user')) { ?>
 				<li><a href="#">Setting</a><ul>
 					<li><?php echo $this->Html->link('Change Password', array('controller' => 'users', 'action' => 'change_password')); ?></li></ul>
+				
 				</li>
 				<?php } ?>
 			</ul>
