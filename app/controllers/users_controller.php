@@ -101,7 +101,6 @@ class UsersController extends AppController {
 			$this->redirect(array('action' => 'login'));
 			return;
 		}
-		
 		if (!empty($this->data['User']['password'])) {
 			$requester = $this->User->findByPassword(md5($this->data['User']['password']));
 			if ($requester && $requester['User']['username'] == $this->Session->read('user')) {

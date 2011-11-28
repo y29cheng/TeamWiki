@@ -53,8 +53,7 @@
 	if (window.attachEvent) window.attachEvent("onload", sfHover);
 	</script>
 </head>
-<!--<body onload="clock(); setInterval('clock()', 1000)">-->
-<body>
+<body onload="clock(); setInterval('clock()', 1000)">
 	<div id="container">
 		<div id="header">
 			<ul id="navbar">
@@ -73,7 +72,6 @@
 				<?php if ($this->Session->check('user')) { ?>
 				<li><a href="#">Setting</a><ul>
 					<li><?php echo $this->Html->link('Change Password', array('controller' => 'users', 'action' => 'change_password')); ?></li></ul>
-				
 				</li>
 				<?php } ?>
 			</ul>
