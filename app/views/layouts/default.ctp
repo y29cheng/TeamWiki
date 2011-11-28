@@ -53,7 +53,8 @@
 	if (window.attachEvent) window.attachEvent("onload", sfHover);
 	</script>
 </head>
-<body onload="clock(); setInterval('clock()', 1000)">
+<!--<body onload="clock(); setInterval('clock()', 1000)">-->
+<body>
 	<div id="container">
 		<div id="header">
 			<ul id="navbar">
