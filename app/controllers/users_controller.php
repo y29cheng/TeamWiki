@@ -117,7 +117,7 @@ class UsersController extends AppController {
 					'password' => md5($this->data['User']['passwd']), 
 					'email' => $this->data['User']['email']
 				);
-				$update = update_profile($requester['User']['username'], $new);
+				$update = update_profile($username, $new);
 				if ($update) {
 					$this->Session->setFlash('Profile is updated.');
 				} else {
