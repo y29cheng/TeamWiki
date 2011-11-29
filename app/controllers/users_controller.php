@@ -13,6 +13,14 @@ class UsersController extends AppController {
 		if (!empty($this->data)) {
 			$this->User->set($this->data);
 			if ($this->User->validates()) {
+				if ($this->User->findByUsername($this->data['User']['username'])) {
+					$this->Session->setFlash('Username exists');
+					return;
+				}
+				if ($this->User->findByEmail($this->data['User']['email'])) {
+					$this->Session->setFlash('Email exists');
+					return;
+				}
 				$this->data['User']['password'] = md5($this->data['User']['password']);
                                 $this->User->save($this->data);
                                 $this->Session->setFlash('register success');
@@ -85,22 +93,24 @@ class UsersController extends AppController {
 		$user = $this->User->findByUsername($username);
 		$this->set('user', $user);
 		$this->User->set($this->data);
-		if ($this->User->validates()) {
-			$requester = $this->User->findByUsername($this->Session->read('user'));
-			if ($requester) {
-				if (!empty($this->data['User']['passwd']) && $this->data['User']['passwd'] === $this->data['User']['psword']) {
-					$new = array('first_name' => $this->data['User']['first_name'], 'last_name' => $this->data['User']['last_name'], 'username' => $this->data['User']['username'], 'password' => md5($this->data['User']['passwd']), 'email' => $this->data['User']['email']);
-					$update = update_profile($requester['User']['username'], $new);
-					if ($update) {
-						$this->Session->setFlash('Profile is updated.');
+		if (!empty($this->data)) {
+			if ($this->User->validates()) {
+					$requester = $this->User->findByUsername($this->Session->read('user'));
+				if ($requester) {
+					if (!empty($this->data['User']['passwd']) && $this->data['User']['passwd'] === $this->data['User']['psword']) {
+						$new = array('first_name' => $this->data['User']['first_name'], 'last_name' => $this->data['User']['last_name'], 'username' => $this->data['User']['username'], 'password' => md5($this->data['User']['passwd']), 'email' => $this->data['User']['email']);
+						$update = update_profile($requester['User']['username'], $new);
+						if ($update) {
+							$this->Session->setFlash('Profile is updated.');
+						} else {
+							$this->Session->setFlash('Profile is not updated.');
+						}
 					} else {
-						$this->Session->setFlash('Profile is not updated.');
+						$this->Session->setFlash('Passwords don\'t match.');
 					}
 				} else {
-					$this->Session->setFlash('Passwords don\'t match.');
+					$this->Session->setFlash('Your password is wrong.');
 				}
-			} else {
-				$this->Session->setFlash('Your password is wrong.');
 			}
 		}
 	}

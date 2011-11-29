@@ -4,9 +4,6 @@ class User extends AppModel {
 	public $validate = array (
 		'username' => array(
 			'rule' => 'notEmpty',
-			'isUnique' => array(
-				'rule' => array('isUnique')
-			)
 		),
 		'password' => array(
 			'rule' => 'notEmpty',
@@ -22,9 +19,6 @@ class User extends AppModel {
 				'rule' => array('email', true),
 				'message' => 'Please supply a valid email address.'
 			),
-			'isUnique' => array(
-				'rule' => array('isUnique')
-			)
 		)
 	);
 }
