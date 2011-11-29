@@ -14,7 +14,12 @@ function update_profile($old, $new) {
 	$connect = mysql_connect($host, $user, $pass);
 	if (!$connect) return false;
 	mysql_select_db($db, $connect);
-	$query = "update users set first_name="$new['first_name']", last_name="$new['last_name']", username="$new['username']", password="$new['passwd']", email="$new['email']" where username='$old'";
+	$first = $new['first_name'];
+	$last = $new['last_name'];
+	$username = $new['username'];
+	$password = $new['passwd'];
+	$email = $new['email'];
+	$query = "update users set first_name='$first', last_name='$last', username='$username', password='$passwd', email='$email' where username='$old'";
 	return mysql_query($query);
 }
 ?>
