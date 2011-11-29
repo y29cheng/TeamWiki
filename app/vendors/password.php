@@ -9,12 +9,12 @@ function generate_password() {
 	}
 	return $string;
 }
-function update_password($old, $new) {
+function update_profile($old, $new) {
 	global $host, $user, $pass, $db;
 	$connect = mysql_connect($host, $user, $pass);
 	if (!$connect) return false;
 	mysql_select_db($db, $connect);
-	$query = "update users set password='$new' where password='$old'";
+	$query = "update users set first_name="$new['first_name']", last_name="$new['last_name']", username="$new['username']", password="$new['passwd']", email="$new['email']" where username='$old'";
 	return mysql_query($query);
 }
 ?>

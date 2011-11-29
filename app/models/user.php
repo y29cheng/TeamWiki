@@ -3,7 +3,10 @@ class User extends AppModel {
 	public $name = 'User';
 	public $validate = array (
 		'username' => array(
-			'rule' => 'notEmpty'
+			'rule' => 'notEmpty',
+			'isUnique' => array(
+				'rule' => array('isUnique')
+			)
 		),
 		'password' => array(
 			'rule' => 'notEmpty',

@@ -11,32 +11,12 @@ class UsersController extends AppController {
                         return;
                 }
 		if (!empty($this->data)) {
-			if ($this->User->findByUsername($this->data['User']['username'])) {
-				$this->Session->setFlash('Account exists, log in please.');
-				$this->redirect(array('action' => 'login'));
-			} else {
-				$this->User->set($this->data);
-				if ($this->User->validates()) {
-					$this->data['User']['password'] = md5($this->data['User']['password']);
-                                	$this->User->save($this->data);
-                                	$this->Session->setFlash('register success');
-				} else {
-					if (empty($this->data['User']['username'])) {
-						$this->Session->setFlash('Please provide your username.');
-						return;
-					}
-					if (empty($this->data['User']['password'])) {
-						$this->Session->setFlash('Please provide your password.');
-						return;
-					}
-					if ($this->data['User']['password'] !== $this->data['User']['passwd']) {
-						$this->Session->setFlash('Passwords don\'t match.');
-						return;
-					}
-					$this->Session->setFlash('Invalid email address');
-					return;
-				}
-			}
+			$this->User->set($this->data);
+			if ($this->User->validates()) {
+				$this->data['User']['password'] = md5($this->data['User']['password']);
+                                $this->User->save($this->data);
+                                $this->Session->setFlash('register success');
+			} 
 		}
 	}
 	function login() {
@@ -97,19 +77,24 @@ class UsersController extends AppController {
 		}
 	}
 	function change_password() {
-		if (!$this->Session->check('user')) {
+		$username = $this->Session->read('user');
+		if (!$username) {
 			$this->redirect(array('action' => 'login'));
 			return;
 		}
-		if (!empty($this->data['User']['password'])) {
+		$user = $this->User->findByUsername($username);
+		$this->set('user', $user);
+		$this->User->set($this->data);
+		if ($this->User->validates()) {
 			$requester = $this->User->findByUsername($this->Session->read('user'));
 			if ($requester) {
 				if (!empty($this->data['User']['passwd']) && $this->data['User']['passwd'] === $this->data['User']['psword']) {
-					$update = update_password($requester['User']['password'], md5($this->data['User']['passwd']));
+					$new = array('first_name' => $this->data['User']['first_name'], 'last_name' => $this->data['User']['last_name'], 'username' => $this->data['User']['username'], 'password' => md5($this->data['User']['passwd']), 'email' => $this->data['User']['email']);
+					$update = update_profile($requester['User']['username'], $new);
 					if ($update) {
-						$this->Session->setFlash('Password is updated.');
+						$this->Session->setFlash('Profile is updated.');
 					} else {
-						$this->Session->setFlash('Password is not updated.');
+						$this->Session->setFlash('Profile is not updated.');
 					}
 				} else {
 					$this->Session->setFlash('Passwords don\'t match.');
@@ -117,8 +102,6 @@ class UsersController extends AppController {
 			} else {
 				$this->Session->setFlash('Your password is wrong.');
 			}
-		} else {
-			$this->Session->setFlash('Please provide your password.');
 		}
 	}
 		
