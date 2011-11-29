@@ -17,7 +17,7 @@ function update_profile($old, $new) {
 	$first = $new['first_name'];
 	$last = $new['last_name'];
 	$username = $new['username'];
-	$password = $new['pass1'];
+	$password = $new['password'];
 	$email = $new['email'];
 	if ($password) {
 		$query = "update users set first_name='$first', last_name='$last', username='$username', password='$password', email='$email' where username='$old'";
