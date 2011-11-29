@@ -104,8 +104,8 @@ class UsersController extends AppController {
 					return;
 				}
 				if ($this->data['User']['pass1']) {
-					if ($user['User']['password'] != md5($this->data['User']['pass1'])) {
-						$this->Session->setFlash(md5($this->data['User']['pass1']));
+					if ($user['User']['password'] != substr(md5($this->data['User']['pass1']), 0, 40)) {
+						$this->Session->setFlash('Old password is wrong.'));
 						return;
 					}
 					if ($this->data['User']['pass2'] !== $this->data['User']['pass3']) {
