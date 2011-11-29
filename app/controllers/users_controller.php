@@ -103,18 +103,21 @@ class UsersController extends AppController {
 					$this->Session->setFlash('Email is already taken.');
 					return;
 				}
-				if ($user['User']['password'] != md5($this->data['User']['password'])) {
-					$this->Session->setFlash('Old password is wrong.');
-					return;
-				}
-				if ($this->data['User']['passwd'] !== $this->data['User']['psword']) {
-					$this->Session->setFlash('New passwords don\'t match.');
-					return;
+				if ($this->data['User']['pass1']) {
+					if ($user['User']['password'] != md5($this->data['User']['pass1'])) {
+						$this->Session->setFlash('Old password is wrong.');
+						return;
+					}
+					if ($this->data['User']['pass2'] !== $this->data['User']['pass3']) {
+						$this->Session->setFlash('New passwords don\'t match.');
+						return;
+					}
+					$this->data['User']['pass1'] = $this->data['User']['pass2'];
 				}
 				$new = array('first_name' => $this->data['User']['first_name'], 
 					'last_name' => $this->data['User']['last_name'], 
 					'username' => $this->data['User']['username'], 
-					'password' => md5($this->data['User']['passwd']), 
+					'password' => md5($this->data['User']['pass1']), 
 					'email' => $this->data['User']['email']
 				);
 				$update = update_profile($username, $new);
