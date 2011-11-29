@@ -104,7 +104,7 @@ class UsersController extends AppController {
 					return;
 				}
 				$u = $this->User->findByPassword(md5($this->data['User']['password']));
-				if (!$u || $u['User']['username'] != $username)) {
+				if (!$u || $u['User']['username'] != $username) {
 					$this->Session->setFlash('Old password is wrong.');
 					return;
 				}
