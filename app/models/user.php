@@ -10,15 +10,12 @@ class User extends AppModel {
 		),
 		'password' => array(
 			'rule' => 'notEmpty',
-			'required' => true
 		),
 		'passwd' => array(
 			'rule' => 'notEmpty',
-			'required' => true
 		),
 		'psword' => array(
 			'rule' => 'notEmpty',
-			'required' => true
 		),
 		'email' => array(
 			'isEmail' => array(
