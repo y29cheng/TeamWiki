@@ -103,7 +103,7 @@ class UsersController extends AppController {
 					$this->Session->setFlash('Email is already taken.');
 					return;
 				}
-				if ($user !== $this->User->findByPassword(md5($this->data['User']['password']))) {
+				if (!$u = $this->User->findByPassword(md5($this->data['User']['password']) || $u['User']['username'] != $username)) {
 					$this->Session->setFlash('Old password is wrong.');
 					return;
 				}
