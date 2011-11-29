@@ -13,7 +13,7 @@ echo $this->Form->password('pass2');
 echo $this->Form->label('Confirm Password');
 echo $this->Form->password('pass3');
 echo $this->Form->label('Email');
-echo $this->Form->text('email', array('default' => $user['User']['email']));
+echo $this->Form->text('email', array('default' => $user['User']['email'], 'required' => true));
 echo $this->Form->end('submit');
 ?>
 
