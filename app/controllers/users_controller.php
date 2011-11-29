@@ -115,7 +115,7 @@ class UsersController extends AppController {
 					$this->Session->setFlash('Passwords don\'t match.');
 				}
 			} else {
-				$this->Session->setFlash('Your password is wrong.');
+				$this->Session->setFlash($requester['User']['username']);
 			}
 		} else {
 			$this->Session->setFlash('Please provide your password.');
