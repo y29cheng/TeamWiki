@@ -84,7 +84,7 @@ class UsersController extends AppController {
 			$this->Session->setFlash('Email is not delivered.');
 		}
 	}
-	function update_profile() {
+	function update() {
 		$username = $this->Session->read('user');
 		if (!$username) {
 			$this->redirect(array('action' => 'login'));

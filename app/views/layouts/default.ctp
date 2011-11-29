@@ -71,7 +71,7 @@
 				<li><a href="http://teamwiki.phpfogapp.com/resume.html">About Me</a></li>
 				<?php if ($this->Session->check('user')) { ?>
 				<li><a href="#">Setting</a><ul>
-					<li><?php echo $this->Html->link('Update Profile', array('controller' => 'users', 'action' => 'update_profile')); ?></li></ul>
+					<li><?php echo $this->Html->link('Update Profile', array('controller' => 'users', 'action' => 'update')); ?></li></ul>
 				</li>
 				<?php } ?>
 			</ul>
