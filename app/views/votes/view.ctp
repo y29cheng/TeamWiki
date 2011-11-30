@@ -26,4 +26,4 @@ $id = $vote['Vote']['id'];
 
 <form method="post" action="http://teamwiki.phpfogapp.com/bar_chart.php">
 <input type="hidden" name="id" value=<?php echo $id ?>>
-<input type="submit" name="Show Result">
+<input type="submit" value="Show Result">
