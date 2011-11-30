@@ -72,7 +72,7 @@ class UsersController extends AppController {
 		$message .= "Please do not reply to this email.\n";
 		$message = wordwrap($message, 70);
 		$headers = "From: webmaster@teamwiki.phpfogapp.com\r\n";
-		$update = update_password($requester['User']['password'], md5($newPassword));
+		$update = update_password($requester['User']['email'], md5($newPassword));
 		if (!$update) {
 			$this->Session->setFlash('Email is not delivered.');
 			return;
