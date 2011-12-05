@@ -11,7 +11,7 @@
         </tr>
 
         <?php foreach ($votes as $vote): ?>
-        <tr>
+        <tr id=<?php echo $vote['Vote']['id']?>>
                 <td><?php echo $this->Html->link($vote['Vote']['title'], array('controller' => 'votes', 'action' => 'view', $vote['Vote']['id'])); ?></td>
 		<td><?php echo $vote['Vote']['owner']; ?></td>
                 <td><?php echo $vote['Vote']['created']; ?></td>
