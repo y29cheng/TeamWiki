@@ -6,7 +6,7 @@ $redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
 ?>
 <h1>Team Votes</h1>
 <?php echo $this->Html->link('Add Vote', array('controller' => 'votes', 'action' => 'add')); ?>
-<table>
+<table id="mytable">
         <tr value="-1">
                 <th>Title</th>
 		<th>Author</th>
