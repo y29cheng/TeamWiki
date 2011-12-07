@@ -126,7 +126,7 @@ class UsersController extends AppController {
 					$new = array('first_name' => $this->data['User']['first_name'],
 											'last_name' => $this->data['User']['last_name'], 
 											'username' => $this->data['User']['username'], 
-											'password' => $this->data['User']['pass1'], 
+											'password' => md5($this->data['User']['pass1']), 
 											'email' => $this->data['User']['email']
 					);
 				}
