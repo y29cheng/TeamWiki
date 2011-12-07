@@ -103,7 +103,7 @@ class UsersController extends AppController {
 					$this->Session->setFlash('Email is already taken.');
 					return;
 				}
-				if (!empty($this->data['User']['pass1'])) {
+				if (!empty($this->data['User']['pass2']) && !empty($this->data['User']['pass3'])) {
 					if ($user['User']['password'] != md5($this->data['User']['pass1'])) {
 						$this->Session->setFlash('Old password is wrong.');
 						return;
@@ -115,7 +115,7 @@ class UsersController extends AppController {
 					$this->data['User']['pass1'] = $this->data['User']['pass2'];
 				}
 				$new = array();
-				if (empty($this->data['User']['pass1'])) {
+				if (empty($this->data['User']['pass2']) || empty($this->data['User']['pass3'])) {
 					$new = array('first_name' => $this->data['User']['first_name'], 
 						'last_name' => $this->data['User']['last_name'], 
 						'username' => $this->data['User']['username'], 
@@ -126,7 +126,7 @@ class UsersController extends AppController {
 					$new = array('first_name' => $this->data['User']['first_name'],
 											'last_name' => $this->data['User']['last_name'], 
 											'username' => $this->data['User']['username'], 
-											'password' => md5($this->data['User']['pass1']), 
+											'password' => md5($this->data['User']['pass2']), 
 											'email' => $this->data['User']['email']
 					);
 				}
