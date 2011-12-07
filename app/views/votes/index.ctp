@@ -7,7 +7,7 @@ $redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
 <h1>Team Votes</h1>
 <?php echo $this->Html->link('Add Vote', array('controller' => 'votes', 'action' => 'add')); ?>
 <table>
-        <tr>
+        <tr value="-1">
                 <th>Title</th>
 		<th>Author</th>
                 <th>Created</th>
@@ -20,7 +20,7 @@ $redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
 		$id = $vote['Vote']['id'];
 		$voters = $redis->llen('voters'.$id);
 	?>	
-        <tr id=<?php echo $id; ?> name="<?php echo $voters?> people have voted.">
+        <tr id=<?php echo $id; ?> title="<?php echo $voters?> people have voted." value="<?php echo $voters?>">
                 <td><?php echo $this->Html->link($vote['Vote']['title'], array('controller' => 'votes', 'action' => 'view', $vote['Vote']['id'])); ?></td>
 		<td><?php echo $vote['Vote']['owner']; ?></td>
                 <td><?php echo $vote['Vote']['created']; ?></td>
