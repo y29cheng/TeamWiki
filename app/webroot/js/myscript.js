@@ -4,6 +4,7 @@ function addInput(divName) {
 	newDiv.setAttribute('id', 'child' + counter);
 	newDiv.setAttribute('class', 'input textarea required');
 	newDiv.innerHTML = "<textarea name='data[Vote][choice" + (counter + 1) + "]' cols='30' rows='6' id='VoteChoice" + (counter + 1) + "' value='Enter choice" + (counter + 1) + " here'></textarea>" 	
+	alert(newDiv.innerHTML);
 	document.getElementById(divName).appendChild(newDiv);
 	counter++;
 }
