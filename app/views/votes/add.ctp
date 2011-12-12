@@ -20,9 +20,9 @@ echo $this->Form->input('title');
 <textarea name="data[Vote][choice2]" cols="30" rows="6" id="VoteChoice2" ></textarea>
 </div>
 </div>
+<input type="button" value="Add another row" onclick="addInput('dynamicFields');">
+<input type="button" value="Delete the last row" onclick="deleteInput('dynamicFields');" />
 <?php
-echo $this->Form->Button('Add Row', array('type' => 'button', 'id' => 'add', 'value' => 'Add Row', 'onclick' => "addInput('dynamicFields');"));
-echo $this->Form->Button('Delete Row', array('type' => 'button', 'id' => 'delete', 'value' => 'Delete Row', 'onclick' => "deleteInput('dynamicFields');"));
 echo $this->Form->end('Save Vote');
 ?>
 </body>
