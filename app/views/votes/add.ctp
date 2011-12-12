@@ -11,10 +11,14 @@ echo $this->Form->input('owner', array('type' => 'hidden'));
 echo $this->Form->input('title');
 ?>
 <div id="dynamicFields">
-<?php
-echo $this->Form->input('choice1');
-echo $this->Form->input('choice2');
-?>
+<div id="child0" class="input textarea required">
+<label for="VoteChoice1">Choice1</label>
+<textarea name="data[Vote][choice1]" cols="30" rows="6" id="VoteChoice1" ></textarea>
+</div>
+<div id="child1" class="input textarea required">
+<label for="VoteChoice2">Choice2</label>
+<textarea name="data[Vote][choice2]" cols="30" rows="6" id="VoteChoice2" ></textarea>
+</div>
 </div>
 <?php
 echo $this->Form->Button('Add Row', array('type' => 'button', 'id' => 'add', 'value' => 'Add Row', 'onclick' => "addInput('dynamicFields');"));
