@@ -8,10 +8,10 @@
 <?php
 echo $this->Form->create('Vote');
 echo $this->Form->input('owner', array('type' => 'hidden'));
-echo $this->Form->input('title');
 ?>
 <div id="dynamicFields">
 <?php
+echo $this->Form->input('title');
 echo $this->Form->input('choice1');
 echo $this->Form->input('choice2');
 ?>
