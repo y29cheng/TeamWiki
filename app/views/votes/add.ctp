@@ -9,13 +9,13 @@
 echo $this->Form->create('Vote');
 echo $this->Form->input('owner', array('type' => 'hidden'));
 echo $this->Form->input('title');
+echo $this->Form->input('choice1');
+echo $this->Form->input('choice2');
 ?>
-<textarea name="data[Vote][choice1]" cols="30" rows="6" id="VoteChoice1" value="Enter choice1 here"></textarea>
-<textarea name="data[Vote][choice2]" cols="30" rows="6" id="VoteChoice2" value="Enter choice2 here"></textarea>
 <div id="dynamicFields"></div>
-<button value="Add Row" onClick="addInput('dynamicFields')">
-<button value="Delete Row" onClick="deleteInput('dynamicFields')">
 <?php
+echo $this->Form->Button('add', array('value' => 'Add Row', onClick => "addInput('dynamicFields')"));
+echo $this->Form->Button('delete', array('value' => 'Delete Row', onClick => "deleteInput('dynamicFields')"));
 echo $this->Form->end('Save Vote');
 ?>
 </body>
