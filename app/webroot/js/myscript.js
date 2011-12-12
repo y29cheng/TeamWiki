@@ -1,11 +1,10 @@
 var counter = 2;
 function addInput(divName) {
-	var dynamicDiv = document.getElementById(divName);
 	var newDiv = document.create('div');
 	newDiv.setAttribute('id', 'child' + counter);
 	newDiv.setAttribute('class', 'input textarea required');
 	newDiv.innerHTML = "<textarea name='data[Vote][choice" + (counter + 1) + "]' cols='30' rows='6' id='VoteChoice" + (counter + 1) + "' value='Enter choice" + (counter + 1) + " here'></textarea>" 	
-	dynamicDiv.appendChild(newDiv);
+	document.getElementById(divName).appendChild(newDiv);
 	counter++;
 }
 function deleteInput(divName) {
