@@ -81,7 +81,7 @@ class VotesController extends AppController {
 	function delete($id) {
 		$m = new MongoHelper();
 		$collection = $m->connect();
-    	$vote = $collection->findOne(array('_id' => $id));
+    	$vote = $collection->findOne(array('_id' => new MongoId($id)));
 //     	$this->Session->setFlash($id.' '.$vote['_id']);
 //     	$this->redirect(array('action' => 'index'));
 //     	return;
@@ -96,7 +96,7 @@ class VotesController extends AppController {
             $this->redirect(array('action' => 'index'));
         } else {
         	try {
-            	$collection->remove(array('_id' => $id), array('safe' => true));
+            	$collection->remove(array('_id' => new MongoId($id)), array('safe' => true));
             	
 // 			$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
 // 			$redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
