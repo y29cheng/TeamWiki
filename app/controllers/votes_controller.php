@@ -1,7 +1,7 @@
 <?php
 App::import('Vendor', 'iredis');
 class VotesController extends AppController {
-	public $helpers = array('Html', 'Form', 'Javascript', 'Input');
+	public $helpers = array('Html', 'Form', 'Javascript');
 	public $name = 'votes';
 	function index() {
 		$username = $this->Session->read('user');
@@ -44,10 +44,10 @@ class VotesController extends AppController {
 					break;
 				}
 			}
-			if (!$this->Input->validate($obj)) {
+			/*if (!$this->Input->validate($obj)) {
 				$this->Session->setFlash('Your vote contains errors.');
 				return;
-			}
+			}*/
 			$mongo = new Mongo("mongodb://georgeC:hungry plant 147@staff.mongohq.com:10056/teamwiki");
 			$mongodb = $mongo->teamwiki;
 			$collection = $mongodb->votes;
