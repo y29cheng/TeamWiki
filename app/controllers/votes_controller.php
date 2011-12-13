@@ -1,15 +1,15 @@
 <?php
 App::import('Vendor', 'iredis');
 App::import('Helper', 'Input');
+App::import('Helper', 'Mongo');
 class VotesController extends AppController {
-	public $helpers = array('Html', 'Form', 'Javascript', 'Input');
+	public $helpers = array('Html', 'Form', 'Javascript', 'Input', 'Mongo');
 	public $name = 'votes';
 	function index() {
 		$username = $this->Session->read('user');
         	if ($username) {
-            	$mongo = new Mongo("mongodb://georgeC:T3aMW1k14PP@staff.mongohq.com:10056/teamwiki");
-                $mongodb = $mongo->teamwiki;
-                $collection = $mongodb->votes;
+        		$m = new MongoHelper();
+                $collection = $m->connect();
                 $this->set('votes', $collection->find());
             } else {
                 $this->redirect(array('controller' => 'users', 'action' => 'login'));
@@ -19,11 +19,10 @@ class VotesController extends AppController {
 		$username = $this->Session->read('user');
         if (!$username) {
            	$this->redirect(array('controller' => 'users', 'action' => 'login'));
-               	return;
+            return;
    	    }
-        $mongo = new Mongo("mongodb://georgeC:T3aMW1k14PP@staff.mongohq.com:10056/teamwiki");
-        $mongodb = $mongo->teamwiki;
-        $collection = $mongodb->votes;
+        $m = new MongoHelper();
+        $collection = $m->connect();
    	    $this->set('vote', $collection->findOne(array('_id' => $id)));
     }
 	function add() {
@@ -53,51 +52,57 @@ class VotesController extends AppController {
 				$this->Session->setFlash('Your vote contains errors.');
 				return;
 			}
-			$mongo = new Mongo("mongodb://georgeC:T3aMW1k14PP@staff.mongohq.com:10056/teamwiki");
-			$mongodb = $mongo->teamwiki;
-			$collection = $mongodb->votes;
-			$result = $collection->insert($obj, array('safe' => true));
-			if ($result) {
+			$m = new MongoHelper();
+            $collection = $m->connect();
+            try {
+				$collection->insert($obj, array('safe' => true));
 				$this->Session->setFlash('Your vote has been saved.');
 				$this->redirect(array('action' => 'index'));
-			} else {
+			} catch (MongoCursorException $e) {
 				$this->Session->setFlash('Your vote is not saved.');
 			}
-			return;
-			if ($this->Vote->save($this->data)) {
-				$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
-				$redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
-				$redis->incr('id');
-				$tmp = $redis->get('id');
-				$redis->hset('vote'.$tmp, 'a1', 0);
-				$redis->hset('vote'.$tmp, 'a2', 0);
-				$redis->hset('vote'.$tmp, 'a3', 0);
-				$redis->hset('vote'.$tmp, 'a4', 0);
-				$this->Session->setFlash('Your vote has been saved.');
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash('There are errors in vote.');
-			}
+// 			return;
+// 			if ($this->Vote->save($this->data)) {
+// 				$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
+// 				$redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
+// 				$redis->incr('id');
+// 				$tmp = $redis->get('id');
+// 				$redis->hset('vote'.$tmp, 'a1', 0);
+// 				$redis->hset('vote'.$tmp, 'a2', 0);
+// 				$redis->hset('vote'.$tmp, 'a3', 0);
+// 				$redis->hset('vote'.$tmp, 'a4', 0);
+// 				$this->Session->setFlash('Your vote has been saved.');
+// 				$this->redirect(array('action' => 'index'));
+// 			} else {
+// 				$this->Session->setFlash('There are errors in vote.');
+// 			}
     	}
     }
 	function delete($id) {
-    	$vote = $this->Vote->findById($id);
+		$m = new MongoHelper();
+		$collection = $m->connect();
+    	$vote = $collection->findOne(array('_id' => $id));
         $username = $this->Session->read('user');
         if (!$username) {
             $this->redirect(array('controller' => 'users', 'action' => 'login'));
         	return;
         }
-        if ($username !== $vote['Vote']['owner']) {
+        if ($username !== $vote['owner']) {
         	$this->Session->setFlash('You can\'t delete other users\' vote.');
             $this->redirect(array('action' => 'index'));
         } else {
-            $this->Vote->delete($id);
-			$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
-			$redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
-			$redis->del('vote'.$id);
-			$redis->del('voters'.$id);
-            $this->Session->setFlash('The vote with id: '.$id.' has been deleted.');
-            $this->redirect(array('action' => 'index'));
+        	try {
+            	$collection->remove(array('_id' => $id), array('safe' => true));
+            	
+// 			$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
+// 			$redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
+// 			$redis->del('vote'.$id);
+// 			$redis->del('voters'.$id);
+            	$this->Session->setFlash('The vote with id: '.$id.' has been deleted.');
+            	$this->redirect(array('action' => 'index'));
+        	} catch (MongoCusorException $e) {
+        		$this->Session->setFlash('The vote with id: '.$id.' is not deleted.');
+        	}
         }
     }
 	function edit($id = null) {
