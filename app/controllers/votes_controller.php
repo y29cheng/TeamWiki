@@ -37,8 +37,8 @@ class VotesController extends AppController {
 			$obj['created'] = date('Y-m-d');
 			$obj['modified'] = $obj['created'];
 			for ($i=1;;$i++) {
-				if (isset($option = $this->data['Vote']['choice'.$i])) {
-					$obj['choice'.$i] = $option;
+				if (isset($this->data['Vote']['choice'.$i])) {
+					$obj['choice'.$i] = $this->data['Vote']['choice'.$i];
 					$obj['answer'.$i] = 0; 
 				} else {
 					break;
