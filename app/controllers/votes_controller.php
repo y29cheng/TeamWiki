@@ -6,7 +6,7 @@ class VotesController extends AppController {
 	function index() {
 		$username = $this->Session->read('user');
         	if ($username) {
-            	$mongo = new Mongo("mongodb://georgeC:hungry plant 147@staff.mongohq.com:10056/teamwiki");
+            	$mongo = new Mongo("mongodb://georgeC:T3aMW1k14PP@staff.mongohq.com:10056/teamwiki");
                 $mongodb = $mongo->teamwiki;
                 $collection = $mongodb->votes;
                 $this->set('votes', $collection->find());
@@ -48,10 +48,10 @@ class VotesController extends AppController {
 				$this->Session->setFlash('Your vote contains errors.');
 				return;
 			}*/
-			$mongo = new Mongo("mongodb://georgeC:hungry plant 147@staff.mongohq.com:10056/teamwiki");
+			$mongo = new Mongo("mongodb://georgeC:T3aMW1k14PP@staff.mongohq.com:10056/teamwiki");
 			$mongodb = $mongo->teamwiki;
 			$collection = $mongodb->votes;
-			$result = $collection.insert($obj, array('safe' => true));
+			$result = $collection->insert($obj, array('safe' => true));
 			if ($result) {
 				$this->Session->setFlash('Your vote has been saved.');
 				$this->redirect(array('action' => 'index'));
