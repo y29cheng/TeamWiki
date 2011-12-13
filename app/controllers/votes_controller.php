@@ -23,7 +23,7 @@ class VotesController extends AppController {
    	    }
         $m = new MongoHelper();
         $collection = $m->connect();
-   	    $this->set('vote', $collection->findOne(array('_id' => $id)));
+   	    $this->set('vote', $collection->findOne(array('_id' => new MongoId($id))));
     }
 	function add() {
 		$username = $this->Session->read('user');
@@ -61,30 +61,12 @@ class VotesController extends AppController {
 			} catch (MongoCursorException $e) {
 				$this->Session->setFlash('Your vote is not saved.');
 			}
-// 			return;
-// 			if ($this->Vote->save($this->data)) {
-// 				$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
-// 				$redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
-// 				$redis->incr('id');
-// 				$tmp = $redis->get('id');
-// 				$redis->hset('vote'.$tmp, 'a1', 0);
-// 				$redis->hset('vote'.$tmp, 'a2', 0);
-// 				$redis->hset('vote'.$tmp, 'a3', 0);
-// 				$redis->hset('vote'.$tmp, 'a4', 0);
-// 				$this->Session->setFlash('Your vote has been saved.');
-// 				$this->redirect(array('action' => 'index'));
-// 			} else {
-// 				$this->Session->setFlash('There are errors in vote.');
-// 			}
     	}
     }
 	function delete($id) {
 		$m = new MongoHelper();
 		$collection = $m->connect();
     	$vote = $collection->findOne(array('_id' => new MongoId($id)));
-//     	$this->Session->setFlash($id.' '.$vote['_id']);
-//     	$this->redirect(array('action' => 'index'));
-//     	return;
         $username = $this->Session->read('user');
         if (!$username) {
             $this->redirect(array('controller' => 'users', 'action' => 'login'));
@@ -92,16 +74,10 @@ class VotesController extends AppController {
         }
         if ($username != $vote['owner']) {
         	$this->Session->setFlash('You can\'t delete other users\' vote.');
-        	$this->Session->setFlash($vote['owner']);
             $this->redirect(array('action' => 'index'));
         } else {
         	try {
             	$collection->remove(array('_id' => new MongoId($id)), array('safe' => true));
-            	
-// 			$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
-// 			$redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
-// 			$redis->del('vote'.$id);
-// 			$redis->del('voters'.$id);
             	$this->Session->setFlash('The vote with id: '.$id.' has been deleted.');
             	$this->redirect(array('action' => 'index'));
         	} catch (MongoCusorException $e) {
