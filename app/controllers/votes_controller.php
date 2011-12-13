@@ -83,6 +83,7 @@ class VotesController extends AppController {
 		$collection = $m->connect();
     	$vote = $collection->findOne(array('_id' => $id));
     	$this->Session->setFlash($id.' '.$vote['_id']);
+    	return;
         $username = $this->Session->read('user');
         if (!$username) {
             $this->redirect(array('controller' => 'users', 'action' => 'login'));
