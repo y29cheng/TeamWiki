@@ -6,7 +6,10 @@ class VotesController extends AppController {
 	function index() {
 		$username = $this->Session->read('user');
                 if ($username) {
-                        $this->set('votes', $this->Vote->find('all'));
+                		$mongo = new Mongo("mongodb://georgeC:hungry plant 147@staff.mongohq.com:10056/teamwiki");
+                		$mongodb = $mongo->teamwiki;
+                		$collection = $mongodb->votes;
+                        $this->set('votes', $collection->find());
                 } else {
                         $this->redirect(array('controller' => 'users', 'action' => 'login'));
                 }
