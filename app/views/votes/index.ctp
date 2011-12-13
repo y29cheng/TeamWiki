@@ -1,8 +1,5 @@
 <!-- File: /app/views/votes/index.ctp -->
-<?php App::import('Vendor', 'iredis'); ?>
 <?php
-//$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
-//$redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
 ?>
 <h1>Team Votes</h1>
 <?php echo $this->Html->link('Add Vote', array('controller' => 'votes', 'action' => 'add')); ?>
@@ -16,10 +13,6 @@
         </tr>
 
         <?php foreach ($votes as $vote): ?>
-	<?php 
-	//	$id = $vote['Vote']['id'];
-	//	$voters = $redis->llen('voters'.$id);
-	?>	
         <tr>
                 <td><?php echo $this->Html->link($vote['title'], array('controller' => 'votes', 'action' => 'view', $vote['_id'])); ?></td>
 		<td><?php echo $vote['owner']; ?></td>

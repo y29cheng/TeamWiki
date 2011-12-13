@@ -82,6 +82,7 @@ class VotesController extends AppController {
 		$m = new MongoHelper();
 		$collection = $m->connect();
     	$vote = $collection->findOne(array('_id' => $id));
+    	$this->Session->setFlash($id.' '.$vote['_id']);
         $username = $this->Session->read('user');
         if (!$username) {
             $this->redirect(array('controller' => 'users', 'action' => 'login'));
