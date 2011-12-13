@@ -157,7 +157,7 @@ class VotesController extends AppController {
                 break;
 			case 4:
                 $a4 = $redis->hget('vote'.$id1, 'a4');
-                redis->hset('vote'.$id1, 'a4', $a4 + 1);
+                $redis->hset('vote'.$id1, 'a4', $a4 + 1);
 				$redis->lpush('voters'.$id1, $username);
                 break;
 			}
