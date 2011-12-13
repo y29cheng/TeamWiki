@@ -82,16 +82,17 @@ class VotesController extends AppController {
 		$m = new MongoHelper();
 		$collection = $m->connect();
     	$vote = $collection->findOne(array('_id' => $id));
-    	$this->Session->setFlash($id.' '.$vote['_id']);
-    	$this->redirect(array('action' => 'index'));
-    	return;
+//     	$this->Session->setFlash($id.' '.$vote['_id']);
+//     	$this->redirect(array('action' => 'index'));
+//     	return;
         $username = $this->Session->read('user');
         if (!$username) {
             $this->redirect(array('controller' => 'users', 'action' => 'login'));
         	return;
         }
-        if ($username !== $vote['owner']) {
+        if ($username != $vote['owner']) {
         	$this->Session->setFlash('You can\'t delete other users\' vote.');
+        	$this->Session->setFlash($vote['owner']);
             $this->redirect(array('action' => 'index'));
         } else {
         	try {
