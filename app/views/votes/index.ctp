@@ -20,7 +20,7 @@
 	//	$id = $vote['Vote']['id'];
 	//	$voters = $redis->llen('voters'.$id);
 	?>	
-        <tr id=<?php echo //$id; ?> title="<?php echo //$voters?> people have voted." value="<?php echo //$voters?>">
+        <tr>
                 <td><?php echo $this->Html->link($vote['title'], array('controller' => 'votes', 'action' => 'view', $vote['id'])); ?></td>
 		<td><?php echo $vote['owner']; ?></td>
                 <td><?php echo $vote['created']; ?></td>
