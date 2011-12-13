@@ -1,5 +1,6 @@
 <?php
 App::import('Vendor', 'iredis');
+App::import('Helper', 'Input');
 class VotesController extends AppController {
 	public $helpers = array('Html', 'Form', 'Javascript', 'Input');
 	public $name = 'votes';
@@ -43,7 +44,8 @@ class VotesController extends AppController {
 					break;
 				}
 			}
-			if (!$Input->validate($obj)) {
+			$input = new InputHelper();
+			if (!$input->validate($obj)) {
 				$this->Session->setFlash('Your vote contains errors.');
 				return;
 			}
