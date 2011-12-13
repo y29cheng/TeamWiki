@@ -2,7 +2,7 @@
 <p><?php echo $vote['title']?></p>
 <?php
 $count = $vote['choices'];
-for ($i=0;$i<count;$i++) {
+for ($i=0;$i<$count;$i++) {
 ?>
 <p>
 <?php echo $vote['choices'].' '; ?>
@@ -10,6 +10,7 @@ for ($i=0;$i<count;$i++) {
 </p>
 <?php } ?>
 
-<form method="post" action="http://teamwiki.phpfogapp.com/bar_chart.php">
+<!--<form method="post" action="http://teamwiki.phpfogapp.com/bar_chart.php">
 <input type="hidden" name="id" value=<?php echo $id ?>>
 <input type="submit" value="Show Result">
+</form>-->
