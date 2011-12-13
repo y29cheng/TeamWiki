@@ -43,7 +43,7 @@ class VotesController extends AppController {
 					break;
 				}
 			}
-			if (!$this->Input->validate($obj)) {
+			if (!$Input->validate($obj)) {
 				$this->Session->setFlash('Your vote contains errors.');
 				return;
 			}
