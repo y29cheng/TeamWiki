@@ -83,6 +83,7 @@ class VotesController extends AppController {
 		$collection = $m->connect();
     	$vote = $collection->findOne(array('_id' => $id));
     	$this->Session->setFlash($id.' '.$vote['_id']);
+    	$this->redirect(array('action' => 'index'));
     	return;
         $username = $this->Session->read('user');
         if (!$username) {
@@ -104,6 +105,7 @@ class VotesController extends AppController {
             	$this->redirect(array('action' => 'index'));
         	} catch (MongoCusorException $e) {
         		$this->Session->setFlash('The vote with id: '.$id.' is not deleted.');
+        		$this->redirect(array('action' => 'index'));
         	}
         }
     }
