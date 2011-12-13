@@ -21,12 +21,12 @@
 	//	$voters = $redis->llen('voters'.$id);
 	?>	
         <tr>
-                <td><?php echo $this->Html->link($vote['title'], array('controller' => 'votes', 'action' => 'view', $vote['id'])); ?></td>
+                <td><?php echo $this->Html->link($vote['title'], array('controller' => 'votes', 'action' => 'view', $vote['_id'])); ?></td>
 		<td><?php echo $vote['owner']; ?></td>
                 <td><?php echo $vote['created']; ?></td>
                 <td><?php echo $vote['modified']; ?></td>
-                <td><?php echo $this->Html->link('Delete', array('action' => 'delete', $vote['id']), null, 'Are you sure?') ?></td>
-                <td><?php echo $this->Html->link('Edit', array('action' => 'edit', $vote['id'])); ?></td>
+                <td><?php echo $this->Html->link('Delete', array('action' => 'delete', $vote['_id']), null, 'Are you sure?') ?></td>
+                <td><?php echo $this->Html->link('Edit', array('action' => 'edit', $vote['_id'])); ?></td>
         </tr>
         <?php endforeach; ?>
 </table>
