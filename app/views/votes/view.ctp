@@ -5,7 +5,7 @@ $count = $vote['choices'];
 for ($i=0;$i<$count;$i++) {
 ?>
 <p>
-<?php echo "".$vote['answer'.($i+1)]."	"; ?>
+<?php echo $vote['answer'.($i+1)]; ?>&nbsp&nbsp&nbsp&nbsp
 <?php echo $this->Html->link($vote['choice'.($i+1)], array('controller' => 'votes', 'action' => 'vote', $vote['_id'], $i+1)); ?>
 </p>
 <?php } ?>
