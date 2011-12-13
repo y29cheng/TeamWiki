@@ -17,12 +17,14 @@ class VotesController extends AppController {
     }
 	function view($id = null) {
 		$username = $this->Session->read('user');
-        	if (!$username) {
-            	$this->redirect(array('controller' => 'users', 'action' => 'login'));
-                	return;
-            }
-            $this->Vote->id = $id;
-            $this->set('vote', $this->Vote->read());
+        if (!$username) {
+           	$this->redirect(array('controller' => 'users', 'action' => 'login'));
+               	return;
+   	    }
+        $mongo = new Mongo("mongodb://georgeC:T3aMW1k14PP@staff.mongohq.com:10056/teamwiki");
+        $mongodb = $mongo->teamwiki;
+        $collection = $mongodb->votes;
+   	    $this->set('vote', $collection->findOne(array('_id' => $id)));
     }
 	function add() {
 		$username = $this->Session->read('user');
@@ -36,6 +38,7 @@ class VotesController extends AppController {
 			$obj['owner'] = $username;
 			$obj['created'] = date('Y-m-d');
 			$obj['modified'] = $obj['created'];
+			var $i;
 			for ($i=1;;$i++) {
 				if (isset($this->data['Vote']['choice'.$i])) {
 					$obj['choice'.$i] = $this->data['Vote']['choice'.$i];
@@ -44,6 +47,7 @@ class VotesController extends AppController {
 					break;
 				}
 			}
+			$obj['choices'] = $i - 1;
 			$input = new InputHelper();
 			if (!$input->validate($obj)) {
 				$this->Session->setFlash('Your vote contains errors.');
