@@ -99,7 +99,7 @@ class VotesController extends AppController {
         	$this->Session->setFlash('You can\'t edit other users\' vote.');
             $this->redirect(array('action' => 'index'));
         } else {
-        	$this->Vote->set('vote', $vote);
+        	$this->set('vote', $vote);
             if (empty($this->data)) {
             	return;
            	} else {
