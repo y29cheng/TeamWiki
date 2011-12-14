@@ -51,7 +51,7 @@ function BarGraph(ctx) {
 			ctx.shadowOffsetY = 0;
 			ctx.shadowBlur = 0;
 			
-			ctx.fillStyle "#333";
+			ctx.fillStyle = "#333";
 			ctx.font = "bold 12px sans-serif";
 			ctx.textAligh = "center";
 			try {
