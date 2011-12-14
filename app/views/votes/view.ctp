@@ -13,4 +13,4 @@ for ($i=0;$i<$count;$i++) {
 <form method="post" action="http://teamwiki.phpfogapp.com/bar_chart.php">
 <input type="hidden" name="id" value="2">
 <input type="submit" value="Show Result">
->/form>
+</form>
