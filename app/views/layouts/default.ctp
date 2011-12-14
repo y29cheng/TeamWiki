@@ -34,23 +34,6 @@
 		
 		echo $javascript->link('clock.js');
         ?>
-	<!--Script to tame the IE6 beast-->
-	<script>
-	// Javascript originally by Patrick Griffiths and Dan Webb.
-	// http://htmldog.com/articles/suckerfish/dropdowns/
-	sfHover = function() {
-	   var sfEls = document.getElementById("navbar").getElementsByTagName("li");
-	   for (var i=0; i<sfEls.length; i++) {
-	      sfEls[i].onmouseover=function() {
-		 this.className+=" hover";
-	      }
-	      sfEls[i].onmouseout=function() {
-		 this.className=this.className.replace(new RegExp(" hover\\b"), "");
-	      }
-	   }
-	}
-	if (window.attachEvent) window.attachEvent("onload", sfHover);
-	</script>
 </head>
 <body onload="clock(); setInterval('clock()', 1000)">
 	<div id="container">
