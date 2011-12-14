@@ -7,6 +7,7 @@ $values = array();
 for ($i=0;$i<$vote['choices'];$i++) { 
 	$values['choice'.($i+1)] = $vote['answer'.($i+1)];
 }
+
 $img_width = 450;
 $img_height = 300;
 $margins = 20;

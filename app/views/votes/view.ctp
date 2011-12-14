@@ -13,4 +13,3 @@ for ($i=0;$i<$count;$i++) {
 <form method="post" action="http://teamwiki.phpfogapp.com/bar_chart.php">
 <input type="hidden" name="id" value=<?php echo $vote['_id']."" ?>>
 <input type="submit" value="Show Result">
-</form>
