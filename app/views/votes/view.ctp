@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html
 <head>
+<?php echo $javascript->link('barGraph.js', false); ?>
 </head>
 <body>
 <p><?php echo $vote['title']?></p>
@@ -15,7 +16,6 @@ for ($i=0;$i<$count;$i++) {
 </p>
 <?php } ?>
 <canvas id="bar_graph"></canvas>
-<script src="http://teamwiki.phpfogapp.com/js/barGraph.js"></script>
 <script>
 var ctx = document.getElementById("bar_graph").getContext("2d");
 var graph = new BarGraph(ctx);
