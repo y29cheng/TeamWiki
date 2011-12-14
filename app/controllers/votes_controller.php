@@ -72,7 +72,7 @@ class VotesController extends AppController {
             $this->redirect(array('controller' => 'users', 'action' => 'login'));
         	return;
         }
-        if ($username != $vote['owner']."") {
+        if ($username != $vote['owner']) {
         	$this->Session->setFlash('You can\'t delete other users\' vote.');
             $this->redirect(array('action' => 'index'));
         } else {
@@ -92,7 +92,8 @@ class VotesController extends AppController {
 		if (!empty($id)) {
 			$doc = $collection->findOne(array('_id' => new MongoId($id)));
 		} else {
-			$doc = $collection->findOne(array('_id' => new MongoId($this->data['Vote']['id'])));
+			$id = $this->data['Vote']['id'];
+			$doc = $collection->findOne(array('_id' => new MongoId($id)));
 // 			$this->Session->setFlash($this->data['Vote']['id']."");
 // 			return;
 		}
@@ -128,6 +129,7 @@ class VotesController extends AppController {
            		}
            		try {
                 	$collection->update(array('_id' => new MongoId($id)), $doc, array('safe' => true));
+                	$this->Session->setFlash('The vote with id: '.$id.' has been modified.');
                 	$this->Session->setFlash('The vote with id: '.$id.' has been modified.');
                 	$this->redirect(array('action' => 'index'));
            		} catch (MongoCursorException $e) {
