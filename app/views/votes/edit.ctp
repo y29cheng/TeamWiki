@@ -13,7 +13,7 @@ echo $this->Form->input('owner', array('type' => 'hidden', 'value' => $vote['own
 <?php
 echo $this->Form->input('title', array('value' => $vote['title']));
 for ($i=0;$i<$vote['choices'];$i++) {
-	echo $this->Form->input('choice'.($i+1), array('type' => 'textarea', 'value' => $vote['choice'.($i+1)]));
+	echo $this->Form->input('choice'.($i+1), array('type' => 'textarea', 'id' => 'VoteChoice'.($i+1), 'value' => $vote['choice'.($i+1)]));
 }
 ?>
 </div>
