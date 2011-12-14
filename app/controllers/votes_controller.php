@@ -89,7 +89,11 @@ class VotesController extends AppController {
 	function edit($id = null) {
 		$m = new MongoHelper();
 		$collection = $m->connect();
-		$doc = $collection->findOne(array('_id' => new MongoId($id)));
+		if (!empty($id)) {
+			$doc = $collection->findOne(array('_id' => new MongoId($id)));
+		} else {
+			$doc = $collection->findOne(array('_id' => new MongoId($this->data['Vote']['id'])));
+		}
 		$this->set('vote', $doc);
         $username = $this->Session->read('user');
       	if (!$username) {
@@ -101,24 +105,25 @@ class VotesController extends AppController {
             $this->redirect(array('action' => 'index'));
         } else {
             if (empty($this->data)) {
-            	$input = new InputHelper();
-            	if (!$input->validate($this->data)) {
-            		$this->Session->setFlash('There are errors in your vote.');
-            		return;
-            	}
-            	$doc['title'] = $this->data['title'];
-            	$doc['modified'] = date('Y-m-d');
-            	$i = 0;
-            	for ($i=1;;$i++) {
-            		if (isset($this->data['Vote']['choice'.$i])) {
-            			$doc['choice'.$i] = $this->data['Vote']['choice'.$i];
-            			$doc['answer'.$i] = 0;
-            		} else {
-            			break;
-            		}
-            	}
-            	$doc['choices'] = $i - 1;
+            	return;
            	} else {
+           		$input = new InputHelper();
+           		if (!$input->validate($this->data)) {
+           			$this->Session->setFlash('There are errors in your vote.');
+           			return;
+           		}
+           		$doc['title'] = $this->data['title'];
+           		$doc['modified'] = date('Y-m-d');
+           		$i = 0;
+           		for ($i=1;;$i++) {
+           			if (isset($this->data['Vote']['choice'.$i])) {
+           				$doc['choice'.$i] = $this->data['Vote']['choice'.$i];
+           				$doc['answer'.$i] = 0;
+           			} else {
+           				break;
+           			}
+           		}
+           		$doc['choices'] = $i - 1;
            		try {
                 	$collection->update(array('_id' => new MongoId($id)), $doc, array('safe' => true));
                 	$this->Session->setFlash('The vote with id: '.$id.' has been modified.');
