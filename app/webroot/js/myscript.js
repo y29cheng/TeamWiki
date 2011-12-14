@@ -9,8 +9,8 @@ function addInput(divName) {
 }
 function deleteInput(divName) {
 	var parentDiv = document.getElementById(divName);
-	alert("hi there");
 	var counter = parentDiv.getElementsByTagName('div').length - 1;
+	alert(counter);
 	if (counter == 2) {
 		alert("You can have a least 3 rows.");
 	} else {
