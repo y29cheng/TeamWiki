@@ -12,8 +12,8 @@ for ($i=0;$i<$count;$i++) {
 <canvas id="bar_graph"></canvas>
 <script src="../../webroot/js/barGraph.js"></script>
 <script>
-var ctx = document.getElementById('bar_graph').getContext('2d');
-var graph = BarGraph(ctx);
+var ctx = document.getElementById("bar_graph").getContext("2d");
+var graph = new BarGraph(ctx);
 var div = document.getElementById('content');
 var links = div.getElementsByTagName('a');
 var nbr = links.length;
