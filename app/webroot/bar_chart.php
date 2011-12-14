@@ -1,12 +1,20 @@
-<?php
-$mongo = new Mongo("mongodb://georgeC:T3aMW1k14PP@staff.mongohq.com:10056/teamwiki");
-$mongodb = $mongo->teamwiki;
-$collection = $mongodb->votes;
-$vote = $collection.findOne(array('_id' => new MongoId($id)));
-$values = array();
-for ($i=0;$i<$vote['choices'];$i++) { 
-	$values['choice'.($i+1)] = $vote['answer'.($i+1)];
-}
+<?
+require('../vendors/iredis.php');
+$id = $_POST['id'];
+$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
+$redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
+
+$r1 = $redis->hget('vote'.$id, 'a1');
+$r2 = $redis->hget('vote'.$id, 'a2');
+$r3 = $redis->hget('vote'.$id, 'a3');
+$r4 = $redis->hget('vote'.$id, 'a4');
+$values = array(
+	'A.' => $r1,
+	'B.' => $r2,
+	'C.' => $r3,
+	'D.' => $r4
+);
+
 
 $img_width = 450;
 $img_height = 300;
