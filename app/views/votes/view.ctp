@@ -10,7 +10,7 @@ for ($i=0;$i<$count;$i++) {
 </p>
 <?php } ?>
 <canvas id="bar_graph"></canvas>
-<script src="../../webroot/js/barGraph.js"></script>
+<script src="http://teamwiki.phpfogapp.com/js/barGraph.js"></script>
 <script>
 var ctx = document.getElementById("bar_graph").getContext("2d");
 var graph = new BarGraph(ctx);
