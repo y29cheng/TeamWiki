@@ -109,11 +109,6 @@ class VotesController extends AppController {
             if (empty($this->data)) {
             	return;
            	} else {
-           		$input = new InputHelper();
-           		if (!$input->validate($this->data)) {
-           			$this->Session->setFlash('There are errors in your vote.');
-           			return;
-           		}
            		$doc['title'] = $this->data['title'];
            		$doc['modified'] = date('Y-m-d');
            		$i = 0;
@@ -126,6 +121,11 @@ class VotesController extends AppController {
            			}
            		}
            		$doc['choices'] = $i - 1;
+           		$input = new InputHelper();
+           		if (!$input->validate($doc)) {
+           			$this->Session->setFlash('There are errors in your vote.');
+           			return;
+           		}
            		try {
                 	$collection->update(array('_id' => new MongoId($id)), $doc, array('safe' => true));
                 	$this->Session->setFlash('The vote with id: '.$id.' has been modified.');
