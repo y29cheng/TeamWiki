@@ -35,6 +35,7 @@ class VotesController extends AppController {
 			$obj = array();
 			$obj['title'] = $this->data['Vote']['title'];
 			$obj['owner'] = $username;
+			$obj['voters'] = array();
 			$obj['created'] = date('Y-m-d');
 			$obj['modified'] = $obj['created'];
 			$i = 0;
@@ -128,7 +129,6 @@ class VotesController extends AppController {
            		try {
                 	$collection->update(array('_id' => new MongoId($id)), $doc, array('safe' => true));
                 	$this->Session->setFlash('The vote with id: '.$id.' has been modified.');
-                	$this->Session->setFlash('The vote with id: '.$id.' has been modified.');
                 	$this->redirect(array('action' => 'index'));
            		} catch (MongoCursorException $e) {
            			$this->Session->setFlash('The vote with id: '.$id.' is not modified.');
@@ -137,53 +137,33 @@ class VotesController extends AppController {
         }
     }
 	function vote($id1, $id2) {
-		$vote = $this->Vote->findById($id1);
+		$mongo = new MongoHelper();
+		$collection = $mongo->connect();
+		$vote = $collection->findOne(array('_id' => new MongoId($id1)));
 		$username = $this->Session->read('user');
        	if (!$username) {
           	$this->redirect(array('controller' => 'users', 'action' => 'login'));
            	return;
         }
-		$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
-		$redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
-		$len = $redis->llen('voters'.$id1);
-		$hasVoted = FALSE;
-		if ($username === $vote['Vote']['owner']) {
-			$this->Session->setFlash('You created this vote.');
-			$this->redirect(array('action' => 'view', $id1));
-			return;
-		}
+		$len = count($vote['voters']);
+		$hasVoted = false;
 		for ($i = 0; $i < $len; $i++) {
-			if ($username === $redis->lindex('voters'.$id1, $i)) {
+			if ($username === $vote['voters'][$i]) {
 				$this->Session->setFlash('You can only vote once.');
 				$this->redirect(array('action' => 'view', $id1));
-				$hasVoted = TRUE; 				
+				$hasVoted = true; 				
 			}
 		}
 		if (!$hasVoted) {
-			switch ($id2) {
-			case 1:
-				$a1 = $redis->hget('vote'.$id1, 'a1');
-				$redis->hset('vote'.$id1, 'a1', $a1 + 1);
-				$redis->lpush('voters'.$id1, $username);
-				break;
-			case 2:
-            	$a2 = $redis->hget('vote'.$id1, 'a2');
-                $redis->hset('vote'.$id1, 'a2', $a2 + 1);
-				$redis->lpush('voters'.$id1, $username);
-                break;
-			case 3:
-                $a3 = $redis->hget('vote'.$id1, 'a3');
-                $redis->hset('vote'.$id1, 'a3', $a3 + 1);
-				$redis->lpush('voters'.$id1, $username);
-                break;
-			case 4:
-                $a4 = $redis->hget('vote'.$id1, 'a4');
-                $redis->hset('vote'.$id1, 'a4', $a4 + 1);
-				$redis->lpush('voters'.$id1, $username);
-                break;
+			$vote['answer'.$id2] += 1;
+			$vote['voters'][] = $username;
+			try {
+				$collection->update(array('_id' => new MongoId($id1)), $vote, array('safe' => true));
+				$this->Session->setFlash('Your vote has been recorded.');
+				$this->redirect(array('action' => 'view', $id1));
+			} catch (MongoCursorException $e) {
+				$this->Session->setFlash('Your vote is not recorded.');
 			}
-			$this->Session->setFlash('Your vote has been recorded.');
-			$this->redirect(array('action' => 'view', $id1));
 		}
 	}
 }

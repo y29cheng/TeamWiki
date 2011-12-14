@@ -10,6 +10,6 @@ for ($i=0;$i<$count;$i++) {
 </p>
 <?php } ?>
 
-<form method="post" action="http://teamwiki.phpfogapp.com/bar_chart.php">
-<input type="hidden" name="id" value="2">
-<input type="submit" value="Show Result">
+<!--<form method="post" action="http://teamwiki.phpfogapp.com/bar_chart.php">
+<input type="hidden" name="id" value=<?php echo $id ?>>
+<input type="submit" value="Show Result">-->
