@@ -79,7 +79,6 @@ class VotesController extends AppController {
         	try {
             	$collection->remove(array('_id' => new MongoId($id)), array('safe' => true));
             	$this->Session->setFlash('The vote with id: '.$id.' has been deleted.');
-            	$this->Session->setFlash($vote['owner']."");
             	$this->redirect(array('action' => 'index'));
         	} catch (MongoCusorException $e) {
         		$this->Session->setFlash('The vote with id: '.$id.' is not deleted.');
@@ -90,18 +89,18 @@ class VotesController extends AppController {
 	function edit($id) {
 		$m = new MongoHelper();
 		$collection = $m->connect();
-		$vote = $collection->findOne(array('_id' => new MongoId($id)));
+		$doc = $collection->findOne(array('_id' => new MongoId($id)));
         $username = $this->Session->read('user');
       	if (!$username) {
        		$this->redirect(array('controller' => 'users', 'action' => 'login'));
             return;
         }
-        if ($username != $vote['owner']."") {
+        if ($username != $doc['owner']."") {
         	$this->Session->setFlash('You can\'t edit other users\' votes.');
-        	$this->Session->setFlash($vote['owner']."");
+        	$this->Session->setFlash($doc['owner']."");
             $this->redirect(array('action' => 'index'));
         } else {
-        	$this->set('vote', $vote);
+        	$this->set('vote', $doc);
             if (empty($this->data)) {
             	return;
            	} else {
@@ -110,20 +109,20 @@ class VotesController extends AppController {
            			$this->Session->setFlash('There are errors in your vote.');
            			return;
            		}
-           		$vote['title'] = $this->data['title'];
-           		$vote['modified'] = date('Y-m-d');
+           		$doc['title'] = $this->data['title'];
+           		$doc['modified'] = date('Y-m-d');
            		$i = 0;
            		for ($i=1;;$i++) {
            			if (isset($this->data['Vote']['choice'.$i])) {
-						$vote['choice'.$i] = $this->data['Vote']['choice'.$i];
-						$vote['answer'.$i] = 0; 
+						$doc['choice'.$i] = $this->data['Vote']['choice'.$i];
+						$doc['answer'.$i] = 0; 
 					} else {
 						break;
 					}
            		}
-           		$vote['choices'] = $i - 1;
+           		$doc['choices'] = $i - 1;
            		try {
-                	$collection->update(array('_id' => new MongoId($id)), $vote, array('safe' => true));
+                	$collection->update(array('_id' => new MongoId($id)), $doc, array('safe' => true));
                 	$this->Session->setFlash('The vote with id: '.$id.' has been modified.');
                 	$this->redirect(array('action' => 'index'));
            		} catch (MongoCursorException $e) {
