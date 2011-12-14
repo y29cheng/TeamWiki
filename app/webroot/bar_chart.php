@@ -9,20 +9,20 @@
 // 	$values['choice'.($i+1)] = $vote['answer'.($i+1)];
 // }
 // echo "hi there";
-require('../vendors/iredis.php');
-$id = $_POST['id'];
-$redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
-$redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
+// require('../vendors/iredis.php');
+// $id = $_POST['id'];
+// $redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
+// $redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
 
-$r1 = $redis->hget('vote'.$id, 'a1');
-$r2 = $redis->hget('vote'.$id, 'a2');
-$r3 = $redis->hget('vote'.$id, 'a3');
-$r4 = $redis->hget('vote'.$id, 'a4');
+// $r1 = $redis->hget('vote'.$id, 'a1');
+// $r2 = $redis->hget('vote'.$id, 'a2');
+// $r3 = $redis->hget('vote'.$id, 'a3');
+// $r4 = $redis->hget('vote'.$id, 'a4');
 $values = array(
-	'A.' => $r1,
-	'B.' => $r2,
-	'C.' => $r3,
-	'D.' => $r4
+	'A.' => 1,
+	'B.' => 2,
+	'C.' => 3,
+	'D.' => 4
 );
 
 $img_width = 450;
