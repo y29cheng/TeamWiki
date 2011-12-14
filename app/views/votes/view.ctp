@@ -1,4 +1,9 @@
 <!-- File: /app/views/votes/view.ctp -->
+<html>
+<head>
+<?php echo $javascript->link('barGraph.js', false); ?>
+</head>
+<body>
 <p><?php echo $vote['title']?></p>
 <?php
 $count = $vote['choices'];
@@ -10,7 +15,6 @@ for ($i=0;$i<$count;$i++) {
 </p>
 <?php } ?>
 <canvas id="bar_graph"></canvas>
-<?php echo $javascript->link('barGraph.js', false); ?>
 <script>
 var ctx = document.getElementById('bar_graph').getContext('2d');
 var graph = new BarGraph(ctx);
@@ -27,6 +31,5 @@ for (var i = 0; i < nbr; i++) {
 }
 graph.update(arr);
 </script>
-<!--<form method="post" action="http://teamwiki.phpfogapp.com/bar_chart.php">
-<input type="hidden" name="id" value=<?php echo $id ?>>
-<input type="submit" value="Show Result">-->
+</body>
+</html>
