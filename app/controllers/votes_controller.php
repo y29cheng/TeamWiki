@@ -72,7 +72,7 @@ class VotesController extends AppController {
             $this->redirect(array('controller' => 'users', 'action' => 'login'));
         	return;
         }
-        if ($username != $vote['owner']) {
+        if ($username != $vote['owner']."") {
         	$this->Session->setFlash('You can\'t delete other users\' vote.');
             $this->redirect(array('action' => 'index'));
         } else {
@@ -95,8 +95,8 @@ class VotesController extends AppController {
        		$this->redirect(array('controller' => 'users', 'action' => 'login'));
             return;
         }
-        if ($username != $vote['owner']) {
-        	$this->Session->setFlash($vote['owner']);
+        if ($username != $vote['owner']."") {
+        	$this->Session->setFlash('You can\'t edit other users\' votes.');
             $this->redirect(array('action' => 'index'));
         } else {
         	$this->set('vote', $vote);
