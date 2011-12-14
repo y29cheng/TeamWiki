@@ -1,19 +1,20 @@
-<!-- File: /app/views/votes/edit.ctp -->
+<!-- File: /app/views/votes/add.ctp -->
 <html>
 <head>
 <?php echo $javascript->link('myscript.js', false); ?>
 </head>
 <body>
-<h1>Add Vote</h1>
+<h1>Edit Vote</h1>
 <?php
 echo $this->Form->create('Vote');
-echo $this->Form->input('owner', array('type' => 'hidden'));
+echo $this->Form->input('owner', array('type' => 'hidden', 'value' => $vote['owner']));
 ?>
 <div id="dynamicFields">
 <?php
-echo $this->Form->input('title');
-echo $this->Form->input('choice1');
-echo $this->Form->input('choice2');
+echo $this->Form->input('title', array('value' => $vote['title']));
+for ($i=0;$i<$vote['choices'];$i++) {
+	echo $this->Form->input('choice'.($i+1), array('value' => $vote['choice'.($i+1)]));
+}
 ?>
 </div>
 <?php
@@ -23,3 +24,4 @@ echo $this->Form->end('Save Vote');
 ?>
 </body>
 </html>
+

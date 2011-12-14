@@ -99,8 +99,9 @@ class VotesController extends AppController {
         	$this->Session->setFlash('You can\'t edit other users\' vote.');
             $this->redirect(array('action' => 'index'));
         } else {
+        	$this->Vote->set('vote', $vote);
             if (empty($this->data)) {
-            	$this->data = $vote;
+            	return;
            	} else {
            		$input = new InputHelper();
            		if (!$input->validate($this->data)) {
@@ -120,7 +121,7 @@ class VotesController extends AppController {
            		}
            		$vote['choices'] = $i - 1;
            		try {
-                	$collection->update(array('_id' => new MongoId($id)), $this->data, array('safe' => true));
+                	$collection->update(array('_id' => new MongoId($id)), $vote, array('safe' => true));
                 	$this->Session->setFlash('The vote with id: '.$id.' has been modified.');
                 	$this->redirect(array('action' => 'index'));
            		} catch (MongoCursorException $e) {
