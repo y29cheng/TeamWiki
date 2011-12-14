@@ -95,11 +95,11 @@ class VotesController extends AppController {
        		$this->redirect(array('controller' => 'users', 'action' => 'login'));
             return;
         }
-        if ($username != $doc['owner']) {
-        	$this->Session->setFlash('You can\'t edit other users\' votes.');
-        	$this->Session->setFlash($doc['choices']);
-            $this->redirect(array('action' => 'index'));
-        } else {
+//         if ($username != $doc['owner']) {
+//         	$this->Session->setFlash('You can\'t edit other users\' votes.');
+//         	$this->Session->setFlash($doc['choices']);
+//             $this->redirect(array('action' => 'index'));
+//         } else {
         	$this->set('vote', $doc);
             if (empty($this->data)) {
             	return;
@@ -129,7 +129,7 @@ class VotesController extends AppController {
            			$this->Session->setFlash('The vote with id: '.$id.' is not modified.');
            		}
             }
-        }
+//         }
     }
 	function vote($id1, $id2) {
 		$vote = $this->Vote->findById($id1);
