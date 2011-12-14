@@ -1,14 +1,25 @@
 <!-- File: /app/views/votes/edit.ctp -->
-
-<h1>Edit Vote</h1>
+<html>
+<head>
+<?php echo $javascript->link('myscript.js', false); ?>
+</head>
+<body>
+<h1>Add Vote</h1>
 <?php
-echo $this->Form->create('Vote', array('action' => 'edit'));
-echo $this->Form->input('title', array('rows' => '3'));
+echo $this->Form->create('Vote');
+echo $this->Form->input('owner', array('type' => 'hidden'));
+?>
+<div id="dynamicFields">
+<?php
+echo $this->Form->input('title');
 echo $this->Form->input('choice1');
 echo $this->Form->input('choice2');
-echo $this->Form->input('choice3');
-echo $this->Form->input('choice4');
-echo $this->Form->input('id', array('type' => 'hidden'));
+?>
+</div>
+<?php
+echo $this->Form->button('Add Row', array('type' => 'button', 'onclick' => "addInput('dynamicFields')"));
+echo $this->Form->button('Delete Row', array('type' => 'button', 'onclick' => "deleteInput('dynamicFields')"));
 echo $this->Form->end('Save Vote');
 ?>
-
+</body>
+</html>
