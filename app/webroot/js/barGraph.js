@@ -73,7 +73,7 @@ function BarGraph(ctx) {
 	this.margin = 5;
 	this.xAxisLabelArr = [];
 	this.yAxisLabelArr = [];
-	this.bgColor = #fff;
+	this.bgColor = "#fff";
 	
 	this.update = function(arr) {
 		draw(arr);
