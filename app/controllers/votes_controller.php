@@ -96,7 +96,7 @@ class VotesController extends AppController {
             return;
         }
         if ($username != $vote['owner']) {
-        	$this->Session->setFlash($username);
+        	$this->Session->setFlash($vote['owner']);
             $this->redirect(array('action' => 'index'));
         } else {
         	$this->set('vote', $vote);
@@ -125,7 +125,7 @@ class VotesController extends AppController {
                 	$this->Session->setFlash('The vote with id: '.$id.' has been modified.');
                 	$this->redirect(array('action' => 'index'));
            		} catch (MongoCursorException $e) {
-           			$this->Session ->setFlash('The vote with id: '.$id.' is not modified.');
+           			$this->Session->setFlash('The vote with id: '.$id.' is not modified.');
            		}
             }
         }
