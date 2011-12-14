@@ -1,9 +1,4 @@
 <!-- File: /app/views/votes/view.ctp -->
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
 <p><?php echo $vote['title']?></p>
 <?php
 $count = $vote['choices'];
@@ -18,7 +13,7 @@ for ($i=0;$i<$count;$i++) {
 <script src="../../webroot/js/barGraph.js"></script>
 <script>
 var ctx = document.getElementById('bar_graph').getContext('2d');
-var graph = new BarGraph(ctx);
+var graph = BarGraph(ctx);
 var div = document.getElementById('content');
 var links = div.getElementsByTagName('a');
 var nbr = links.length;
@@ -32,5 +27,3 @@ for (var i = 0; i < nbr; i++) {
 }
 graph.update(arr);
 </script>
-</body>
-</html>
