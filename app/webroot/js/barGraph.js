@@ -1,7 +1,7 @@
 function BarGraph(ctx) {
 	//private
 	var that = this;
-	var.draw = function (arr) {
+	var draw = function (arr) {
 		var numOfBars = arr.length;
 		var barWidth;
 		var barHeight;
