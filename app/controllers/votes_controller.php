@@ -86,11 +86,13 @@ class VotesController extends AppController {
         	}
         }
     }
+    $doc = array();
 	function edit($id = null) {
-		$m = new MongoHelper();
-		$collection = $m->connect();
-		$doc = $collection->findOne(array('_id' => new MongoId($id)));
-		$this->Vote->id = $id;
+		if (empty($doc)) {
+			$m = new MongoHelper();
+			$collection = $m->connect();
+			$doc = $collection->findOne(array('_id' => new MongoId($id)));
+		}
         $username = $this->Session->read('user');
       	if (!$username) {
        		$this->redirect(array('controller' => 'users', 'action' => 'login'));
@@ -98,7 +100,6 @@ class VotesController extends AppController {
         }
         if ($username != $doc['owner']) {
         	$this->Session->setFlash('You can\'t edit other users\' votes.');
-        	$this->Session->setFlash($doc['choices']);
             $this->redirect(array('action' => 'index'));
         } else {
         	$this->set('vote', $doc);
