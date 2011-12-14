@@ -94,8 +94,6 @@ class VotesController extends AppController {
 		} else {
 			$id = $this->data['Vote']['id'];
 			$doc = $collection->findOne(array('_id' => new MongoId($id)));
-// 			$this->Session->setFlash($this->data['Vote']['id']."");
-// 			return;
 		}
 		$this->set('vote', $doc);
         $username = $this->Session->read('user');
