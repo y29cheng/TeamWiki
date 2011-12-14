@@ -86,7 +86,7 @@ class VotesController extends AppController {
         	}
         }
     }
-	function edit($id = null) {
+	function edit($id) {
 		$m = new MongoHelper();
 		$collection = $m->connect();
 		$vote = $collection->findOne(array('_id' => new MongoId($id)));
