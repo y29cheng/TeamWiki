@@ -1,9 +1,4 @@
 <!-- File: /app/views/votes/view.ctp -->
-<!DOCTYPE html>
-<html
-<head>
-</head>
-<body>
 <p><?php echo $vote['title']?></p>
 <?php
 $count = $vote['choices'];
@@ -32,5 +27,3 @@ for (var i = 0; i < nbr; i++) {
 }
 graph.update(arr);
 </script>
-</body>
-</html
