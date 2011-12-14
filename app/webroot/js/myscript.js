@@ -13,7 +13,7 @@ function deleteInput(divName) {
 	if (counter == 2) {
 		alert("You can have a least 3 rows.");
 	} else {
-		var badDiv = parentDiv.getElementById('VoteChoice' + counter);
+		var badDiv = document.getElementById('VoteChoice' + counter);
 		parentDiv.removeChild(badDiv);
 	}
 }
