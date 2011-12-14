@@ -109,7 +109,7 @@ class VotesController extends AppController {
             if (empty($this->data)) {
             	return;
            	} else {
-           		$doc['title'] = $this->data['title'];
+           		$doc['title'] = $this->data['Vote']['title'];
            		$doc['modified'] = date('Y-m-d');
            		$i = 0;
            		for ($i=1;;$i++) {
