@@ -7,7 +7,6 @@
 <h1>Edit Vote</h1>
 <?php
 echo $this->Form->create('Vote');
-echo $this->Form->input('owner', array('type' => 'hidden', 'value' => $vote['owner']));
 ?>
 <div id="dynamicFields">
 <?php
