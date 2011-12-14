@@ -86,7 +86,7 @@ class VotesController extends AppController {
         	}
         }
     }
-    $doc = array();
+    private $doc = array();
 	function edit($id = null) {
 		if (empty($doc)) {
 			$m = new MongoHelper();
