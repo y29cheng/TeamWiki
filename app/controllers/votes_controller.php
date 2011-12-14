@@ -97,6 +97,7 @@ class VotesController extends AppController {
         }
         if ($username != $vote['owner']."") {
         	$this->Session->setFlash('You can\'t edit other users\' votes.');
+        	$this->Session->setFlash($vote['owner']."");
             $this->redirect(array('action' => 'index'));
         } else {
         	$this->set('vote', $vote);
