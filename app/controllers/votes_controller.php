@@ -79,6 +79,7 @@ class VotesController extends AppController {
         	try {
             	$collection->remove(array('_id' => new MongoId($id)), array('safe' => true));
             	$this->Session->setFlash('The vote with id: '.$id.' has been deleted.');
+            	$this->Session->setFlash($vote['owner']."");
             	$this->redirect(array('action' => 'index'));
         	} catch (MongoCusorException $e) {
         		$this->Session->setFlash('The vote with id: '.$id.' is not deleted.');
