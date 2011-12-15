@@ -39,8 +39,17 @@ function BarGraph(ctx) {
 			ratio = arr[i] / maxValue;
 			barHeight = maxBarHeight * ratio;
 			
+			ctx.shadowOffsetX = 2;
+			ctx.shadowOffsetY = 2;
+			ctx.shadowBlur = 2;
+			ctx.shadowColor = "#999";
+			
 			ctx.fillStyle = "#333";
 			ctx.fillRect(that.width / numOfBars * i + that.margin, graphAreaHeight - barHeight, barWidth, barHeight);
+			
+			ctx.shadowOffsetX = 0;
+			ctx.shadowOffsetY = 0;
+			ctx.shadowBlur = 0;
 			
 			ctx.fillStyle = "#333";
 			ctx.font = "bold 12px sans-serif";
@@ -48,6 +57,7 @@ function BarGraph(ctx) {
 			try {
 				ctx.fillText(parseInt(arr[i],10), i * that.width / numOfBars + (that.width / numOfBars) / 2, graphAreaHeight - barHeight - 10);
 			} catch (ex) {}
+			
 			if (that.xAxisLabelArr[i]) {
 				ctx.fillStyle = "#333";
 				ctx.font = "bold 12px sans-serif";
@@ -60,7 +70,7 @@ function BarGraph(ctx) {
 	};
 	//public
 	this.width = 450;
-	this.height = 300;
+	this.height = 150;
 	this.margin = 5;
 	this.xAxisLabelArr = [];
 	this.yAxisLabelArr = [];
