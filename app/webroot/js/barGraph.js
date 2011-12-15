@@ -36,7 +36,7 @@ function BarGraph(ctx) {
 		
 		var ratio;
 		for (var i = 0; i < numOfBars; i++) {
-			ratio = arr[i] / maxValue;
+			ratio = (maxValue == 0) ? 0 : arr[i] / maxValue;
 			barHeight = maxBarHeight * ratio;
 			
 			ctx.shadowOffsetX = 2;
