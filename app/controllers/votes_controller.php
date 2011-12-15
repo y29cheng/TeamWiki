@@ -5,13 +5,13 @@ App::import('Helper', 'Mongo');
 class VotesController extends AppController {
 	public $helpers = array('Html', 'Form', 'Javascript', 'Input', 'Mongo');
 	public $name = 'votes';
-	var $user = 'georgeC';
-	var $pass = 'T3aMW1k14PP';
+	private $user = 'georgeC';
+	private $pass = 'T3aMW1k14PP';
 	function index() {
 		$username = $this->Session->read('user');
         	if ($username) {
         		$m = new MongoHelper();
-                $collection = $m->connect($user, $pass);
+                $collection = $m->connect($this->user, $this->pass);
                 $this->set('votes', $collection->find());
             } else {
                 $this->redirect(array('controller' => 'users', 'action' => 'login'));
@@ -24,7 +24,7 @@ class VotesController extends AppController {
             return;
    	    }
         $m = new MongoHelper();
-        $collection = $m->connect($user, $pass);
+        $collection = $m->connect($this->user, $this->pass);
    	    $this->set('vote', $collection->findOne(array('_id' => new MongoId($id))));
     }
 	function add() {
@@ -56,7 +56,7 @@ class VotesController extends AppController {
 				return;
 			}
 			$m = new MongoHelper();
-            $collection = $m->connect($user, $pass);
+            $collection = $m->connect($this->user, $this->pass);
             try {
 				$collection->insert($obj, array('safe' => true));
 				$this->Session->setFlash('Your vote has been saved.');
@@ -68,7 +68,7 @@ class VotesController extends AppController {
     }
 	function delete($id) {
 		$m = new MongoHelper();
-		$collection = $m->connect($user, $pass);
+		$collection = $m->connect($this->user, $this->pass);
     	$vote = $collection->findOne(array('_id' => new MongoId($id)));
         $username = $this->Session->read('user');
         if (!$username) {
@@ -91,7 +91,7 @@ class VotesController extends AppController {
     }
 	function edit($id = null) {
 		$m = new MongoHelper();
-		$collection = $m->connect($user, $pass);
+		$collection = $m->connect($this->user, $this->pass);
 		if (!empty($id)) {
 			$doc = $collection->findOne(array('_id' => new MongoId($id)));
 		} else {
@@ -141,7 +141,7 @@ class VotesController extends AppController {
     }
 	function vote($id1, $id2) {
 		$mongo = new MongoHelper();
-		$collection = $mongo->connect($user, $pass);
+		$collection = $mongo->connect($this->user, $this->pass);
 		$vote = $collection->findOne(array('_id' => new MongoId($id1)));
 		$username = $this->Session->read('user');
        	if (!$username) {
