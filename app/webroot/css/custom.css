@@ -22,7 +22,7 @@
 #navbar li:hover ul, #navbar li.hover ul {
 	display: block;
 	position: absolute;
-	margin: 2px;
+	margin: 0;
 	padding: 0; }
 #navbar li:hover li, #navbar li.hover li {
 	float: none; }
