@@ -9,7 +9,7 @@ function BarGraph(ctx) {
 		var gradient;
 		var graphAreaWidth = that.width;
 		var graphAreaHeight = that.height;
-		alert(arr[0]);
+		
 		if (ctx.canvas.width !== that.width || ctx.canvas.height !== that.height) {
 			ctx.canvas.width = that.width;
 			ctx.canvas.height = that.height;
