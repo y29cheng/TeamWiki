@@ -60,7 +60,7 @@ function BarGraph(ctx) {
 	};
 	//public
 	this.width = 450;
-	this.height = 150;
+	this.height = 300;
 	this.margin = 5;
 	this.xAxisLabelArr = [];
 	this.yAxisLabelArr = [];
