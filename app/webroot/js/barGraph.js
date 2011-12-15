@@ -39,17 +39,8 @@ function BarGraph(ctx) {
 			ratio = arr[i] / maxValue;
 			barHeight = maxBarHeight * ratio;
 			
-			ctx.shadowOffsetX = 2;
-			ctx.shadowOffsetY = 2;
-			ctx.shadowBlur = 0;
-			ctx.shadowColor = "#999";
-			
 			ctx.fillStyle = "#333";
 			ctx.fillRect(that.width / numOfBars * i + that.margin, graphAreaHeight - barHeight, barWidth, barHeight);
-			
-			ctx.shadowOffsetX = 0;
-			ctx.shadowOffsetY = 0;
-			ctx.shadowBlur = 0;
 			
 			ctx.fillStyle = "#333";
 			ctx.font = "bold 12px sans-serif";
