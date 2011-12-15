@@ -111,6 +111,7 @@ class VotesController extends AppController {
            	} else {
            		$doc['title'] = $this->data['Vote']['title'];
            		$doc['modified'] = date('Y-m-d');
+           		$doc['voters'] = array();
            		$i = 0;
            		for ($i=1;;$i++) {
            			if (isset($this->data['Vote']['choice'.$i])) {
