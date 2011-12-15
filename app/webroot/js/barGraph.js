@@ -58,7 +58,7 @@ function BarGraph(ctx) {
 				ctx.fillText(parseInt(arr[i],10), i * that.width / numOfBars + (that.width / numOfBars) / 2, graphAreaHeight - barHeight - 10);
 			} catch (ex) {}
 			
-			if (that.xAxisLabelArr[i]) {
+			if (that.xAxisLabelArr[i] && numOfBars < 10) {
 				ctx.fillStyle = "#333";
 				ctx.font = "bold 12px sans-serif";
 				ctx.textAlign = "center";
