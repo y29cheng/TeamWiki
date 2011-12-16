@@ -1,10 +1,10 @@
 <?php
-App::import('Helper', 'mongo');
-// require('db_info.php');
+require('mongo_info.php');
 // $connect = mysql_connect($host, $user, $pass) or die ("unable to connect to ".$host);
 // mysql_select_db($db, $connect);
-$m = new MongoHelper();
-$collection = $m->connect("georgeC", "T3aMW1k14PP");
+$mongo = new Mongo("mongodb://".$mongo_user.":".$mongo_pass."@staff.mongohq.com:10056/teamwiki");
+$mongodb = $mongo->teamwiki;
+$collection = $mongodb->votes;
 $votes = $collection.find();
 // $query = "select id, owner, title, choice1, choice2, choice3, choice4 from votes";
 // $result = mysql_query($query);
