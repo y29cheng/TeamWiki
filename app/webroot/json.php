@@ -8,5 +8,5 @@ $arr = array();
 while ($obj = mysql_fetch_object($result)) {
         $arr[] = $obj;
 }
-echo '{"votes":'.json_encode($votes).'}';
+echo '{"votes":'.json_encode($arr).'}';
 ?>
