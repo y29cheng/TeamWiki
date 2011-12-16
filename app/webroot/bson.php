@@ -1,5 +1,5 @@
 <?php
-require('../views/helpers/mongo.php');
+App::import('Helper', 'mongo');
 // require('db_info.php');
 // $connect = mysql_connect($host, $user, $pass) or die ("unable to connect to ".$host);
 // mysql_select_db($db, $connect);
