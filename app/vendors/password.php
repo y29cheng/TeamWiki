@@ -1,5 +1,5 @@
 <?php
-require('../webroot/db_info.php');
+require('../db_info.php');
 function generate_password() {
 	$length = 10;
 	$characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
