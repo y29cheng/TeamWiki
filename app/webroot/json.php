@@ -9,13 +9,8 @@
 //         $arr[] = $obj;
 // }
 // echo '{"votes":'.json_encode($arr).'}';
-// require('mongo_info.php');
-try {
-	$mongo = new Mongo("mongodb://georgeC:T3aMW1k14PP@staff.mongohq.com:10056/teamwiki");
-} catch (MongoConnectionException $e) {
-	echo "Caught exception: ", e->getMessage(), "\n";
-	return; 
-}
+require('mongo_info.php');
+$mongo = new Mongo("mongodb://".$mongo_user.":".$mongo_pass."@dbh54.mongolab.com:27547/teamwiki");
 $mongodb = $mongo->teamwiki;
 $votes = $mongodb->votes;
 $cursor = $votes.find();
