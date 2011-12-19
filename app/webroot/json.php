@@ -9,8 +9,8 @@
 //         $arr[] = $obj;
 // }
 // echo '{"votes":'.json_encode($arr).'}';
-require('mongo_info.php');
-$mongo = new Mongo("mongodb://".$mongo_user.":".$mongo_pass."@staff.mongohq.com:10056/teamwiki");
+// require('mongo_info.php');
+$mongo = new Mongo("mongodb://georgeC:T3aMW1k14PP@staff.mongohq.com:10056/teamwiki");
 $mongodb = $mongo->teamwiki;
 $votes = $mongodb->votes;
 $cursor = $votes.find();
