@@ -1,5 +1,5 @@
 <?php
-require('db_info.php');
+require('../db_info.php');
 require('../vendors/iredis.php');
 $connect = mysql_connect($host, $user, $pass) or die ("unable to connect to ".$host);
 $owner = mysql_real_escape_string($_POST['owner'], $connect);

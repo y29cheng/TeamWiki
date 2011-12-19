@@ -1,5 +1,5 @@
 <?php
-require('db_info.php');
+require('../db_info.php');
 $connect = mysql_connect($host, $user, $pass) or die ("unable to connect to ".$host);
 $id = mysql_real_escape_string($_POST['id'], $connect);
 $owner = mysql_real_escape_string($_POST['owner'], $connect);
