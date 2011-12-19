@@ -36,4 +36,5 @@ foreach ($data as $item) {
 }
 $jsontext = substr_replace($jsontext, '', -1);
 $jsontext .= "]}";
+echo $jsontext;
 ?>
