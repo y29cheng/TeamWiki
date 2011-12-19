@@ -13,7 +13,7 @@ require('mongo_info.php');
 $mongo = new Mongo("mongodb://".$mongo_user.":".$mongo_pass."@staff.mongohq.com:10056/teamwiki");
 $mongodb = $mongo->teamwiki;
 $votes = $mongodb->votes;
-$cursor = $collection.find();
+$cursor = $votes.find();
 $jsontext = "{votes:[";
 $data = array();
 while ($cursor.hasNext()) {
