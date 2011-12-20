@@ -1,5 +1,5 @@
 <?php
-// require('../db_info.php');
+require('../db_info.php');
 // $connect = mysql_connect($host, $user, $pass) or die ("unable to connect to ".$host);
 // mysql_select_db($db, $connect);
 // $query = "select id, owner, title, choice1, choice2, choice3, choice4 from votes";
@@ -9,7 +9,7 @@
 //         $arr[] = $obj;
 // }
 // echo '{"votes":'.json_encode($arr).'}';
-$url='https://api.mongolab.com/api/1/databases/teamwiki/collections/votes?apiKey=4eef72abe4b092a677cdf360'; //rss link for the twitter timeline
+$url='https://api.mongolab.com/api/1/databases/teamwiki/collections/votes?apiKey='.$apiKey; //api link for mongolab json
 print_r(get_data($url)); //dumps the content, you can manipulate as you wish to
 
 /* gets the data from a URL */
