@@ -46,19 +46,3 @@ try {
 // }
 // echo 'success';
 ?>
-<!--<html>
-<head>
-<script src="http://code.jquery.com/jquery-latest.js"</script>
-</head>
-<body>
-<script>
-$.ajax({
-	url: 'https://api.mongolab.com/api/1/databases/teamwiki/collections/votes?apiKey=' + <?php echo $apiKey; ?> +'&q={"_id":' + <?php echo $index; ?> + '}',
-	data: JSON.stringify({"$inc":{"choice" + <?php echo $choice; ?>: 1}}),
-	type: "PUT",
-	contentType: "application/json",
-});
-</script>
-</body>
-</html>-->
-
