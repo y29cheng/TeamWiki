@@ -8,7 +8,7 @@ $m = new Mongo("mongodb://".$mongo_user.":".$mongo_pass."@dbh54.mongolab.com:275
 $db = $m->teamwiki;
 $votes = $db->votes;
 try {
-	$votes->update(array("_id" => new MongoId($index)), array('$inc' => array("answer".$choice, 1)), array('safe' => true));
+	$votes->update(array('_id' => new MongoId($index)), array('$inc' => array('answer'.$choice => 1)), array('safe' => true));
 	echo "success";
 } catch (Exception $e) {
 	echo "error";
