@@ -1,8 +1,18 @@
 <?php
-require('../vendors/iredis.php');
+// require('../vendors/iredis.php');
+require('../db_info.php');
 $username = $_POST['username'];
 $index = $_POST['index'];
 $choice = $_POST['choice'];
+$m = new Mongo("mongodb://".$mongo_user.":".$mongo_pass."@dbh54.mongolab.com:27547/teamwiki");
+$db = $m->teamwiki;
+$votes = $db->votes;
+try {
+	$votes->update(array("_id" => new MongoId($index)), array('$inc' => array("answer".$choice, 1)), array('safe' => true));
+	echo "success";
+} catch (Exception $e) {
+	echo "error";
+}
 // $redis = new iRedis(array('hostname' => '50.30.35.9', 'port' => 2117));
 // $redis->auth('f0493aeaecd8799a1ecdb5ca9193e0e6');
 // $len = $redis->llen('voters'.$index);
@@ -36,7 +46,7 @@ $choice = $_POST['choice'];
 // }
 // echo 'success';
 ?>
-<html>
+<!--<html>
 <head>
 <script src="http://code.jquery.com/jquery-latest.js"</script>
 </head>
@@ -47,14 +57,8 @@ $.ajax({
 	data: JSON.stringify({"$inc":{"choice" + <?php echo $choice; ?>: 1}}),
 	type: "PUT",
 	contentType: "application/json",
-	success: function() {
-		document.write("success");
-	},
-	error: function() {
-		document.write("error");
-	}
 });
 </script>
 </body>
-</html>
+</html>-->
 
