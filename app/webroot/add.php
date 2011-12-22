@@ -13,7 +13,7 @@ for ($i = 0; $i < $counter; $i++) {
 }
 $obj['created'] = date("Y-m-d", time());
 $obj['modified'] = $obj['created'];
-$obj['choices'] = $counter;
+$obj['choices'] = $counter - 1;
 $m = new Mongo("mongodb://".$mongo_user.":".$mongo_pass."@dbh54.mongolab.com:27547/teamwiki");
 $db = $m->teamwiki;
 $votes = $db->votes;
