@@ -9,6 +9,13 @@ $db = $m->teamwiki;
 $votes = $db->votes;
 $vote = $votes->findOne(array('_id' => new MongoId($index)));
 $voters = $vote['voters'];
+$len = count($voters);
+for ($i = 0; $i < $len; $i++) {
+	if ($username === $voters[$i]) {
+		echo "error";
+		return;
+	}
+}
 $voters[] = $username;
 try {
 	$votes->update(array('_id' => new MongoId($index)), array('$inc' => array('answer'.$choice => 1), '$set' => array('voters' => $voters)), array('safe' => true));
