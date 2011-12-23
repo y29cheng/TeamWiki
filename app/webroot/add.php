@@ -9,6 +9,7 @@ for ($i = 0; $i < $counter; $i++) {
 		$obj['title'] = $_POST['title'];
 	} else {
 		$obj['choice'.$i] = $_POST['choice'.$i];
+		$obj['answer'.$i] = 0;
 	}
 }
 $obj['created'] = date("Y-m-d", time());
