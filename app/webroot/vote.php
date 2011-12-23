@@ -7,8 +7,11 @@ $choice = $_POST['choice'];
 $m = new Mongo("mongodb://".$mongo_user.":".$mongo_pass."@dbh54.mongolab.com:27547/teamwiki");
 $db = $m->teamwiki;
 $votes = $db->votes;
+$vote = $votes->findOne(array('_id' => new MongoId($index)));
+$voters = $vote['voters'];
+$voters[] = $username;
 try {
-	$votes->update(array('_id' => new MongoId($index)), array('$inc' => array('answer'.$choice => 1)), array('safe' => true));
+	$votes->update(array('_id' => new MongoId($index)), array('$inc' => array('answer'.$choice => 1), '$set' => array('voters' => $voters)), array('safe' => true));
 	echo "success";
 } catch (Exception $e) {
 	echo "error";
