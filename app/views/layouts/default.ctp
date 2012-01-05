@@ -51,12 +51,15 @@
 				<?php if (!$this->Session->check('user')) { ?>
 				<li><?php echo $this->Html->link('Register', array('controller' => 'users', 'action' => 'register')); ?></li>
 				<?php } ?>
-				<li><a href="http://teamwiki.phpfogapp.com/resume.html">About Me</a></li>
+				<li><a href="/resume.html">About Me</a></li>
 				<?php if ($this->Session->check('user')) { ?>
 				<li><a href="#">Setting</a><ul>
 					<li><?php echo $this->Html->link('Update Profile', array('controller' => 'users', 'action' => 'update_profile')); ?></li></ul>
 				</li>
 				<?php } ?>
+				<li><a href="#">Android App</a><ul>
+					<li><a href="/PeerVote.apk">Download</a></li></ul>
+				</li>
 			</ul>
                 </div>
 		<div id="content">
