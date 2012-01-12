@@ -1,6 +1,6 @@
-TeamWiki is a php project built on CakePHP framework. What it does is providing a platform for users to share social information. It also provides a certain level of interaction.
+TeamWiki is a php project built on CakePHP framework. It provides a platform forinformation sharing. The highlight of this application is the voting tool. There is also an mobile application which integrates this voting tool with android phones.
 
-The project has a running cloud-based server hosted on phpfog.org. Check it out at teamwiki.phpfog.com. 
+The project has a running cloud-based server hosted on phpfog.org. Check it out at teamwiki.phpfog.com, where you can also download the android app. (Be sure to check Unknown Sources on your phone before download.)
 
 Note that I made the entire project to learn php and for fun. Source code is open for all watchers, but use at your own risk!
 
