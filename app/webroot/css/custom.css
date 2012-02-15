@@ -62,6 +62,8 @@ footer img{
 }
 footer #clock {
 	clear: both;
+	float: right;
+	color: #1c1c1c;
 }
 /* styling forms */
 form label {
