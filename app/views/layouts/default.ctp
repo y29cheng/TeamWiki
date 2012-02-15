@@ -17,8 +17,8 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
@@ -37,9 +37,11 @@
         ?>
 </head>
 <body onload="clock(); setInterval('clock()', 1000)">
-	<div id="container">
-		<div id="header">
-			<ul id="navbar">
+	<header>
+		<h1>PeerVote - Voting Made Easier</h1>
+	</header>
+	<nav>
+			<ul>
 				<li><?php echo $this->Html->link('Posts', array('controller' => 'posts', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link('Blogs', array('controller' => 'blogs', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link('Votes', array('controller' => 'votes', 'action' => 'index')); ?></li>
@@ -61,19 +63,17 @@
 					<li><a href="/PeerVote.apk">Download</a></li></ul>
 				</li>
 			</ul>
-                </div>
-		<div id="content">
+    </nav>
+	<section>
 
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $content_for_layout; ?>
 
-		</div>
-		<div id="footer">
+	</section>
+	<footer>
 			<p><a href="http://www.mongodb.org"><img src="http://www.mongodb.org/download/attachments/132305/PoweredMongoDBgreen50.png?version=1&modificationDate=1247081595817" alt="powered by mongoDB" /></a></p>
 			<p>current time: <span id="clock">&nbsp;</span></p>
-                </div>
-
-	</div>
+    </footer>
 </body>
 </html>
