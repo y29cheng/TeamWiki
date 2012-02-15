@@ -55,3 +55,7 @@ nav ul li a:hover {
 section {
 	margin-top: 50px;
 }
+/* styling forms */
+form label {
+	color: #1c1c1c;
+}
