@@ -1,4 +1,3 @@
-<h1>Register</h1>
 <?php
 echo $this->Form->create('User');
 echo $this->Form->input('first_name');

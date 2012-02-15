@@ -15,7 +15,7 @@ header {
 	margin-top: 5px;
 	background: inherit;
 }
-h1 {
+header h1 {
 	color: #000;
 	font-size: 30px;
 	background: inherit;
@@ -51,8 +51,9 @@ nav ul li a {
 nav ul li a:hover {
 	color: #fff;
 }
+/* styling sction */
 section {
 	position: absolute:
 	left: 0;
-	top: 50px;
+	top: 80px;
 }

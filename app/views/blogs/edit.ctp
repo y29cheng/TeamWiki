@@ -1,6 +1,5 @@
 <!-- File: /app/views/blogs/edit.ctp -->
 
-<h1>Edit Blog</h1>
 <?php
         echo $this->Form->create('Blog', array('action' => 'edit'));
         echo $this->Form->input('title');

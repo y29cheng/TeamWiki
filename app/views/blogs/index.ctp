@@ -1,5 +1,4 @@
 <!-- File: /app/views/blogs/index.ctp -->
-<h1>Team Blogs</h1>
 <?php echo $this->Html->link('Add Blog', array('controller' => 'blogs', 'action' => 'add')); ?>
 <table>
 	<tr>

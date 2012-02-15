@@ -1,6 +1,5 @@
 <!-- File: /app/views/blogs/add.ctp -->
 
-<h1>Add Blog</h1>
 <?php
 echo $this->Form->create('Blog');
 echo $this->Form->input('title');

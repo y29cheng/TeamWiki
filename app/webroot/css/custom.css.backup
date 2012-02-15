@@ -1,0 +1,32 @@
+#footer p {
+	color: #003d4c;
+}
+#navbar {
+	margin: 0;
+	padding: 0;
+	height: 1em; }
+#navbar li {
+	display: inline;
+	list-style: none;
+	float: left; }
+#navbar li a {
+	display: block;
+	padding: 3px 8px;
+	background-color: #c0c0c0;
+	color: #003d4c;
+	text-decoration: none; }
+#navbar li ul {
+	display: none; 
+	width: 10em; /* Width to help Opera out */
+	background-color: #c0c0c0;}
+#navbar li:hover ul, #navbar li.hover ul {
+	display: block;
+	position: absolute;
+	margin: 0;
+	padding: 0; }
+#navbar li:hover li, #navbar li.hover li {
+	float: none; }
+#navbar li:hover li a, #navbar li.hover li a {
+	background-color: #c0c0c0;
+	border-bottom: 1px solid #c0c0c0;
+	color: #003d4c; }
