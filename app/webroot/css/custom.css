@@ -39,6 +39,7 @@ nav ul {
 }
 nav ul li {
 	float: left;
+	display: block;
 	font-size: 14px;
 	line-weight: 44px;
 	text-align: center;
