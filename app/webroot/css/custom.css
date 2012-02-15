@@ -52,6 +52,24 @@ nav ul li a {
 nav ul li a:hover {
 	color: #fff;
 }
+nav ul li ul {
+	display: none;
+	width: 30px;
+}
+nav ul li:hover ul {
+	display: block;
+	background: #1c1c1c;
+	position: absolute;
+}
+nav ul li:hover ul li {
+	clear: both;
+	float: left;
+}
+nav ul li:hover ul li a {
+	text-align: center;
+	text-decoration: none;
+	color: #777;
+}
 /* styling secion */
 section {
 	margin-top: 50px;
