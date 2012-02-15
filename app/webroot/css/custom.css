@@ -12,8 +12,7 @@ body {
 	background:#f0f0f0; 
 }
 header {
-	position: absolute;
-	top: 5px;
+	margin-top: 5px;
 	background: inherit;
 }
 h1 {
