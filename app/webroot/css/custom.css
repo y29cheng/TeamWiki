@@ -26,7 +26,10 @@ p {
 
 /* styling the nav bar */
 nav {
+	position: absolute;
 	width: 100%;
+	left: 0;
+	top: 30px;
 	background: #1c1c1c;
 }
 nav ul {
