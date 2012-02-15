@@ -57,8 +57,10 @@ section {
 	margin-top: 50px;
 }
 /* styling footer */
-footer p {
-	float: right;
+footer {
+	clear: both;
+	padding: 6px 10px;
+	text-align: right;
 }
 footer img {
 	display: block;
