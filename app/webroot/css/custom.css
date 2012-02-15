@@ -26,9 +26,7 @@ p {
 
 /* styling the nav bar */
 nav {
-	position: absolute;
 	width: 100%;
-	left: 0;
 	background: #1c1c1c;
 }
 nav ul {
@@ -50,10 +48,4 @@ nav ul li a {
 }
 nav ul li a:hover {
 	color: #fff;
-}
-/* styling sction */
-section {
-	position: relative;
-	left: 0;
-	top: 50px;
 }
