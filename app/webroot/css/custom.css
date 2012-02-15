@@ -39,6 +39,11 @@ nav ul {
 }
 nav ul li {
 	float: left;
+	font-size: 14px;
+	line-weight: 44px;
+	text-align: center;
+	text-decoration: none;
+	color: #777;
 }
 nav ul li a {
 	display: block;
@@ -54,7 +59,7 @@ nav ul li a:hover {
 }
 nav ul li ul {
 	display: none;
-	width: 30px;
+	width: 80px;
 }
 nav ul li:hover ul {
 	display: block;
