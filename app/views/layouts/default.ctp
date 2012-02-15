@@ -59,9 +59,7 @@
 					<li><?php echo $this->Html->link('Update Profile', array('controller' => 'users', 'action' => 'update_profile')); ?></li></ul>
 				</li>
 				<?php } ?>
-				<li><a href="#">Android App</a><ul>
-					<li><a href="/PeerVote.apk">Download</a></li></ul>
-				</li>
+				<li><a href="/PeerVote.apk">Android App</a></li>
 			</ul>
     </nav>
 	<section>
