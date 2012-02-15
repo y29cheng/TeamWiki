@@ -69,7 +69,7 @@
 	</section>
 	<footer>
 			<p><a href="http://www.mongodb.org"><img src="http://www.mongodb.org/download/attachments/132305/PoweredMongoDBgreen50.png?version=1&modificationDate=1247081595817" alt="powered by mongoDB" /></a></p>
-			<p>current time: <span id="clock">&nbsp;</span></p>
+			<p><span id="clock">&nbsp;</span></p>
     </footer>
 </body>
 </html>
