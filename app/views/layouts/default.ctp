@@ -55,9 +55,7 @@
 				<?php } ?>
 				<li><a href="/resume.html">About Me</a></li>
 				<?php if ($this->Session->check('user')) { ?>
-				<li><a href="#">Setting</a><ul>
-					<li><?php echo $this->Html->link('Update Profile', array('controller' => 'users', 'action' => 'update_profile')); ?></li></ul>
-				</li>
+					<li><?php echo $this->Html->link('Update Profile', array('controller' => 'users', 'action' => 'update_profile')); ?></li>
 				<?php } ?>
 				<li><a href="/PeerVote.apk">Android App</a></li>
 			</ul>
