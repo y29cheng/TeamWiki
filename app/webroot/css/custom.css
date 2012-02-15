@@ -52,3 +52,6 @@ nav ul li a {
 nav ul li a:hover {
 	color: #fff;
 }
+section {
+	margin-top: 10px;
+}
