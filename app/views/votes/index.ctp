@@ -1,7 +1,4 @@
 <!-- File: /app/views/votes/index.ctp -->
-<?php
-?>
-<h1>Team Votes</h1>
 <?php echo $this->Html->link('Add Vote', array('controller' => 'votes', 'action' => 'add')); ?>
 <table id="mytable">
         <tr value="-1">
