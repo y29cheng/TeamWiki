@@ -1,5 +1,4 @@
 <!-- File: /app/views/posts/index.ctp -->
-<?php echo 'Your logged in as ' . $this->Session->read('user') . '. Welcome!' ?>
 <?php echo $this->Html->link('Add Post', array('controller' => 'posts', 'action' => 'add')); ?>
 <table>
 	<tr>
