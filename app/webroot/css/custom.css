@@ -5,14 +5,14 @@
 header, footer, nav {
 	display: block;
 }
-header {
-	background: #f0f0f0;
-}
 body {
 	margin: 0 auto;
 	width: 940px;
 	font: 13px/22px Helvetica, Arial, sans-serif;
 	background:#f0f0f0; 
+}
+header {
+	background: inherit;
 }
 h1 {
 	color: #000;
