@@ -17,6 +17,7 @@ header {
 h1 {
 	color: #000;
 	font-size: 20px;
+	background: inherit;
 }
 p {
 	padding-bottom: 22px;
