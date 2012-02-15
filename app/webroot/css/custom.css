@@ -60,7 +60,7 @@ nav ul li a:hover {
 }
 nav ul li ul {
 	display: none;
-	width: 90px;
+	width: 100px;
 }
 nav ul li:hover ul {
 	display: block;
