@@ -57,7 +57,7 @@
 				<?php if ($this->Session->check('user')) { ?>
 					<li><?php echo $this->Html->link('Update Profile', array('controller' => 'users', 'action' => 'update_profile')); ?></li>
 				<?php } ?>
-				<li>Android App
+				<li><a href="/">Android App</a>
 					<ul>
 						<li><a href="/PeerVote.apk">Download</a></li>
 					</ul>
