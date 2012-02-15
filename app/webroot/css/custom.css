@@ -57,3 +57,7 @@ section {
 	left: 0;
 	top: 50px;
 }
+/* styling footer */
+footer {
+	position: static;
+}
