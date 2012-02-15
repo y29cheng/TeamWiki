@@ -55,7 +55,11 @@
 				<?php } ?>
 				<li><a href="/resume.html">About Me</a></li>
 				<?php if ($this->Session->check('user')) { ?>
-					<li><?php echo $this->Html->link('Update Profile', array('controller' => 'users', 'action' => 'update_profile')); ?></li>
+					<li><a href="/">Settings</a>
+						<ul>
+							<li><?php echo $this->Html->link('Update Profile', array('controller' => 'users', 'action' => 'update_profile')); ?></li>
+						</ul>
+					</li>
 				<?php } ?>
 				<li><a href="/">Android App</a>
 					<ul>
