@@ -60,6 +60,9 @@ section {
 footer p {
 	float: right;
 }
+footer img {
+	display: block;
+}
 /* styling forms */
 form label {
 	color: #1c1c1c;
