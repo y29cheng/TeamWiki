@@ -5,11 +5,18 @@
 header, footer, nav {
 	display: block;
 }
+header {
+	background: #f0f0f0;
+}
 body {
 	margin: 0 auto;
 	width: 940px;
 	font: 13px/22px Helvetica, Arial, sans-serif;
 	background:#f0f0f0; 
+}
+h1 {
+	color: #000;
+	font-size: 20px;
 }
 p {
 	padding-bottom: 22px;
