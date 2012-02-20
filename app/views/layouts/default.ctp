@@ -29,8 +29,8 @@
         echo $scripts_for_layout;
 		echo $javascript->link('clock.js');
     ?>
-    <link rel="stylesheet" type="text/css" href="/css/cake.generic.css" media="all">
-    <link rel="stylesheet" type="text/css" href="/css/custom.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/css/cake.generic.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" media="screen">
 </head>
 <body onload="clock(); setInterval('clock()', 1000)">
 	<header>
