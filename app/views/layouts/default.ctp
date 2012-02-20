@@ -27,9 +27,9 @@
 	<?php
                 echo $this->Html->meta('icon');
 
-                echo $this->Html->css('cake.generic', array('media' => 'handheld'));
+                echo $this->Html->css('cake.generic', array('media' => 'screen'));
 
-		echo $this->Html->css('custom', array('media' => 'handheld'));
+		echo $this->Html->css('custom', array('media' => 'screen'));
 
                 echo $scripts_for_layout;
 		
