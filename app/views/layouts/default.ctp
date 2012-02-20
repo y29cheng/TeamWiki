@@ -29,8 +29,8 @@
         echo $scripts_for_layout;
 		echo $javascript->link('clock.js');
     ?>
-    <link rel="stylesheet" type="text/css" href="/css/cake.generic.css" media="handheld, only screen and (max-device-width:480px)">
-    <link rel="stylesheet" type="text/css" href="/css/custom.css" media="handheld, only screen and (max-device-width: 480px)">
+    <link rel="stylesheet" type="text/css" href="/css/cake.generic.css" media="handheld, only screen and (max-width:480px)"/>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" media="handheld, only screen and (max-width: 480px)"/>
 </head>
 <body onload="clock(); setInterval('clock()', 1000)">
 	<header>
