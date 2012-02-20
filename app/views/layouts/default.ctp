@@ -30,7 +30,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
 	<?php
         echo $this->Html->meta('icon');
-        echo $this->Html->css(array('cake.generic', 'custom'), array('media' => 'handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)'));
+        echo $this->Html->css(array('cake.generic', 'custom'));
         echo $scripts_for_layout;
 		echo $javascript->link('clock.js');
     ?>
