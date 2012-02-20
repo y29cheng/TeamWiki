@@ -21,7 +21,9 @@
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>
 		<?php echo $title_for_layout." | teamwiki.phpfogapp.com"; ?>
 	</title>
