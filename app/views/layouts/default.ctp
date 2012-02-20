@@ -29,7 +29,6 @@
         echo $scripts_for_layout;
 		echo $javascript->link('clock.js');
     ?>
-    <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="/css/cake.generic.css" media="only screen and (max-device-width:480px)" />
     <link rel="stylesheet" type="text/css" href="/css/custom.css" media="only screen and (max-device-width: 480px)" />
 </head>
