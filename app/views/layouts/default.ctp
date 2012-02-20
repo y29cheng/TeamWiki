@@ -25,16 +25,12 @@
 		<?php echo $title_for_layout." | teamwiki.phpfogapp.com"; ?>
 	</title>
 	<?php
-                echo $this->Html->meta('icon');
-
-                echo $this->Html->css('cake.generic', array('media' => 'screen'));
-
-		echo $this->Html->css('custom', array('media' => 'screen'));
-
-                echo $scripts_for_layout;
-		
+        echo $this->Html->meta('icon');
+        echo $scripts_for_layout;
 		echo $javascript->link('clock.js');
-        ?>
+    ?>
+    <link rel="stylesheet" type="text/css" href="/css/cake.generic.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" media="all">
 </head>
 <body onload="clock(); setInterval('clock()', 1000)">
 	<header>
