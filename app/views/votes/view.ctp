@@ -11,7 +11,7 @@ for ($i=0;$i<$count;$i++) {
 </p>
 <?php } ?>
 </div>
-<canvas id="bar_graph"></canvas>
+<!--<canvas id="bar_graph"></canvas>-->
 <script type="text/javascript" src="/js/barGraph.js"></script>
 <script>
 var ctx = document.getElementById("bar_graph").getContext("2d");
