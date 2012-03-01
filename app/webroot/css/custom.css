@@ -7,7 +7,7 @@ header, footer, nav {
 }
 body {
 	margin: 0 auto;
-	width: 100%;
+	width: 940px;
 	font: 13px/22px Helvetica, Arial, sans-serif;
 	background:#f0f0f0; 
 }
@@ -22,7 +22,6 @@ header h1 {
 }
 p {
 	padding-bottom: 22px;
-	color: #fff;
 }
 
 /* styling the nav bar */
@@ -77,6 +76,7 @@ nav ul li ul li a:hover {
 /* styling secion */
 section {
 	margin-top: 50px;
+	color: #fff;
 }
 /* styling footer */
 footer img{
