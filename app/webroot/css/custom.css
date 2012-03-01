@@ -79,6 +79,9 @@ section {
 	margin-top: 50px;
 	color: #000;
 }
+section canvas {
+	background: inherit;
+}
 /* styling footer */
 footer img{
 	float: right;
