@@ -1,6 +1,5 @@
 <!-- File: /app/views/votes/add.ctp -->
 <?php echo $javascript->link('myscript.js', false); ?>
-<h1>Add Vote</h1>
 <?php
 echo $this->Form->create('Vote');
 ?>
