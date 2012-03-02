@@ -1,6 +1,6 @@
 <!-- File: /app/views/votes/index.ctp -->
 <script>
-$(body).attr("id", "Votes");
+$("body").attr("id", "Votes");
 </script>
 <?php echo $this->Html->link('Add Vote', array('controller' => 'votes', 'action' => 'add')); ?>
 <table id="mytable">
