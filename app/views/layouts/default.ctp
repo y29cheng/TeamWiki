@@ -39,28 +39,28 @@
     <script type="text/javascript" src="/js/custom.js">
     </script>
 </head>
-<body onload="clock(); setInterval('clock()', 1000)" id="body">
+<body onload="clock(); setInterval('clock()', 1000)">
 	<header>
 		<h1>PeerVote - Voting Made Easier</h1>
 	</header>
 	<nav>
 			<ul>
-				<li><?php echo $this->Html->link('Posts', array('controller' => 'posts', 'action' => 'index', 'id' => 'unselected')); ?></li>
-				<li><?php echo $this->Html->link('Blogs', array('controller' => 'blogs', 'action' => 'index', 'id' => 'unselected')); ?></li>
-				<li><?php echo $this->Html->link('Votes', array('controller' => 'votes', 'action' => 'index', 'id' => 'unselected')); ?></li>
-				<li><?php if ($this->Session->check('user')) {
-						echo $this->Html->link('Log Out', array('controller' => 'users', 'action' =>'logout', 'id' => 'unselected'));
-					  } else {
-						echo $this->Html->link('Log in', array('controller' => 'users', 'action' => 'login', 'id' => 'unselected'));
+				<li><a href="/posts/index">Posts</a></li>
+				<li><a href="/blogs/index">Blogs</li>
+				<li><a href="/votes/index">Votes</a></li>
+				<li><?php if ($this->Session->check('user')) { ?>
+						<a href="/users/login">Log in</a>
+					  } else { ?>
+						<a href="/users/logout">Log out</a>
 					  } ?></li>
 				<?php if (!$this->Session->check('user')) { ?>
-				<li><?php echo $this->Html->link('Register', array('controller' => 'users', 'action' => 'register', 'id' => 'unselected')); ?></li>
+				<li><a href="/users/register">Register</a></li>
 				<?php } ?>
 				<li><a href="/resume.html">About Me</a></li>
 				<?php if ($this->Session->check('user')) { ?>
 					<li><a href="/">Settings</a>
 						<ul>
-							<li><?php echo $this->Html->link('Update Profile', array('controller' => 'users', 'action' => 'update_profile', 'id' => 'unselected')); ?></li>
+							<li><?php echo $this->Html->link('Update Profile', array('controller' => 'users', 'action' => 'update_profile')); ?></li>
 						</ul>
 					</li>
 				<?php } ?>
