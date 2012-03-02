@@ -34,29 +34,33 @@
         echo $scripts_for_layout;
 		echo $javascript->link('clock.js');
     ?>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript" src="/js/custom.js">
+    </script>
 </head>
-<body onload="clock(); setInterval('clock()', 1000)">
+<body onload="clock(); setInterval('clock()', 1000)" id="body">
 	<header>
 		<h1>PeerVote - Voting Made Easier</h1>
 	</header>
 	<nav>
 			<ul>
-				<li><?php echo $this->Html->link('Posts', array('controller' => 'posts', 'action' => 'index')); ?></li>
-				<li><?php echo $this->Html->link('Blogs', array('controller' => 'blogs', 'action' => 'index')); ?></li>
-				<li><?php echo $this->Html->link('Votes', array('controller' => 'votes', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Posts', array('controller' => 'posts', 'action' => 'index', 'id' => 'unselected')); ?></li>
+				<li><?php echo $this->Html->link('Blogs', array('controller' => 'blogs', 'action' => 'index', 'id' => 'unselected')); ?></li>
+				<li><?php echo $this->Html->link('Votes', array('controller' => 'votes', 'action' => 'index', 'id' => 'unselected')); ?></li>
 				<li><?php if ($this->Session->check('user')) {
-						echo $this->Html->link('Log Out', array('controller' => 'users', 'action' =>'logout'));
+						echo $this->Html->link('Log Out', array('controller' => 'users', 'action' =>'logout', 'id' => 'unselected'));
 					  } else {
-						echo $this->Html->link('Log in', array('controller' => 'users', 'action' => 'login'));
+						echo $this->Html->link('Log in', array('controller' => 'users', 'action' => 'login', 'id' => 'unselected'));
 					  } ?></li>
 				<?php if (!$this->Session->check('user')) { ?>
-				<li><?php echo $this->Html->link('Register', array('controller' => 'users', 'action' => 'register')); ?></li>
+				<li><?php echo $this->Html->link('Register', array('controller' => 'users', 'action' => 'register', 'id' => 'unselected')); ?></li>
 				<?php } ?>
 				<li><a href="/resume.html">About Me</a></li>
 				<?php if ($this->Session->check('user')) { ?>
 					<li><a href="/">Settings</a>
 						<ul>
-							<li><?php echo $this->Html->link('Update Profile', array('controller' => 'users', 'action' => 'update_profile')); ?></li>
+							<li><?php echo $this->Html->link('Update Profile', array('controller' => 'users', 'action' => 'update_profile', 'id' => 'unselected')); ?></li>
 						</ul>
 					</li>
 				<?php } ?>

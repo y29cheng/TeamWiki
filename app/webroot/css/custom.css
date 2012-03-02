@@ -74,6 +74,9 @@ nav ul li:hover ul li a {
 nav ul li ul li a:hover {
 	color: #fff;
 }
+nav ul li ul li a#selected {
+	color: #fff;
+}
 /* styling secion */
 section {
 	margin-top: 50px;
