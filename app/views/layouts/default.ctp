@@ -34,10 +34,8 @@
         echo $scripts_for_layout;
 		echo $javascript->link('clock.js');
     ?>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
-    </script>
-    <script type="text/javascript" src="/js/custom.js">
-    </script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
 </head>
 <body onload="clock(); setInterval('clock()', 1000)">
 	<header>
