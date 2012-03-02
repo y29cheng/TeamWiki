@@ -43,7 +43,7 @@
 	</header>
 	<nav>
 			<ul>
-				<li><a href="/posts/index" class="none">Posts</a></li>
+				<li><a href="/posts/index">Posts</a></li>
 				<li><a href="/blogs/index" class="none">Blogs</a></li>
 				<li><a href="/votes/index" class="none">Votes</a></li>
 				<li><?php if ($this->Session->check('user')) { ?>
