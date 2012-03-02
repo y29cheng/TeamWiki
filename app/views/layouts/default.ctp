@@ -46,7 +46,7 @@
 	<nav>
 			<ul>
 				<li><a href="/posts/index">Posts</a></li>
-				<li><a href="/blogs/index">Blogs</li>
+				<li><a href="/blogs/index">Blogs</a></li>
 				<li><a href="/votes/index">Votes</a></li>
 				<li><?php if ($this->Session->check('user')) { ?>
 						<a href="/users/login">Log in</a>
