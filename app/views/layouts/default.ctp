@@ -50,9 +50,9 @@
 				<li><a href="/votes/index">Votes</a></li>
 				<li><?php if ($this->Session->check('user')) { ?>
 						<a href="/users/login">Log in</a>
-					  } else { ?>
+					<?php } else { ?>
 						<a href="/users/logout">Log out</a>
-					  } ?></li>
+					<?php } ?></li>
 				<?php if (!$this->Session->check('user')) { ?>
 				<li><a href="/users/register">Register</a></li>
 				<?php } ?>
