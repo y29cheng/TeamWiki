@@ -43,9 +43,9 @@
 	</header>
 	<nav>
 			<ul>
-				<li><a href="/posts/index">Posts</a></li>
-				<li><a href="/blogs/index" class="none">Blogs</a></li>
-				<li><a href="/votes/index" class="none">Votes</a></li>
+				<li><a href="/posts/index" id="posts">Posts</a></li>
+				<li><a href="/blogs/index" id="blogs">Blogs</a></li>
+				<li><a href="/votes/index" id="votes">Votes</a></li>
 				<li><?php if ($this->Session->check('user')) { ?>
 						<a href="/users/logout" class="none">Log out</a>
 					<?php } else { ?>
