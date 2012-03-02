@@ -1,6 +1,7 @@
 <!-- File: /app/views/votes/index.ctp -->
 <script>
-$("body").attr("id", "Votes");
+var links = "nav a";
+$(links[2]).attr("class", "selected");
 </script>
 <?php echo $this->Html->link('Add Vote', array('controller' => 'votes', 'action' => 'add')); ?>
 <table id="mytable">

@@ -45,28 +45,28 @@
 	</header>
 	<nav>
 			<ul>
-				<li><a href="/posts/index">Posts</a></li>
-				<li><a href="/blogs/index">Blogs</a></li>
-				<li><a href="/votes/index">Votes</a></li>
+				<li><a href="/posts/index" class="none">Posts</a></li>
+				<li><a href="/blogs/index" class="none">Blogs</a></li>
+				<li><a href="/votes/index" class="none">Votes</a></li>
 				<li><?php if ($this->Session->check('user')) { ?>
-						<a href="/users/logout">Log out</a>
+						<a href="/users/logout" class="none">Log out</a>
 					<?php } else { ?>
-						<a href="/users/login">Log in</a>
+						<a href="/users/login" class="none">Log in</a>
 					<?php } ?></li>
 				<?php if (!$this->Session->check('user')) { ?>
-				<li><a href="/users/register">Register</a></li>
+				<li><a href="/users/register" class="none">Register</a></li>
 				<?php } ?>
-				<li><a href="/resume.html">About Me</a></li>
+				<li><a href="/resume.html" class="none">About Me</a></li>
 				<?php if ($this->Session->check('user')) { ?>
-					<li><a href="/">Settings</a>
+					<li><a href="/" class="none">Settings</a>
 						<ul>
-							<li><?php echo $this->Html->link('Update Profile', array('controller' => 'users', 'action' => 'update_profile')); ?></li>
+							<li><a href="/users/update_profile" class="none">Update Profile</a></li>
 						</ul>
 					</li>
 				<?php } ?>
-				<li><a href="/">Android App</a>
+				<li><a href="/" class="none">Android App</a>
 					<ul>
-						<li><a href="/PeerVote.apk">Download</a></li>
+						<li><a href="/PeerVote.apk" class="none">Download</a></li>
 					</ul>
 				</li>
 			</ul>
