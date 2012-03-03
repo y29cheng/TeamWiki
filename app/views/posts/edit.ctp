@@ -1,4 +1,7 @@
 <!-- File: /app/views/posts/edit.ctp -->
+<script>
+$("#posts").css("color", "#fff");
+</script>
 <?php
 	echo $this->Form->create('Post', array('action' => 'edit'));
 	echo $this->Form->input('title');

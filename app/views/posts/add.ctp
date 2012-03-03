@@ -1,4 +1,7 @@
 <!-- File: /app/views/posts/add.ctp -->
+<script>
+$("#posts").css("color", "#fff");
+</script>
 <?php
 echo $this->Form->create('Post');
 echo $this->Form->input('name', array('type' => 'hidden')); 
