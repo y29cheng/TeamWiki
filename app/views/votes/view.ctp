@@ -1,4 +1,7 @@
 <!-- File: /app/views/votes/view.ctp -->
+<script>
+$("#votes").css("color", "#fff");
+</script>
 <p><?php echo $vote['title']?></p>
 <div id="choices">
 <?php

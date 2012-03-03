@@ -1,4 +1,7 @@
 <!-- File: /app/views/votes/add.ctp -->
+<script>
+$("#votes").css("color", "#fff");
+</script>
 <?php echo $javascript->link('myscript.js', false); ?>
 <?php
 echo $this->Form->create('Vote');
