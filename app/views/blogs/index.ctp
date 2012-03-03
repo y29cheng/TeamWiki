@@ -1,4 +1,7 @@
 <!-- File: /app/views/blogs/index.ctp -->
+<script>
+$("#blogs").css("color", "#fff");
+</script>
 <?php echo $this->Html->link('Add Blog', array('controller' => 'blogs', 'action' => 'add')); ?>
 <table>
 	<tr>

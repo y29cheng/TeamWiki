@@ -1,5 +1,7 @@
 <!-- File: /app/views/blogs/add.ctp -->
-
+<script>
+$("#blogs").css("color", "#fff");
+</script>
 <?php
 echo $this->Form->create('Blog');
 echo $this->Form->input('title');
