@@ -47,7 +47,7 @@
 				<li><a href="/blogs/index" id="blogs">Blogs</a></li>
 				<li><a href="/votes/index" id="votes">Votes</a></li>
 				<li><?php if ($this->Session->check('user')) { 
-						  	$this->Html->link('Log out', array('controller' => 'users', 'action' => 'logout', 'class' => 'none'), null, 'Are you sure?');
+						  	echo $this->Html->link('Log out', array('controller' => 'users', 'action' => 'logout', 'class' => 'none'), null, 'Are you sure?');
 					 	  } else { ?>
 							<a href="/users/login" class="none">Log in</a>
 					<?php } ?></li>
