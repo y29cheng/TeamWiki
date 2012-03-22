@@ -1,3 +1,6 @@
+<script>
+$("#login").css("color", "#fff");
+</script>
 <?php
 echo $this->Form->create('User');
 echo $this->Form->input('username');

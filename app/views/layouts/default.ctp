@@ -49,20 +49,20 @@
 				<li><?php if ($this->Session->check('user')) { 
 						  	echo $this->Html->link('Log out', array('controller' => 'users', 'action' => 'logout', 'class' => 'none'), null, 'Are you sure?');
 					 	  } else { ?>
-							<a href="/users/login" class="none">Log in</a>
+							<a href="/users/login" id="login">Log in</a>
 					<?php } ?></li>
 				<?php if (!$this->Session->check('user')) { ?>
-				<li><a href="/users/register" class="none">Register</a></li>
+				<li><a href="/users/register" id="register">Register</a></li>
 				<?php } ?>
-				<li><a href="/resume.html" class="none">About Me</a></li>
+				<li><a href="/resume.html">About Me</a></li>
 				<?php if ($this->Session->check('user')) { ?>
-					<li><a href="/" class="none">Settings</a>
+					<li><a href="/" id="settings">Settings</a>
 						<ul>
-							<li><a href="/users/update_profile" class="none">Update Profile</a></li>
+							<li><a href="/users/update_profile">Update Profile</a></li>
 						</ul>
 					</li>
 				<?php } ?>
-				<li><a href="/" class="none">Android App</a>
+				<li><a href="/">Android App</a>
 					<ul>
 						<li><a href="/PeerVote.apk" class="none">Download</a></li>
 					</ul>
