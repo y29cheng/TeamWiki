@@ -56,13 +56,13 @@
 				<?php } ?>
 				<li><a href="/resume.html">About Me</a></li>
 				<?php if ($this->Session->check('user')) { ?>
-					<li><a href="/" id="settings">Settings</a>
+					<li><a href="#" id="settings">Settings</a>
 						<ul>
 							<li><a href="/users/update_profile">Update Profile</a></li>
 						</ul>
 					</li>
 				<?php } ?>
-				<li><a href="/">Android App</a>
+				<li><a href="#">Android App</a>
 					<ul>
 						<li><a href="/PeerVote.apk" class="none">Download</a></li>
 					</ul>
