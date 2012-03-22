@@ -46,10 +46,10 @@
 				<li><a href="/posts/index" id="posts">Posts</a></li>
 				<li><a href="/blogs/index" id="blogs">Blogs</a></li>
 				<li><a href="/votes/index" id="votes">Votes</a></li>
-				<li><?php if ($this->Session->check('user')) { ?>
-						<a href="/users/logout" class="none">Log out</a>
-					<?php } else { ?>
-						<a href="/users/login" class="none">Log in</a>
+				<li><?php if ($this->Session->check('user')) { 
+						  	$this->Html->link('Log out', array('controller' => 'users', 'action' => 'logout', 'class' => 'none'), null, 'Are you sure?');
+					 	  } else { ?>
+							<a href="/users/login" class="none">Log in</a>
 					<?php } ?></li>
 				<?php if (!$this->Session->check('user')) { ?>
 				<li><a href="/users/register" class="none">Register</a></li>
