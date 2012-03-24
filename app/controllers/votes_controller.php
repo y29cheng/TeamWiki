@@ -40,6 +40,7 @@ class VotesController extends AppController {
 			$obj['voters'] = array();
 			$obj['created'] = date('Y-m-d');
 			$obj['modified'] = $obj['created'];
+			$obj['expire'] = $this->data['Expire in hours: ']
 			$i = 0;
 			for ($i=1;;$i++) {
 				if (isset($this->data['Vote']['choice'.$i])) {
