@@ -2,6 +2,17 @@
 <script>
 $("#votes").css("color", "#fff");
 </script>
+<?php
+$time = time();
+$hours = $vote['expire'] + 1;
+$expired = false;
+if ($time - $vote['time'] > 3600*$hours && $hours < 25) {
+	$expired = true;
+?>
+	<p>This vote has expire. You can still see the result below.</p>
+<?php
+}
+?>
 <p><?php echo $vote['title']?></p>
 <div id="choices">
 <?php
@@ -10,7 +21,13 @@ for ($i=0;$i<$count;$i++) {
 ?>
 <p value=<?php echo $vote['answer'.($i+1)]; ?>>
 <?php echo $vote['answer'.($i+1)]; ?>&nbsp&nbsp&nbsp&nbsp
-<?php echo $this->Html->link($vote['choice'.($i+1)], array('controller' => 'votes', 'action' => 'vote', $vote['_id'], $i+1)); ?>
+<?php
+if (!$expired) { 
+	echo $this->Html->link($vote['choice'.($i+1)], array('controller' => 'votes', 'action' => 'vote', $vote['_id'], $i+1)); 
+} else {
+	echo $vote['choice'.($i+1)];
+}
+?>
 </p>
 <?php } ?>
 </div>
