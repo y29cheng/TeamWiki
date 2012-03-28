@@ -115,6 +115,7 @@ class VotesController extends AppController {
            	} else {
            		if (array_key_exists('expire', $doc)) {
            			$doc['expire'] = $this->data['Vote']['expire'];
+           			$doc['time'] = time();
            		}
            		$doc['title'] = $this->data['Vote']['title'];
            		$doc['modified'] = date('Y-m-d');
