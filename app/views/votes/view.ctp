@@ -4,15 +4,25 @@ $("#votes").css("color", "#fff");
 </script>
 <?php
 $time = time();
-$hours = $vote['expire'] + 1;
 $expired = false;
-if (array_key_exists('time', $vote) && $time - $vote['time'] > 3600*$hours && $hours < 25) {
-	$expired = true;
+if (array_key_exists('expire', $vote) && array_key_exists('time', $vote)) {
+	if ($time - $vote['time'] > 3600*$vote['expire'] && $vote['expire'] < 24) {
+		$expired = true;
+	} else {
+		$expired = false;
+		if ($vote['expire'] == 24) {
 ?>
-	<p>This vote has expire. You can still see the result below.</p>
+			<p>This vote lives forever!</p>
+ 
 <?php
-}
+		} else {
 ?>
+			<p>This vote expires in <?php echo 60*($vote['expire'] + 1) - ($time - $vote['time'])/60 ?> minutes </p>
+<?php
+		}
+	}
+}
+?>	
 <p><?php echo $vote['title']?></p>
 <div id="choices">
 <?php

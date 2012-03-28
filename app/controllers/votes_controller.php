@@ -151,6 +151,15 @@ class VotesController extends AppController {
            	return;
         }
 		$len = count($vote['voters']);
+		$life = $vote['expire'] + 1;
+		if ($life < 25) {
+			$now = time();
+			if ($now - $vote['time'] > 3600*$life) {
+				$this->Session->setFlash('The vote has expired.');
+				$this->redirect(array('action' => 'view', $id1));
+				return;
+			}
+		}
 		$hasVoted = false;
 		for ($i = 0; $i < $len; $i++) {
 			if ($username === $vote['voters'][$i]) {
