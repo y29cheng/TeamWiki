@@ -113,6 +113,9 @@ class VotesController extends AppController {
             if (empty($this->data)) {
             	return;
            	} else {
+           		if (array_key_exists('expire', $doc)) {
+           			$doc['expire'] = $this->data['Vote']['expire'];
+           		}
            		$doc['title'] = $this->data['Vote']['title'];
            		$doc['modified'] = date('Y-m-d');
            		$doc['voters'] = array();
@@ -152,9 +155,9 @@ class VotesController extends AppController {
         }
 		$len = count($vote['voters']);
 		$life = $vote['expire'] + 1;
-		if ($life < 25) {
+		if (array_key_exists('expire', $vote) && $vote['expire'] < 24) {
 			$now = time();
-			if ($now - $vote['time'] > 3600*$life) {
+			if ($now - $vote['time'] > 3600*($vote['expire'] + 1)) {
 				$this->Session->setFlash('The vote has expired.');
 				$this->redirect(array('action' => 'view', $id1));
 				return;

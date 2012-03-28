@@ -6,8 +6,11 @@ $("#votes").css("color", "#fff");
 $time = time();
 $expired = false;
 if (array_key_exists('expire', $vote) && array_key_exists('time', $vote)) {
-	if ($time - $vote['time'] > 3600*$vote['expire'] && $vote['expire'] < 24) {
+	if ($time - $vote['time'] > 3600*($vote['expire'] + 1) && $vote['expire'] < 24) {
 		$expired = true;
+?>
+		<p>This vote has expired :(</p>
+<?php
 	} else {
 		$expired = false;
 		if ($vote['expire'] == 24) {
