@@ -155,7 +155,6 @@ class VotesController extends AppController {
            	return;
         }
 		$len = count($vote['voters']);
-		$life = $vote['expire'] + 1;
 		if (array_key_exists('expire', $vote) && $vote['expire'] < 24) {
 			$now = time();
 			if ($now - $vote['time'] > 3600*($vote['expire'] + 1)) {
