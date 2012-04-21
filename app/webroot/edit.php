@@ -4,6 +4,8 @@ $id = $_POST['id'];
 $counter = intval($_POST['counter']);
 $obj = array();
 $obj['owner'] = $_POST['owner'];
+$obj['expire'] = $_POST['expire'];
+$obj['time'] = $_POST['time'];
 $obj['voters'] = array();
 for ($i = 0; $i < $counter; $i++) {
 	if ($i == 0) {
