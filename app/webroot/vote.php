@@ -4,6 +4,15 @@ require('../db_info.php');
 $username = $_POST['username'];
 $index = $_POST['index'];
 $choice = $_POST['choice'];
+$expire = $_POST['expire'];
+$time = $_POST['time'];
+$curtime = time();
+if ($expire < 24) {
+	if ($curtime - $time > 3600*$expire) {
+		echo "expired";
+		return;
+	}
+}
 $m = new Mongo("mongodb://".$mongo_user.":".$mongo_pass."@dbh54.mongolab.com:27547/teamwiki");
 $db = $m->teamwiki;
 $votes = $db->votes;
