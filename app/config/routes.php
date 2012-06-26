@@ -29,6 +29,7 @@
 	//Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 	
 	Router::connect('/', array('controller' => 'users', 'action' => 'register'));
+	Router::connect('/demo/1', array('url' => 'http://temawiki.phpfogapp.com/custom_widgets.html'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
