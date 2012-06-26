@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dojo Custom Widgets</title>
+		<script>
+			var dojoConfig = (function() {
+				var base = location.href.split("/");
+				base.pop();
+				base = base.join("/");
+				return {
+					async: true,
+					isDebug: true,
+					packages: [{
+						name: "js", location: base + "/js" }, {
+						name: "templates", location: base + "/templates"
+					}]
+				};
+			})();
+		</script>
+		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dojo/dojo.js" data-dojo-config="async: true"></script>
+		
+	</head>
+	<body>
+		<div id="personContainer"></div>
+		<script>
+			require(["dojo/_base/xhr", "dojo/_base/array", "dojo/dom", "js/personEntry", "dojo/domReady!"], function(xhr, arrayUtil, dom, personEntry) {
+				var personContainer= dom.byId("personContainer");
+				var def = xhr.get({
+					url: "json.php",
+					handleAs: "json"
+				});
+				def.then(function(votes) {
+					arrayUtil.forEach(votes, function(vote) {
+						var count = vote.choices;
+						var body = "";
+						for (i = 0; i < count; i++) {
+							body = body + "<p>" + vote["choice"+(i+1)] + "</p>";
+						} 
+						var widget = new personEntry({ name: vote.owner, title: vote.title, body: body }).placeAt(personContainer);
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
