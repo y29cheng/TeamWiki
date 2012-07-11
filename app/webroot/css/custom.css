@@ -77,6 +77,13 @@ nav ul li:hover ul li a {
 nav ul li ul li a:hover {
 	color: #fff;
 }
+/* styling panel drop down */
+#panelWidget {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 100px;
+}	
 /* styling secion */
 section {
 	margin-top: 50px;

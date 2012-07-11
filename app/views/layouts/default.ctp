@@ -36,6 +36,20 @@
     ?>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="/js/custom.js"></script>
+    <script>
+			var dojoConfig = (function() {
+				var baseURL = "teamwiki.phpfogapp.com";
+				return {
+					async: true,
+					isDebug: true,
+					packages: [{
+						name: "/", location: base + "/" }, {
+						name: "js", location: base + "/js" }, {
+						name: "templates", location: base + "/templates" }]
+				};
+			})();
+	</script>
+	<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dojo/dojo.js" data-dojo-config="async: true"></script>
 </head>
 <body onload="clock(); setInterval('clock()', 1000)">
 	<header>
@@ -69,6 +83,21 @@
 				</li>
 			</ul>
     </nav>
+    <div id="panelWidget"></div>
+    <script>
+			require(["dojo/_base/xhr", "dojo/_base/array", "dojo/dom", "js/tabWidget", "dojo/domReady!"], function(xhr, arrayUtil, dom, tabWidget) {
+				var panelWidget = dom.byId("panelWidget");
+				var def = xhr.get({
+					url: "/menu.json",
+					handleAs: "json"
+				});
+				def.then(function(menus) {
+					arrayUtil.forEach(menus, function(menu) {
+						var widget = new tabWidget({ tabName: menu.menuName, menuItems: menu.menuItems}).placeAt(panelWidget);
+					});
+				});
+			});
+	</script>
 	<section>
 
 			<?php echo $this->Session->flash(); ?>
