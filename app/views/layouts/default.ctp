@@ -43,9 +43,9 @@
 					async: true,
 					isDebug: true,
 					packages: [{
-						name: "/", location: base + "/" }, {
-						name: "js", location: base + "/js" }, {
-						name: "templates", location: base + "/templates" }]
+						name: "/", location: baseURL + "/" }, {
+						name: "js", location: baseURL + "/js" }, {
+						name: "templates", location: baseURL + "/templates" }]
 				};
 			})();
 	</script>
