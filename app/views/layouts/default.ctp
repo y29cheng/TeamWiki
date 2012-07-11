@@ -38,7 +38,7 @@
     <script type="text/javascript" src="/js/custom.js"></script>
     <script>
 			var dojoConfig = (function() {
-				var baseURL = "teamwiki.phpfogapp.com";
+				var baseURL = "http://teamwiki.phpfogapp.com";
 				return {
 					async: true,
 					isDebug: true,
