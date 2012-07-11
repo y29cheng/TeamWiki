@@ -83,6 +83,10 @@ nav ul li ul li a:hover {
 	width: 100%;
 	left: 0;
 	top: 100px;
+}
+.tabWidget {
+	float: left;
+	width: auto;
 }	
 /* styling secion */
 section {
