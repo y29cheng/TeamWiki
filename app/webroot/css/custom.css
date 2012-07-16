@@ -81,6 +81,7 @@ nav ul li ul li a:hover {
 #panelWidget {
 	position: absolute;
 	top: 40px;
+	left: 0px;
 }
 .tabWidget {
 	float: left;
