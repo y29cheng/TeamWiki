@@ -73,7 +73,17 @@
  */
 class DATABASE_CONFIG {
 
-	var $default = null;
+	var $default = array(
+		'driver' => 'mysql',
+		'persistent' => false,
+		'host' => 'db01-share',
+		'login' => 'lucid-7028',
+		'password' => 'T3aMW1k14PP',
+		'database' => 'teamwiki-phpfogapp-com',
+		'prefix' => '',
+	);
+	
+	/*var $default = null;
 	
 	var $prod = array(
 		'driver' => 'mysql',
@@ -107,5 +117,5 @@ class DATABASE_CONFIG {
 		} else {
 			$this->default = $this->dev;
 		}
-	}
+	}*/
 }
