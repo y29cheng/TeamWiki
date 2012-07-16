@@ -38,7 +38,12 @@
     <script type="text/javascript" src="/js/custom.js"></script>
     <script>
 			var dojoConfig = (function() {
-				var baseURL = "http://teamwiki.phpfogapp.com";
+				var baseURL = location.href;
+				var idx = baseURL.indexOf("://");
+				var protocol = baseURL.substring(0, idx);
+				baseURL = baseURL.substring(idx+3);
+				baseURL = baseURL.split("/");
+				baseURL = protocol + "://" + baseURL[0];
 				return {
 					async: true,
 					isDebug: true,
@@ -55,7 +60,7 @@
 	<header>
 		<h1>PeerVote - Voting Made Easier</h1>
 	</header>
-	<nav>
+	<!--<nav>
 			<ul>
 				<li><a href="/posts/index" id="posts">Posts</a></li>
 				<li><a href="/blogs/index" id="blogs">Blogs</a></li>
@@ -82,7 +87,7 @@
 					</ul>
 				</li>
 			</ul>
-    </nav>
+    </nav>-->
     <div id="panelWidget"></div>
     <script>
 			require(["dojo/_base/xhr", "dojo/_base/array", "dojo/dom", "js/tabWidget", "dojo/domReady!"], function(xhr, arrayUtil, dom, tabWidget) {
@@ -93,9 +98,19 @@
 				});
 				def.then(function(menus) {
 					arrayUtil.forEach(menus, function(menu) {
-						var widget = new tabWidget({ tabName: menu.menuName, menuItems: menu.menuItems}).placeAt(panelWidget);
+						var widget = new tabWidget({ tabName: menu.name, menuItems: menu.children, url: menu.url }).placeAt(panelWidget);
 					});
 				});
+	<?php if ($this->Session->check('user')) { ?>
+				def.then(function() {
+					panelWidget.childNodes[3].style.display="none";
+				});
+	<?php } else { ?>
+				def.then(function() {
+					panelWidget.childNodes[4].style.display="none";
+					panelWidget.childNodes[7].style.display="none";
+				});
+	<?php } ?>
 			});
 	</script>
 	<section>

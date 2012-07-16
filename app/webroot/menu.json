@@ -1,1 +1,29 @@
-[{menuName: "Menu 1",menuItems: [ "MenuItem 11", "MenuItem 12", "MenuItem 13" ]},{menuName: "Menu 2",menuItems: [ "MenuItem 21", "MenuItem 22"]},{menuName: "Menu 3",menuItems: [ "MenuItem 31", "MenuItem 32", "MenuItem 33", "MenuItem 34" ]}]
+[
+	{
+		name: "Posts", url: "/posts/index", children: []
+	},
+	{
+		name: "Blogs", url: "/blogs/index", children: []
+	},
+	{
+		name: "Votes", url: "/votes/index", children: []
+	}, 
+	{
+		name: "Log in", url: "/users/login", children: []
+	},
+	{
+		name: "Log out", url: "/users/logout/class:none", children: []
+	},
+	{
+		name: "Register", url: "/users/register", children: []
+	},
+	{
+		name: "About Me", url: "/resume.html", children: []
+	},
+	{
+		name: "Settings", url: "#", children: [ { name: "Update Profile", url: "users/update_profile" } ]
+	},
+	{
+		name: "Android App", url: "#", children: [ { name: "Download", url: "/PeerVote.apk" } ]
+	}
+]

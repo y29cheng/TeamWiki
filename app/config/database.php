@@ -73,7 +73,9 @@
  */
 class DATABASE_CONFIG {
 
-	var $default = array(
+	var $default = null;
+	
+	var $prod = array(
 		'driver' => 'mysql',
 		'persistent' => false,
 		'host' => 'db01-share',
@@ -83,13 +85,27 @@ class DATABASE_CONFIG {
 		'prefix' => '',
 	);
 
-	var $test = array(
+	var $dev = array(
 		'driver' => 'mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'user',
-		'password' => 'password',
-		'database' => 'test_database_name',
+		'login' => 'root',
+		'password' => 'hungry plant 147',
+		'database' => 'teamwiki-phpfogapp-com',
 		'prefix' => '',
 	);
+	
+	function __construct() {
+		if (isset($_SERVER['SERVER_NAME'])) {
+			switch ($_SERVER['SERVER_NAME']) {
+				case 'teamwiki.phpfog.com':
+					$this->default = $this->prod;
+					break;
+				case 'localhost':
+					$this->default = $this->dev;
+			}
+		} else {
+			$this->default = $this->dev;
+		}
+	}
 }

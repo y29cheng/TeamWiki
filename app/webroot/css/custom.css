@@ -80,14 +80,16 @@ nav ul li ul li a:hover {
 /* styling panel drop down */
 #panelWidget {
 	position: absolute;
-	width: 100%;
-	left: 0;
-	top: 100px;
+	top: 40px;
 }
 .tabWidget {
 	float: left;
-	width: auto;
-}	
+	width: 150px;
+	text-align: center;
+}
+.tabWidget a {
+	color: inherit;
+}
 /* styling secion */
 section {
 	margin-top: 50px;
