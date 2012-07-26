@@ -82,6 +82,8 @@ nav ul li ul li a:hover {
 	position: absolute;
 	top: 40px;
 	left: 0px;
+	background-color: #1c1c1c;
+	width: 100%;
 }
 .tabWidget {
 	float: left;
