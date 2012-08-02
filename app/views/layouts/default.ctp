@@ -91,7 +91,7 @@
     <div id="panelBackground"></div>
     <div id="panelWidget"></div>
     <script>
-			require(["dojo/_base/xhr", "dojo/_base/array", "dojo/dom", "dojo/dom-style", "dojo/query", "js/tabWidget", "dojo/NodeList-dom", "dojo/domReady!"], function(xhr, arrayUtil, dom, domStyle, query, tabWidget) {
+			require(["dojo/_base/xhr", "dojo/_base/array", "dojo/dom", "js/tabWidget", "dojo/domReady!"], function(xhr, arrayUtil, dom, tabWidget) {
 				var panelWidget = dom.byId("panelWidget");
 				var def = xhr.get({
 					url: "/menu.json",
@@ -113,13 +113,6 @@
 					panelWidget.childNodes[7].style.display="none";
 				});
 	<?php } ?>
-				def.then(function() {
-					query("#panelWidget > div.tabWidget").on("click", function(e) {
-						query("#panelWidget > div.tabWidget").style("color", "#777");
-						domStyle.set(e.target, "color", "#fff");
-					});
-				}); 
-						
 			});
 	</script>
 	<section>
