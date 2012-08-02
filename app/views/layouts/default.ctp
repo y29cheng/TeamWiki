@@ -91,7 +91,7 @@
     <div id="panelBackground"></div>
     <div id="panelWidget"></div>
     <script>
-			require(["dojo/_base/xhr", "dojo/_base/array", "dojo/dom", "dojo/dom-style", "dojo/query", "js/tabWidget", "dojo/domReady!"], function(xhr, arrayUtil, dom, domStyle, query, tabWidget) {
+			require(["dojo/_base/xhr", "dojo/_base/array", "dojo/dom", "dojo/dom-style", "dojo/query", "js/tabWidget", "dojo/NodeList-dom", "dojo/domReady!"], function(xhr, arrayUtil, dom, domStyle, query, tabWidget) {
 				var panelWidget = dom.byId("panelWidget");
 				var def = xhr.get({
 					url: "/menu.json",
