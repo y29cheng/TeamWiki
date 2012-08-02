@@ -105,6 +105,7 @@
 	<?php if ($this->Session->check('user')) { ?>
 				def.then(function() {
 					panelWidget.childNodes[3].style.display="none";
+					panelWidget.childNodes[5].style.display="none";
 				});
 	<?php } else { ?>
 				def.then(function() {
