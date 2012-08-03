@@ -1,9 +1,3 @@
-<script>
-	require(["dojo/dom", "dojo/query", "dojo/dom-attr", "dojo/NodeList-dom", "dojo/domReady!"], function(query, domAttr) {
-			query("#panelWidget > .tabWidget > a").removeAttr("class");
-			domAttr.set(dom.byId("login"), "class", "selected");
-	});
-</script>
 <?php
 echo $this->Form->create('User');
 echo $this->Form->input('username');
