@@ -91,7 +91,7 @@
     <div id="panelBackground"></div>
     <div id="panelWidget"></div>
     <script>
-    	require(["js/myDeferredAction"], function(myDeferredAction) {
+    	require(["dojo/dom", "dojo/dom-attr", "js/myDeferredAction"], function(dom, domAttr, myDeferredAction) {
     		var action = new myDeferredAction();
     		action.doAction();
 			<?php if ($this->Session->check('user')) { ?>
@@ -105,6 +105,17 @@
 							action.panelWidget.childNodes[7].style.display="none";
 						});
 			<?php } ?>
+						action.def.then(function() {
+						<?php if ($this->params['controller'] == 'posts') { ?>
+							domAttr.set(dom.byId("post"), "class", "selected");
+						<?php } ?>
+						<?php if ($this->params['controller'] == 'blogs') { ?>
+							domAttr.set(dom.byId("blog"), "class", "selected");
+						<?php } ?>
+						<?php if ($this->params['controller'] == 'votes') { ?>
+							domAttr.set(dom.byId("vote"), "class", "selected");
+						<?php } ?>
+						});
 		});
 	</script>
 	<section>
