@@ -90,7 +90,7 @@
     </nav>-->
     <div id="panelBackground"></div>
     <div id="panelWidget"></div>
-    <!--<script>
+    <script>
     	require(["js/myDeferredAction"], function(myDeferredAction) {
     		var action = new myDeferredAction();
     		action.doAction();
@@ -106,23 +106,7 @@
 						});
 			<?php } ?>
 		});
-	</script>-->
-	<script>
-		dojo.require("js.myDeferredAction");
-		var action = new myDeferredAction();
-		action.doAction();
-		<?php if ($this->Session->check('user')) { ?>
-					action.def.then(function() {
-						action.panelWidget.childNodes[3].style.display="none";
-						action.panelWidget.childNodes[5].style.display="none";
-					});
-		<?php } else { ?>
-					action.def.then(function() {
-						action.panelWidget.childNodes[4].style.display="none";
-						action.panelWidget.childNodes[7].style.display="none";
-					});
-		<?php } ?>
-	</script> 
+	</script>
 	<section>
 
 			<?php echo $this->Session->flash(); ?>
