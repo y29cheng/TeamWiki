@@ -91,6 +91,7 @@
     <div id="panelBackground"></div>
     <div id="panelWidget"></div>
     <script>
+    		var deferred = {};
     		require(["dojo/_base/declare", "dojo/_base/xhr", "dojo/_base/array", "dojo/dom", "js/tabWidget", "dojo/domReady!"], function(declare, xhr, arrayUtil, dom, tabWidget) {
 				declare("myDeferredAction", null, {
 					doAction: function() {
@@ -117,10 +118,11 @@
 						return def;
 			<?php } ?>
 					}
-				});	
+				});
+				var action = new myDeferredAction();
+				deferred = action.doAction();
 			});
-			var action = new myDeferredAction();
-			var deferred = action.doAction();
+			
 	</script>
 	<section>
 
