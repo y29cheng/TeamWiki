@@ -91,31 +91,31 @@
     <div id="panelBackground"></div>
     <div id="panelWidget"></div>
     <script>
-    	require(["dojo/dom", "dojo/dom-attr", "js/myDeferredAction"], function(dom, domAttr, myDeferredAction) {
+    	require(["dojo/dom", "dojo/dom-style", "js/myDeferredAction"], function(dom, domStyle, myDeferredAction) {
     		var action = new myDeferredAction();
     		action.doAction();
 			<?php if ($this->Session->check('user')) { ?>
-						action.def.then(function() {
-							action.panelWidget.childNodes[3].style.display="none";
-							action.panelWidget.childNodes[5].style.display="none";
-						});
+			action.def.then(function() {
+				action.panelWidget.childNodes[3].style.display="none";
+				action.panelWidget.childNodes[5].style.display="none";
+			});
 			<?php } else { ?>
-						action.def.then(function() {
-							action.panelWidget.childNodes[4].style.display="none";
-							action.panelWidget.childNodes[7].style.display="none";
-						});
+			action.def.then(function() {
+				action.panelWidget.childNodes[4].style.display="none";
+				action.panelWidget.childNodes[7].style.display="none";
+			});
 			<?php } ?>
-						action.def.then(function() {
-						<?php if ($this->params['controller'] == 'posts') { ?>
-							domAttr.set(query("#post > a")[0], "class", "selected");
-						<?php } ?>
-						<?php if ($this->params['controller'] == 'blogs') { ?>
-							domAttr.set(dom.byId("#blog > a")[0], "class", "selected");
-						<?php } ?>
-						<?php if ($this->params['controller'] == 'votes') { ?>
-							domAttr.set(dom.byId("#vote > a")[0], "class", "selected");
-						<?php } ?>
-						});
+			action.def.then(function() {
+			<?php if ($this->params['controller'] == 'posts') { ?>
+				domStyle.set(query("#post > a")[0], "color", "#fff");
+			<?php } ?>
+			<?php if ($this->params['controller'] == 'blogs') { ?>
+				domStyle.set(query("#blog > a")[0], "color", "#fff");
+			<?php } ?>
+			<?php if ($this->params['controller'] == 'votes') { ?>
+				domStyle.set(query("#vote > a")[0], "color", "#fff");
+			<?php } ?>
+			});
 		});
 	</script>
 	<section>
