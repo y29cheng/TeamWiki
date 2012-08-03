@@ -91,39 +91,20 @@
     <div id="panelBackground"></div>
     <div id="panelWidget"></div>
     <script>
-    		myDeferredAction = {};
-    		define(["dojo/_base/declare", "dojo/_base/xhr", "dojo/_base/array", "dojo/dom", "js/tabWidget", "dojo/domReady!"], function(declare, xhr, arrayUtil, dom, tabWidget) {
-				return declare("myDeferredAction", null, {
-					doAction: function() {
-						var panelWidget = dom.byId("panelWidget");
-						var def = xhr.get({
-							url: "/menu.json",
-							handleAs: "json"
-						});
-						def.then(function(menus) {
-							arrayUtil.forEach(menus, function(menu) {
-								var widget = new tabWidget({ tabName: menu.name, menuItems: menu.children, id: menu.id, url: menu.url }).placeAt(panelWidget);
-							});
-						});
+    	require(["js/myModule"], function() {
+    		myDeferredAction.doAction();
 			<?php if ($this->Session->check('user')) { ?>
-						def.then(function() {
-							panelWidget.childNodes[3].style.display="none";
-							panelWidget.childNodes[5].style.display="none";
+						myDeferredAction.def.then(function() {
+							myDeferredAction.panelWidget.childNodes[3].style.display="none";
+							myDeferredAction.panelWidget.childNodes[5].style.display="none";
 						});
 			<?php } else { ?>
-						def.then(function() {
-							panelWidget.childNodes[4].style.display="none";
-							panelWidget.childNodes[7].style.display="none";
+						myDeferredAction.def.then(function() {
+							myDeferredAction.panelWidget.childNodes[4].style.display="none";
+							myDeferredAction.panelWidget.childNodes[7].style.display="none";
 						});
-						return def;
 			<?php } ?>
-					}
-				});
-			});
-			
-	</script>
-	<script>
-		var deferred = myDeferredAction.doAction();
+		});
 	</script>
 	<section>
 
