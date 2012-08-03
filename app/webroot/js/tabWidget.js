@@ -19,7 +19,6 @@ define(["dojo/_base/declare", "dojo/fx", "dojo/dom-style", "dojo/dom-attr", "doj
 					domStyle.set(domNode, "color", this.baseTextColor);
 					domStyle.set(this.menuNode, "display", "none");
 					domAttr.set(this.nameNode, "href", this.url);
-					domAttr.set(this.nameNode, "id", this.id);
 					var innerHtml = "";
 					arrayUtil.forEach(this.menuItems, function(menuItem) {
 						innerHtml = innerHtml + "<div><a href=\"" + menuItem.url + "\" class=\"itemTextLink\">" + menuItem.name + "</a></div>";
