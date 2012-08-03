@@ -1,9 +1,7 @@
 <script>
-	require(["dojo/dom", "dojo/query", "dojo/dom-attr", "dojo/NodeList-dom"], function(query, domAttr) {
-		deferred.then(function() {
+	require(["dojo/dom", "dojo/query", "dojo/dom-attr", "dojo/NodeList-dom", "dojo/domReady!"], function(query, domAttr) {
 			query("#panelWidget > .tabWidget > a").removeAttr("class");
 			domAttr.set(dom.byId("login"), "class", "selected");
-		});
 	});
 </script>
 <?php
