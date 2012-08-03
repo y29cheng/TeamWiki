@@ -107,13 +107,13 @@
 			<?php } ?>
 						action.def.then(function() {
 						<?php if ($this->params['controller'] == 'posts') { ?>
-							domAttr.set(dom.byId("post"), "class", "selected");
+							domAttr.set(query("#post > a")[0], "class", "selected");
 						<?php } ?>
 						<?php if ($this->params['controller'] == 'blogs') { ?>
-							domAttr.set(dom.byId("blog"), "class", "selected");
+							domAttr.set(dom.byId("#blog > a")[0], "class", "selected");
 						<?php } ?>
 						<?php if ($this->params['controller'] == 'votes') { ?>
-							domAttr.set(dom.byId("vote"), "class", "selected");
+							domAttr.set(dom.byId("#vote > a")[0], "class", "selected");
 						<?php } ?>
 						});
 		});
