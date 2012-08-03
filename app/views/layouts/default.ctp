@@ -91,10 +91,10 @@
     <div id="panelBackground"></div>
     <div id="panelWidget"></div>
     <script>
-    		var def = null;
-			require(["dojo/_base/xhr", "dojo/_base/array", "dojo/dom", "js/tabWidget", "dojo/domReady!"], function(xhr, arrayUtil, dom, tabWidget) {
+   		require(["dojo/_base/xhr", "dojo/_base/array", "dojo/dom", "js/tabWidget", "dojo/domReady!"]);
+    		var deferred = (function(xhr, arrayUtil, dom, tabWidget) {
 				var panelWidget = dom.byId("panelWidget");
-				def = xhr.get({
+				var def = xhr.get({
 					url: "/menu.json",
 					handleAs: "json"
 				});
@@ -113,8 +113,9 @@
 					panelWidget.childNodes[4].style.display="none";
 					panelWidget.childNodes[7].style.display="none";
 				});
+				return def;
 	<?php } ?>	
-			});
+			})();
 	</script>
 	<section>
 
