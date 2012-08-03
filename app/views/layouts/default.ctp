@@ -91,21 +91,29 @@
     <div id="panelBackground"></div>
     <div id="panelWidget"></div>
     <script>
-    	require(["dojo/dom", "dojo/dom-style", "js/myDeferredAction"], function(dom, domStyle, myDeferredAction) {
-    		var action = new myDeferredAction();
-    		action.doAction();
+    	require(["dojo/dom", "dojo/dom-style", "dojo/query", "dojo/_base/xhr", "dojo/_base/array", "js/tabWidget"], function(dom, domStyle, query, xhr, arrayUtil, tabWidget) {
+    		var panelWidget = dom.byId("panelWidget");
+			var def = xhr.get({
+				url: "/menu.json",
+				handleAs: "json"
+			});
+			def.then(function(menus) {
+				arrayUtil.forEach(menus, function(menu) {
+					var widget = new tabWidget({ tabName: menu.name, menuItems: menu.children, id: menu.id, url: menu.url }).placeAt(panelWidget);
+				});
+			});
 			<?php if ($this->Session->check('user')) { ?>
-			action.def.then(function() {
-				action.panelWidget.childNodes[3].style.display="none";
-				action.panelWidget.childNodes[5].style.display="none";
+			def.then(function() {
+				panelWidget.childNodes[3].style.display="none";
+				panelWidget.childNodes[5].style.display="none";
 			});
 			<?php } else { ?>
-			action.def.then(function() {
-				action.panelWidget.childNodes[4].style.display="none";
-				action.panelWidget.childNodes[7].style.display="none";
+			def.then(function() {
+				panelWidget.childNodes[4].style.display="none";
+				panelWidget.childNodes[7].style.display="none";
 			});
 			<?php } ?>
-			action.def.then(function() {
+			def.then(function() {
 			<?php if ($this->params['controller'] == 'posts') { ?>
 				domStyle.set(query("#post > a")[0], "color", "#fff");
 			<?php } ?>
