@@ -1,5 +1,5 @@
 <script>
-	require(["dojo/dom", "dojo/query', "dojo/dom-attr", "dojo/NodeList-dom"], function(query, domAttr) {
+	require(["dojo/dom", "dojo/query", "dojo/dom-attr", "dojo/NodeList-dom"], function(query, domAttr) {
 		def.then(function() {
 			query("#panelWidget > .tabWidget > a").removeAttr("class");
 			domAttr.set(dom.byId("login"), "class", "selected");
