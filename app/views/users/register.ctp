@@ -1,6 +1,3 @@
-<script>
-$("#register").css("color", "#fff");
-</script>
 <?php
 echo $this->Form->create('User');
 echo $this->Form->input('first_name');

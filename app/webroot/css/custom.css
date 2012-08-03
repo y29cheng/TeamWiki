@@ -97,8 +97,14 @@ nav ul li ul li a:hover {
 	width: 150px;
 	text-align: center;
 }
-.tabWidget a {
-	color: inherit;
+.tabWidget > a {
+	color: #777;
+}
+.tabWidget > a:hover {
+	color: #fff;
+}
+.tabWidget a.itemTextLink {
+	color: #fff;
 }
 /* styling secion */
 section {

@@ -1,29 +1,29 @@
 [
 	{
-		name: "Posts", url: "/posts/index", children: []
+		name: "Posts", id: "post", url: "/posts/index", children: []
 	},
 	{
-		name: "Blogs", url: "/blogs/index", children: []
+		name: "Blogs", id: "blog", url: "/blogs/index", children: []
 	},
 	{
-		name: "Votes", url: "/votes/index", children: []
+		name: "Votes", id: "vote", url: "/votes/index", children: []
 	}, 
 	{
-		name: "Log in", url: "/users/login", children: []
+		name: "Log in", id: "login", url: "/users/login", children: []
 	},
 	{
-		name: "Log out", url: "/users/logout/class:none", children: []
+		name: "Log out", id: "logout", url: "/users/logout/class:none", children: []
 	},
 	{
-		name: "Register", url: "/users/register", children: []
+		name: "Register", id: "register", url: "/users/register", children: []
 	},
 	{
-		name: "About Me", url: "/resume.html", children: []
+		name: "About Me", id: "aboutme", url: "/resume.html", children: []
 	},
 	{
-		name: "Settings", url: "#", children: [ { name: "Update Profile", url: "users/update_profile" } ]
+		name: "Settings", id: "setting", url: "#", children: [ { name: "Update Profile", url: "users/update_profile" } ]
 	},
 	{
-		name: "Android App", url: "#", children: [ { name: "Download", url: "/PeerVote.apk" } ]
+		name: "Android App", id: "androidapp", url: "#", children: [ { name: "Download", url: "/PeerVote.apk" } ]
 	}
 ]

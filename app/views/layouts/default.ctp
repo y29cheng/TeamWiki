@@ -99,7 +99,7 @@
 				});
 				def.then(function(menus) {
 					arrayUtil.forEach(menus, function(menu) {
-						var widget = new tabWidget({ tabName: menu.name, menuItems: menu.children, url: menu.url }).placeAt(panelWidget);
+						var widget = new tabWidget({ tabName: menu.name, menuItems: menu.children, id: menu.id, url: menu.url }).placeAt(panelWidget);
 					});
 				});
 	<?php if ($this->Session->check('user')) { ?>
@@ -112,7 +112,7 @@
 					panelWidget.childNodes[4].style.display="none";
 					panelWidget.childNodes[7].style.display="none";
 				});
-	<?php } ?>
+	<?php } ?>	
 			});
 	</script>
 	<section>

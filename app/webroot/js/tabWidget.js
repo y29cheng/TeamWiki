@@ -5,6 +5,7 @@ define(["dojo/_base/declare", "dojo/fx", "dojo/dom-style", "dojo/dom-attr", "doj
 				baseClass: "tabWidget",
 				tabName: "no name",
 				menuItems: [],
+				id: "",
 				url: "#",
 				backgroundColor: "#1c1c1c",
 				baseTextColor: "#777",
@@ -18,17 +19,16 @@ define(["dojo/_base/declare", "dojo/fx", "dojo/dom-style", "dojo/dom-attr", "doj
 					domStyle.set(domNode, "color", this.baseTextColor);
 					domStyle.set(this.menuNode, "display", "none");
 					domAttr.set(this.nameNode, "href", this.url);
+					domAttr.set(this.nameNode, "id", this.id);
 					var innerHtml = "";
 					arrayUtil.forEach(this.menuItems, function(menuItem) {
-						innerHtml = innerHtml + "<div><a href=\"" + menuItem.url + "\">" + menuItem.name + "</a></div>";
+						innerHtml = innerHtml + "<div><a href=\"" + menuItem.url + "\" class=\"itemTextLink\">" + menuItem.name + "</a></div>";
 					});
 					this.menuNode.innerHTML = innerHtml;
 					this.connect(domNode, "onmouseenter", function(e) {
-						domStyle.set(domNode, "color", this.mouseTextColor);
 						if (this.menuNode.childNodes.length > 0) fx.wipeIn({ node: this.menuNode }).play();
 					});
 					this.connect(domNode, "onmouseleave", function(e) {
-						domStyle.set(domNode, "color", this.baseTextColor);
 						fx.wipeOut({ node: this.menuNode }).play();
 					});
 				}

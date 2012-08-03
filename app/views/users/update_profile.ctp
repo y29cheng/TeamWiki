@@ -1,6 +1,3 @@
-<script>
-$("#settings").css("color", "#fff");
-</script>
 <?php
 echo $this->Form->create('User');
 echo $this->Form->label('First Name');
