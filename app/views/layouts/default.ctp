@@ -91,17 +91,18 @@
     <div id="panelBackground"></div>
     <div id="panelWidget"></div>
     <script>
-    	require(["js/myModule"], function() {
-    		myDeferredAction.doAction();
+    	require(["js/myDeferredAction"], function(myDeferredAction) {
+    		var action = new myDeferredAction();
+    		action.doAction();
 			<?php if ($this->Session->check('user')) { ?>
-						myDeferredAction.def.then(function() {
-							myDeferredAction.panelWidget.childNodes[3].style.display="none";
-							myDeferredAction.panelWidget.childNodes[5].style.display="none";
+						action.def.then(function() {
+							action.panelWidget.childNodes[3].style.display="none";
+							action.panelWidget.childNodes[5].style.display="none";
 						});
 			<?php } else { ?>
-						myDeferredAction.def.then(function() {
-							myDeferredAction.panelWidget.childNodes[4].style.display="none";
-							myDeferredAction.panelWidget.childNodes[7].style.display="none";
+						action.def.then(function() {
+							action.panelWidget.childNodes[4].style.display="none";
+							action.panelWidget.childNodes[7].style.display="none";
 						});
 			<?php } ?>
 		});
