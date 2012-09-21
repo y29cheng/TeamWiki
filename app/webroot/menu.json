@@ -21,7 +21,7 @@
 		name: "About Me", id: "aboutme", url: "/resume.html", children: []
 	},
 	{
-		name: "Settings", id: "setting", url: "#", children: [ { name: "Update Profile", url: "users/update_profile" } ]
+		name: "Settings", id: "setting", url: "#", children: [ { name: "Update Profile", url: "/users/update_profile" } ]
 	},
 	{
 		name: "Android App", id: "androidapp", url: "#", children: [ { name: "Download", url: "/PeerVote.apk" } ]
